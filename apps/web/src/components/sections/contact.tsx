@@ -18,6 +18,8 @@ type FormValues = {
   company: string;
   budget: string;
   message: string;
+  /** Honeypot — hidden from humans, bots fill it. */
+  website: string;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,7 +33,7 @@ export function Contact() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    defaultValues: { name: "", email: "", company: "", budget: "", message: "" },
+    defaultValues: { name: "", email: "", company: "", budget: "", message: "", website: "" },
   });
 
   const contactDetails = [
@@ -41,10 +43,18 @@ export function Contact() {
   ];
 
   const onSubmit = async (values: FormValues) => {
-    await new Promise((r) => setTimeout(r, 900));
-    console.info("Lead submitted:", values);
-    toast.success(t.contact.success);
-    reset();
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error(`lead submit failed: ${res.status}`);
+      toast.success(t.contact.success);
+      reset();
+    } catch {
+      toast.error(t.contact.error);
+    }
   };
 
   return (
@@ -130,6 +140,15 @@ export function Contact() {
             {/* right — form */}
             <div className="p-8 sm:p-10 lg:p-12">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+                {/* honeypot */}
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                  {...register("website")}
+                />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label={t.contact.name} error={errors.name?.message} htmlFor="name">
                     <Input
