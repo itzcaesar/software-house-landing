@@ -96,6 +96,51 @@ export async function changePassword(_prev: { error?: string; ok?: boolean } | n
 
 /* ---------- lead mutations (all log an activity row) ---------- */
 
+export async function createManualLead(
+  _prev: { error?: string; ok?: boolean } | null,
+  formData: FormData,
+) {
+  const user = await requireUser();
+  const name = String(formData.get("name") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const company = String(formData.get("company") ?? "").trim();
+  const budget = String(formData.get("budget") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
+  const status = String(formData.get("status") ?? "new");
+  const assignToMe = formData.get("assignToMe") === "on";
+
+  if (name.length < 2) return { error: "Name is required (2+ characters)." };
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Invalid email." };
+  if (!isLeadStatus(status)) return { error: "Invalid status." };
+
+  const db = getDb();
+  const now = new Date().toISOString();
+  const [row] = await db
+    .insert(leads)
+    .values({
+      name,
+      email,
+      company,
+      budget,
+      message,
+      source: "manual",
+      status,
+      assigneeId: assignToMe ? user.id : null,
+      createdAt: now,
+      updatedAt: now,
+    })
+    .returning({ id: leads.id });
+  await db.insert(activities).values({
+    leadId: row.id,
+    actorId: user.id,
+    type: "created",
+    detail: `Added manually by ${user.name}`,
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
+
 function isLeadStatus(v: string): v is LeadStatus {
   return (LEAD_STATUSES as readonly string[]).includes(v);
 }

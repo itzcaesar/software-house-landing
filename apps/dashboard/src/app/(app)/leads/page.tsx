@@ -5,6 +5,7 @@ import { getDb, leads, users } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
 import { formatDate, initials } from "@/lib/format";
 import { FilterBar } from "@/components/filter-bar";
+import { AddLeadButton } from "@/components/add-lead";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -62,13 +63,16 @@ export default async function LeadsPage({
             {filtered.length} of {allLeads.length} lead{allLeads.length === 1 ? "" : "s"}
           </p>
         </div>
-        <a
-          href="/api/export"
-          className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3.5 py-2 text-sm font-medium transition-colors hover:border-brand/40 hover:text-brand-2"
-        >
-          <Download className="size-4" />
-          Export CSV
-        </a>
+        <div className="flex items-center gap-2.5">
+          <a
+            href="/api/export"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3.5 py-2 text-sm font-medium transition-colors hover:border-brand/40 hover:text-brand-2"
+          >
+            <Download className="size-4" />
+            Export CSV
+          </a>
+          <AddLeadButton />
+        </div>
       </div>
 
       <div className="mt-5">
