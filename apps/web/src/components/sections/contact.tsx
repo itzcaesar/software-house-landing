@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Mail, Phone, MapPin, ArrowRight, Loader2, CalendarCheck, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
+import { readAttribution } from "@/components/common/attribution";
 import { Reveal } from "@/components/common/reveal";
 import { CtaButton } from "@/components/ui/cta-button";
 import { Input } from "@/components/ui/input";
@@ -47,7 +48,7 @@ export function Contact() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, ...readAttribution() }),
       });
       if (!res.ok) throw new Error(`lead submit failed: ${res.status}`);
       toast.success(t.contact.success);

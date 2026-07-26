@@ -10,6 +10,11 @@ const leadSchema = z.object({
   message: z.string().trim().min(10).max(5000),
   // Honeypot — humans never see or fill this field.
   website: z.string().max(0).optional().default(""),
+  // First-touch attribution (best-effort, all optional).
+  utmSource: z.string().trim().max(120).optional().default(""),
+  utmMedium: z.string().trim().max(120).optional().default(""),
+  utmCampaign: z.string().trim().max(120).optional().default(""),
+  referrer: z.string().trim().max(500).optional().default(""),
 });
 
 export async function POST(request: Request) {
@@ -31,9 +36,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const { name, email, company, budget, message } = parsed.data;
+  const { name, email, company, budget, message, utmSource, utmMedium, utmCampaign, referrer } =
+    parsed.data;
   try {
-    await createLead({ name, email, company, budget, message });
+    await createLead({
+      name,
+      email,
+      company,
+      budget,
+      message,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+      referrer,
+    });
   } catch (err) {
     console.error("lead insert failed:", err);
     return NextResponse.json({ ok: false }, { status: 500 });

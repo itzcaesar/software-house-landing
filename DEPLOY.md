@@ -54,6 +54,7 @@ Vercel auto-detects Next.js + pnpm workspaces. No custom build commands needed.
 | `DATABASE_AUTH_TOKEN` |  ✅  |     ✅     | Turso token                             |
 | `SESSION_SECRET`      |  —  |     ✅     | `openssl rand -hex 32` — required       |
 | `NEXT_PUBLIC_SITE_URL`|  ✅  |     —     | `https://craftbyte.studio`              |
+| `GOOGLE_MAPS_API_KEY` |  —  |    opt.   | Prospect finder (Places API New)        |
 
 Missing `DATABASE_URL` or `SESSION_SECRET` in production fails loudly at boot — by design.
 

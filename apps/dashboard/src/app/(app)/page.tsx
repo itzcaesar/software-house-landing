@@ -2,12 +2,13 @@ import Link from "next/link";
 import { desc } from "drizzle-orm";
 import {
   ArrowUpRight,
+  CalendarClock,
   Inbox,
   Sparkles,
   Trophy,
   Loader,
 } from "lucide-react";
-import { getDb, leads, activities, users } from "@craftbyte/db";
+import { getDb, leads, activities, users, type Lead } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
 import { timeAgo } from "@/lib/format";
 import { LeadsOverTime, StatusBreakdown } from "@/components/charts";
@@ -78,6 +79,12 @@ export default async function OverviewPage() {
           <StatusBreakdown leads={allLeads} />
         </div>
       </div>
+
+      {/* follow-ups (weekAgo + 7d reconstructs request-time "now" without a second impure call) */}
+      <FollowUps
+        scheduled={allLeads.filter((l) => l.nextActionAt !== null)}
+        now={weekAgo + 7 * 86_400_000}
+      />
 
       {/* latest + activity */}
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
@@ -156,6 +163,52 @@ export default async function OverviewPage() {
           )}
         </div>
       </div>
+    </div>
+  );
+}
+
+function FollowUps({ scheduled, now }: { scheduled: Lead[]; now: number }) {
+  if (scheduled.length === 0) return null;
+  const sorted = [...scheduled].sort(
+    (a, b) => new Date(a.nextActionAt!).getTime() - new Date(b.nextActionAt!).getTime(),
+  );
+
+  return (
+    <div className="mt-4 rounded-2xl border border-border bg-card p-5">
+      <p className="mb-3 flex items-center gap-2 text-sm font-medium">
+        <CalendarClock className="size-4 text-brand" />
+        Follow-ups
+      </p>
+      <ul className="flex flex-col gap-2">
+        {sorted.slice(0, 6).map((lead) => {
+          const due = new Date(lead.nextActionAt!).getTime() <= now;
+          return (
+            <li key={lead.id}>
+              <Link
+                href={`/leads/${lead.id}`}
+                className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-border/60 px-3.5 py-2.5 text-sm transition-colors hover:border-brand/30 hover:bg-secondary/30"
+              >
+                <span
+                  className={cn(
+                    "rounded-full px-2 py-0.5 text-xs font-medium ring-1",
+                    due
+                      ? "bg-red-500/15 text-red-300 ring-red-500/25"
+                      : "bg-secondary text-muted-foreground ring-border",
+                  )}
+                >
+                  {due ? "overdue" : new Date(lead.nextActionAt!).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                </span>
+                <span className="font-medium">{lead.name}</span>
+                {lead.nextAction && (
+                  <span className="min-w-0 flex-1 truncate text-muted-foreground">
+                    {lead.nextAction}
+                  </span>
+                )}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

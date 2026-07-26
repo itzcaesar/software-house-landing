@@ -6,6 +6,7 @@ import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { StructuredData } from "@/components/seo/structured-data";
+import { AttributionTracker } from "@/components/common/attribution";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -92,6 +93,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <StructuredData />
+        <AttributionTracker />
         <Providers>
           <a
             href="#top"

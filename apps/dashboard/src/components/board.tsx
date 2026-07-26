@@ -15,7 +15,7 @@ import {
   type DragStartEvent,
 } from "@dnd-kit/core";
 import { toast } from "sonner";
-import { Flame, MessageSquare, Search } from "lucide-react";
+import { CalendarClock, Flame, MessageSquare, Search } from "lucide-react";
 import { LEAD_STATUSES, type Lead, type LeadStatus, type User } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
 import { budgetValue, formatUsdCompact } from "@/lib/budget";
@@ -243,6 +243,7 @@ function Card({
   const stale =
     ACTIVE_STATUSES.includes(lead.status) &&
     now - new Date(lead.updatedAt).getTime() > STALE_MS;
+  const followUpDue = lead.nextActionAt !== null && new Date(lead.nextActionAt).getTime() <= now;
 
   return (
     <div
@@ -302,7 +303,16 @@ function Card({
             {notes}
           </span>
         )}
-        {stale && (
+        {followUpDue && (
+          <span
+            title={lead.nextAction || "Follow-up due"}
+            className="inline-flex items-center gap-1 rounded-full bg-red-500/15 px-2 py-0.5 font-medium text-red-300 ring-1 ring-red-500/25"
+          >
+            <CalendarClock className="size-3" />
+            due
+          </span>
+        )}
+        {stale && !followUpDue && (
           <span
             title="No movement in 7+ days"
             className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 font-medium text-amber-300 ring-1 ring-amber-500/25"

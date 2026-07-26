@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   Users,
   KanbanSquare,
+  MapPin,
   Settings,
   type LucideIcon,
 } from "lucide-react";
@@ -17,6 +18,7 @@ const NAV: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/leads", label: "Leads", icon: Users },
   { href: "/board", label: "Board", icon: KanbanSquare },
+  { href: "/prospects", label: "Prospects", icon: MapPin },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

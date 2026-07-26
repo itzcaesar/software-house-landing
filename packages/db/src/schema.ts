@@ -15,6 +15,7 @@ export const ACTIVITY_TYPES = [
   "status_changed",
   "assigned",
   "note_added",
+  "next_action",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -36,6 +37,14 @@ export const leads = sqliteTable("leads", {
   source: text("source").notNull().default("landing"),
   status: text("status", { enum: LEAD_STATUSES }).notNull().default("new"),
   assigneeId: integer("assignee_id").references(() => users.id),
+  // Attribution — captured on the landing site at first visit.
+  utmSource: text("utm_source").notNull().default(""),
+  utmMedium: text("utm_medium").notNull().default(""),
+  utmCampaign: text("utm_campaign").notNull().default(""),
+  referrer: text("referrer").notNull().default(""),
+  // Follow-up reminder.
+  nextAction: text("next_action").notNull().default(""),
+  nextActionAt: text("next_action_at"),
   createdAt: text("created_at").notNull(),
   updatedAt: text("updated_at").notNull(),
 });

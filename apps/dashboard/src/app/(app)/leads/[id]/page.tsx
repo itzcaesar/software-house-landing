@@ -17,6 +17,7 @@ import {
   DeleteLeadButton,
 } from "@/components/lead-controls";
 import { NoteForm } from "@/components/note-form";
+import { FollowUpForm } from "@/components/follow-up-form";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -163,6 +164,41 @@ export default async function LeadDetailPage({
               users={allUsers.map(({ id: uid, name }) => ({ id: uid, name }))}
             />
           </section>
+
+          <section className="rounded-2xl border border-border bg-card p-5">
+            <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+              Follow-up
+            </p>
+            <FollowUpForm leadId={lead.id} date={lead.nextActionAt} note={lead.nextAction} />
+          </section>
+
+          <section className="rounded-2xl border border-border bg-card p-5 text-sm">
+            <p className="mb-2.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+              Source
+            </p>
+            <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium capitalize">
+              {lead.source}
+            </span>
+            <dl className="mt-3 space-y-1.5 text-xs">
+              {[
+                ["utm_source", lead.utmSource],
+                ["utm_medium", lead.utmMedium],
+                ["utm_campaign", lead.utmCampaign],
+                ["referrer", lead.referrer],
+              ]
+                .filter(([, v]) => v)
+                .map(([k, v]) => (
+                  <div key={k} className="flex justify-between gap-3">
+                    <dt className="text-muted-foreground">{k}</dt>
+                    <dd className="truncate font-mono">{v}</dd>
+                  </div>
+                ))}
+              {!lead.utmSource && !lead.utmMedium && !lead.utmCampaign && !lead.referrer && (
+                <p className="text-muted-foreground">Direct visit — no attribution captured.</p>
+              )}
+            </dl>
+          </section>
+
           <DeleteLeadButton leadId={lead.id} name={lead.name} />
         </div>
       </div>

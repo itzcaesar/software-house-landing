@@ -213,3 +213,160 @@ export async function deleteLead(leadId: number) {
   revalidatePath("/", "layout");
   redirect("/leads");
 }
+
+export async function setNextAction(leadId: number, formData: FormData) {
+  const user = await requireUser();
+  const note = String(formData.get("note") ?? "").trim();
+  const dateRaw = String(formData.get("date") ?? "").trim();
+  const nextActionAt = dateRaw ? new Date(`${dateRaw}T09:00:00`).toISOString() : null;
+  const db = getDb();
+  const now = new Date().toISOString();
+
+  await db
+    .update(leads)
+    .set({ nextAction: note, nextActionAt, updatedAt: now })
+    .where(eq(leads.id, leadId));
+  await db.insert(activities).values({
+    leadId,
+    actorId: user.id,
+    type: "next_action",
+    detail: nextActionAt
+      ? `Follow-up set for ${dateRaw}${note ? `: ${note}` : ""}`
+      : "Follow-up cleared",
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+}
+
+/* ---------- prospect finder (Google Places API — official, no scraping) ---------- */
+
+export type ProspectResult = {
+  placeId: string;
+  name: string;
+  address: string;
+  rating: number;
+  reviews: number;
+  phone: string;
+  mapsUrl: string;
+};
+
+type PlacesResponse = {
+  places?: {
+    id: string;
+    displayName?: { text?: string };
+    formattedAddress?: string;
+    rating?: number;
+    userRatingCount?: number;
+    websiteUri?: string;
+    nationalPhoneNumber?: string;
+    googleMapsUri?: string;
+  }[];
+  nextPageToken?: string;
+};
+
+export async function searchProspects(input: {
+  query: string;
+  minRating: number;
+  minReviews: number;
+  pageToken?: string;
+}): Promise<{
+  error?: string;
+  results?: ProspectResult[];
+  nextPageToken?: string;
+  scanned?: number;
+}> {
+  await requireUser();
+  const key = process.env.GOOGLE_MAPS_API_KEY;
+  if (!key) return { error: "missing_key" };
+  const query = input.query.trim();
+  if (!query) return { error: "Enter a search, e.g. \"coffee shops in South Jakarta\"." };
+
+  const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Api-Key": key,
+      "X-Goog-FieldMask":
+        "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.websiteUri,places.nationalPhoneNumber,places.googleMapsUri,nextPageToken",
+    },
+    body: JSON.stringify({
+      textQuery: query,
+      pageSize: 20,
+      ...(input.pageToken ? { pageToken: input.pageToken } : {}),
+    }),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text();
+    console.error("Places API error:", res.status, detail.slice(0, 500));
+    return { error: `Places API error (${res.status}). Check the API key and that "Places API (New)" is enabled.` };
+  }
+
+  const data = (await res.json()) as PlacesResponse;
+  const places = data.places ?? [];
+  const results: ProspectResult[] = places
+    .filter(
+      (p) =>
+        !p.websiteUri &&
+        (p.rating ?? 0) >= input.minRating &&
+        (p.userRatingCount ?? 0) >= input.minReviews,
+    )
+    .map((p) => ({
+      placeId: p.id,
+      name: p.displayName?.text ?? "Unknown",
+      address: p.formattedAddress ?? "",
+      rating: p.rating ?? 0,
+      reviews: p.userRatingCount ?? 0,
+      phone: p.nationalPhoneNumber ?? "",
+      mapsUrl: p.googleMapsUri ?? "",
+    }));
+
+  return { results, nextPageToken: data.nextPageToken, scanned: places.length };
+}
+
+export async function addProspectLead(prospect: ProspectResult) {
+  const user = await requireUser();
+  const db = getDb();
+
+  // Dedupe on the place id we embed in the message.
+  const existing = await db.select({ id: leads.id, message: leads.message }).from(leads);
+  if (existing.some((l) => l.message.includes(`place:${prospect.placeId}`))) {
+    return { error: "Already in your leads." };
+  }
+
+  const now = new Date().toISOString();
+  const message = [
+    `Prospect from Google Maps — ${prospect.rating}★ (${prospect.reviews} reviews), no website listed.`,
+    prospect.phone && `Phone: ${prospect.phone}`,
+    prospect.address && `Address: ${prospect.address}`,
+    prospect.mapsUrl && `Maps: ${prospect.mapsUrl}`,
+    `[place:${prospect.placeId}]`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const [row] = await db
+    .insert(leads)
+    .values({
+      name: prospect.name,
+      email: "",
+      company: prospect.name,
+      budget: "",
+      message,
+      source: "maps",
+      status: "new",
+      assigneeId: user.id,
+      createdAt: now,
+      updatedAt: now,
+    })
+    .returning({ id: leads.id });
+  await db.insert(activities).values({
+    leadId: row.id,
+    actorId: user.id,
+    type: "created",
+    detail: `Added from prospect finder by ${user.name}`,
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
