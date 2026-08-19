@@ -238,6 +238,37 @@ export async function setNextAction(leadId: number, formData: FormData) {
   revalidatePath("/", "layout");
 }
 
+export async function setQuotedValue(leadId: number, formData: FormData) {
+  const user = await requireUser();
+  const raw = String(formData.get("value") ?? "").trim();
+  const value = raw === "" ? null : Math.round(Number(raw));
+  if (value !== null && (!Number.isFinite(value) || value < 0)) return;
+  const db = getDb();
+  const now = new Date().toISOString();
+
+  await db.update(leads).set({ quotedValue: value, updatedAt: now }).where(eq(leads.id, leadId));
+  await db.insert(activities).values({
+    leadId,
+    actorId: user.id,
+    type: "quoted",
+    detail: value === null ? "Quote cleared" : `Quoted $${value.toLocaleString("en-US")}`,
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+}
+
+/** Top lead matches for the command palette. */
+export async function quickSearchLeads(q: string) {
+  await requireUser();
+  const query = q.trim().toLowerCase();
+  if (!query) return [];
+  const all = await getDb().select().from(leads);
+  return all
+    .filter((l) => `${l.name} ${l.company} ${l.email}`.toLowerCase().includes(query))
+    .slice(0, 8)
+    .map((l) => ({ id: l.id, name: l.name, company: l.company, status: l.status }));
+}
+
 /* ---------- prospect finder (Google Places API — official, no scraping) ---------- */
 
 export type ProspectResult = {

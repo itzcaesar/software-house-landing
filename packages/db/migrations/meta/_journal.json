@@ -15,6 +15,13 @@
       "when": 1785090538538,
       "tag": "0001_sweet_tusk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1785092153010,
+      "tag": "0002_ambitious_namora",
+      "breakpoints": true
     }
   ]
 }

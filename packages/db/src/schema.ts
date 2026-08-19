@@ -16,6 +16,7 @@ export const ACTIVITY_TYPES = [
   "assigned",
   "note_added",
   "next_action",
+  "quoted",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -45,6 +46,9 @@ export const leads = sqliteTable("leads", {
   // Follow-up reminder.
   nextAction: text("next_action").notNull().default(""),
   nextActionAt: text("next_action_at"),
+  // Actual quoted deal value in USD (null until quoted) — overrides the
+  // budget-range midpoint in pipeline math.
+  quotedValue: integer("quoted_value"),
   createdAt: text("created_at").notNull(),
   updatedAt: text("updated_at").notNull(),
 });

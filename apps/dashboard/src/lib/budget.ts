@@ -19,3 +19,8 @@ export function formatUsdCompact(amount: number): string {
   }
   return `$${amount}`;
 }
+
+/** Best available deal value: real quote when set, budget-range midpoint otherwise. */
+export function leadValue(lead: { quotedValue: number | null; budget: string }): number {
+  return lead.quotedValue ?? budgetValue(lead.budget);
+}
