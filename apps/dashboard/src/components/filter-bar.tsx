@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Search } from "lucide-react";
-import { LEAD_STATUSES, type User } from "@craftbyte/db";
+import { LEAD_STATUSES, type User } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 
 /** Search + status/assignee filters, synced to the URL (server refilters). */

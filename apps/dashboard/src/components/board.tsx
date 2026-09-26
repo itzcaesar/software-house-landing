@@ -16,7 +16,7 @@ import {
 } from "@dnd-kit/core";
 import { toast } from "sonner";
 import { CalendarClock, Flame, MessageSquare, Search } from "lucide-react";
-import { LEAD_STATUSES, type Lead, type LeadStatus, type User } from "@craftbyte/db";
+import { LEAD_STATUSES, type Lead, type LeadStatus, type User } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { formatUsdCompact, leadValue } from "@/lib/budget";
 import { initials, timeAgo } from "@/lib/format";

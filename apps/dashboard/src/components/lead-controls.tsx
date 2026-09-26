@@ -4,7 +4,7 @@ import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2, Trash2 } from "lucide-react";
-import { LEAD_STATUSES, type LeadStatus, type User } from "@craftbyte/db";
+import { LEAD_STATUSES, type LeadStatus, type User } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { setLeadStatus, setLeadAssignee, deleteLead, setQuotedValue, setLostReason } from "@/app/actions";
 

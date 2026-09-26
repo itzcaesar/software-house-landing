@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@craftbyte/db"],
+  transpilePackages: ["@callumc/db"],
 };
 
 export default nextConfig;

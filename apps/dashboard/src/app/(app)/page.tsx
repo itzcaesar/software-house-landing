@@ -10,7 +10,7 @@ import {
   CircleDollarSign,
   BadgeCheck,
 } from "lucide-react";
-import { getDb, leads, activities, users, type Lead } from "@craftbyte/db";
+import { getDb, leads, activities, users, type Lead } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { timeAgo } from "@/lib/format";
 import { formatUsdCompact, leadValue } from "@/lib/budget";

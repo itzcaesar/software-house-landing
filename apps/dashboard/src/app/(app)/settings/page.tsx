@@ -1,5 +1,5 @@
 import { asc, isNull } from "drizzle-orm";
-import { getDb, users } from "@craftbyte/db";
+import { getDb, users } from "@callumc/db";
 import { requireUser } from "@/lib/auth";
 import { ProfileForm, PasswordForm, TeamSection } from "@/components/settings-forms";
 

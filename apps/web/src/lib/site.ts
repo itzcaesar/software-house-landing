@@ -16,15 +16,15 @@ export const siteConfig = {
   email: "callumc@callumc.id",
   phone: "+62 812 3456 7890",
   /** Discovery-call scheduling link (cal.com / calendly). */
-  bookingUrl: "https://cal.com/craftbyte/discovery",
+  bookingUrl: "https://cal.com/callumc/discovery",
   location: "Jakarta, Indonesia · Remote worldwide",
   foundedYear: 2024,
   socials: {
-    x: "https://x.com/craftbyte",
-    github: "https://github.com/craftbyte",
-    linkedin: "https://www.linkedin.com/company/craftbyte",
-    dribbble: "https://dribbble.com/craftbyte",
-    instagram: "https://instagram.com/craftbyte",
+    x: "https://x.com/callumc",
+    github: "https://github.com/callumc",
+    linkedin: "https://www.linkedin.com/company/callumc",
+    dribbble: "https://dribbble.com/callumc",
+    instagram: "https://instagram.com/callumc",
   },
 } as const;
 

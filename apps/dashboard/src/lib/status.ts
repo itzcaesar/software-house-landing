@@ -1,4 +1,4 @@
-import type { LeadStatus } from "@craftbyte/db";
+import type { LeadStatus } from "@callumc/db";
 
 export const STATUS_META: Record<
   LeadStatus,

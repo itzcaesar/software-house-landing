@@ -1,6 +1,6 @@
-import type { Lead } from "@craftbyte/db";
+import type { Lead } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
-import { LEAD_STATUSES } from "@craftbyte/db";
+import { LEAD_STATUSES } from "@callumc/db";
 import { cn } from "@/lib/utils";
 
 /** Bar chart of leads per day over the last `days` days. Pure SVG/CSS. */

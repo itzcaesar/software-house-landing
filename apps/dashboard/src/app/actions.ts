@@ -14,7 +14,7 @@ import {
   verifyPassword,
   LEAD_STATUSES,
   type LeadStatus,
-} from "@craftbyte/db";
+} from "@callumc/db";
 import { requireUser } from "@/lib/auth";
 import {
   SESSION_COOKIE,

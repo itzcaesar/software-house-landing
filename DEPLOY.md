@@ -20,9 +20,9 @@ Both apps share the same root `dev.db`. Submit the landing contact form → the 
 ```bash
 # https://docs.turso.tech — install the CLI, then:
 turso auth signup
-turso db create craftbyte
-turso db show craftbyte --url          # → DATABASE_URL (libsql://…)
-turso db tokens create craftbyte      # → DATABASE_AUTH_TOKEN
+turso db create callumc
+turso db show callumc --url          # → DATABASE_URL (libsql://…)
+turso db tokens create callumc      # → DATABASE_AUTH_TOKEN
 ```
 
 Run migrations + seed against production:

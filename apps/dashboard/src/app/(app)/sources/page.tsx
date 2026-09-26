@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getDb, leads } from "@craftbyte/db";
+import { getDb, leads } from "@callumc/db";
 import { formatUsdCompact } from "@/lib/budget";
 import { channelOf, summarize, type SourceRow } from "@/lib/sources";
 import { cn } from "@/lib/utils";

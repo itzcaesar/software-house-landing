@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export const ATTRIBUTION_KEY = "craftbyte:attribution";
+export const ATTRIBUTION_KEY = "callumc:attribution";
 
 export type Attribution = {
   utmSource: string;

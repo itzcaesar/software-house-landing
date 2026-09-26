@@ -1,4 +1,4 @@
-import type { Lead } from "@craftbyte/db";
+import type { Lead } from "@callumc/db";
 import { leadValue } from "./budget";
 
 type SourceFields = Pick<Lead, "source" | "utmSource" | "referrer">;

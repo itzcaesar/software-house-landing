@@ -451,7 +451,7 @@ const STEPS = [
 ];
 
 const LOGS = [
-  "▲ craftbyte-landing — build completed",
+  "▲ callumc-landing — build completed",
   "◇ 42 static routes prerendered",
   "✓ Edge network: 19 regions live",
 ];
@@ -462,7 +462,7 @@ function DeployView({ reduce }: { reduce: boolean }) {
       <div className="flex items-center justify-between rounded-xl border border-border bg-background/60 px-4 py-3">
         <span className="inline-flex items-center gap-2 text-sm font-medium">
           <GitBranch className="size-4 text-brand" />
-          craftbyte/production
+          callumc/production
           <span className="rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
             main
           </span>

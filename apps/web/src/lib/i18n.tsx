@@ -13,7 +13,7 @@ import { dictionaries, type Dict, type Locale } from "@/lib/dictionaries";
 export const LOCALES: Locale[] = ["en", "id"];
 export const LOCALE_LABELS: Record<Locale, string> = { en: "EN", id: "ID" };
 
-const STORAGE_KEY = "craftbyte:locale";
+const STORAGE_KEY = "callumc:locale";
 
 function isLocale(v: unknown): v is Locale {
   return v === "en" || v === "id";

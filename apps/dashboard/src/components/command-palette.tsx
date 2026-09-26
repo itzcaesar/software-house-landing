@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { CornerDownLeft, LayoutDashboard, KanbanSquare, MapPin, Radar, Search, Settings, Users } from "lucide-react";
-import type { LeadStatus } from "@craftbyte/db";
+import type { LeadStatus } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { quickSearchLeads } from "@/app/actions";
 import { cn } from "@/lib/utils";

@@ -1,5 +1,5 @@
 {
-  "name": "craftbyte",
+  "name": "callumc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,9 @@
     "build:web": "pnpm --filter web build",
     "build:dash": "pnpm --filter dashboard build",
     "lint": "pnpm -r lint",
-    "db:generate": "pnpm --filter @craftbyte/db generate",
-    "db:migrate": "pnpm --filter @craftbyte/db migrate",
-    "db:seed": "pnpm --filter @craftbyte/db seed",
-    "db:seed:demo": "pnpm --filter @craftbyte/db seed:demo"
+    "db:generate": "pnpm --filter @callumc/db generate",
+    "db:migrate": "pnpm --filter @callumc/db migrate",
+    "db:seed": "pnpm --filter @callumc/db seed",
+    "db:seed:demo": "pnpm --filter @callumc/db seed:demo"
   }
 }

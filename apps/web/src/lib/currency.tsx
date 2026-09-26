@@ -25,7 +25,7 @@ export const CURRENCIES: Record<CurrencyCode, CurrencyMeta> = {
 
 export const CURRENCY_ORDER: CurrencyCode[] = ["USD", "IDR"];
 
-const STORAGE_KEY = "craftbyte:currency";
+const STORAGE_KEY = "callumc:currency";
 
 function isCurrencyCode(value: unknown): value is CurrencyCode {
   return value === "USD" || value === "IDR";

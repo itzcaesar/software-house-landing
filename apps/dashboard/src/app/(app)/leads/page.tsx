@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { desc } from "drizzle-orm";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
-import { getDb, leads, users } from "@craftbyte/db";
+import { getDb, leads, users } from "@callumc/db";
 import { FilterBar } from "@/components/filter-bar";
 import { AddLeadButton } from "@/components/add-lead";
 import { LeadsTable } from "@/components/leads-table";
