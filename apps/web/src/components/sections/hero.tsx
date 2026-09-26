@@ -21,16 +21,24 @@ const STACK = [
   "TypeScript",
   "Laravel",
   "Go",
+  "Rust",
   "Node.js",
   "Python",
+  "GraphQL",
   "React Native",
   "Flutter",
   "Tailwind CSS",
   "PostgreSQL",
+  "MongoDB",
   "Redis",
+  "Supabase",
+  "Firebase",
   "Docker",
+  "Kubernetes",
+  "Terraform",
   "Vercel",
   "AWS",
+  "Google Cloud",
 ];
 
 export function Hero() {
@@ -180,7 +188,7 @@ export function Hero() {
           {t.hero.stackLabel}
         </p>
         <div className="relative mt-4 w-full overflow-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-          <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
+          <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap [animation-duration:60s]">
             {[...STACK, ...STACK].map((tech, i) => (
               <span
                 key={i}

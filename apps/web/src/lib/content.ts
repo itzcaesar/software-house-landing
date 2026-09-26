@@ -45,13 +45,13 @@ export const statMeta: { value: string }[] = [
 ];
 
 export const serviceMeta: { icon: LucideIcon; tags: string[] }[] = [
-  { icon: Code2, tags: ["Next.js", "React", "Vue", "Vite", "Laravel", "Blade", "TypeScript", "PHP"] },
-  { icon: Smartphone, tags: ["React Native", "Flutter", "Expo", "Swift", "Kotlin"] },
+  { icon: Code2, tags: ["Next.js", "React", "Vue", "Vite", "TypeScript", "Tailwind CSS", "Laravel", "Blade", "PHP", "Node.js", "Go", "Rust", "GraphQL"] },
+  { icon: Smartphone, tags: ["React Native", "Flutter", "Expo", "Swift", "Kotlin", "Firebase"] },
   { icon: PenTool, tags: ["Figma", "Prototyping", "Design systems"] },
   { icon: Sparkles, tags: ["Identity", "Guidelines", "Motion"] },
-  { icon: LayoutDashboard, tags: ["Stripe", "PostgreSQL", "Auth", "Dashboards", "Go"] },
-  { icon: BrainCircuit, tags: ["LLMs", "RAG", "Agents", "Python"] },
-  { icon: Rocket, tags: ["0→1", "Rapid build", "Validation"] },
+  { icon: LayoutDashboard, tags: ["Go", "Rust", "PostgreSQL", "Redis", "Stripe", "Docker", "Kubernetes", "AWS"] },
+  { icon: BrainCircuit, tags: ["LLMs", "RAG", "Agents", "Python", "Go", "Rust"] },
+  { icon: Rocket, tags: ["0→1", "Rapid build", "Validation", "Supabase", "Firebase", "Vercel"] },
 ];
 
 export const benefitMeta: { icon: LucideIcon }[] = [
@@ -92,6 +92,14 @@ const techColors: Record<string, string> = {
   PostgreSQL: "#336791",
   Go: "#00add8",
   Python: "#3776ab",
+  Rust: "#dea584",
+  GraphQL: "#e10098",
+  MongoDB: "#47a248",
+  Supabase: "#3ecf8e",
+  Firebase: "#ffca28",
+  Kubernetes: "#326ce5",
+  Terraform: "#7b42bc",
+  "Google Cloud": "#4285f4",
   "Node.js": "#5fa04e",
   "Tailwind CSS": "#38bdf8",
   Redis: "#dc382d",

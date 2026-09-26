@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Craftbyte is a young product studio with senior craft — our story, mission, values, roadmap, and the team behind the work.",
+    "Callum C is a young product studio with senior craft — our story, mission, values, roadmap, and the team behind the work.",
   alternates: { canonical: "/about" },
 };
 

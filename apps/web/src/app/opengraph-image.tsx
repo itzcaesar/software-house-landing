@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site";
+import { CCGlyph } from "@/components/common/logo";
 
 export const alt = `${siteConfig.name} — ${siteConfig.tagline}`;
 export const size = { width: 1200, height: 630 };
@@ -33,11 +34,9 @@ export default function OpengraphImage() {
               alignItems: "center",
               justifyContent: "center",
               background: "linear-gradient(135deg, #5b9dff, #2f6bff 50%, #1e50e6)",
-              fontSize: 40,
-              fontWeight: 800,
             }}
           >
-            {"</>"}
+            <CCGlyph width={46} height={46} stroke="white" />
           </div>
           <div style={{ fontSize: 40, fontWeight: 700 }}>{siteConfig.name}</div>
         </div>
@@ -52,7 +51,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, color: "rgba(255,255,255,0.6)" }}>
-          <span>craftbyte.studio</span>
+          <span>callumc.id</span>
           <span>Product studio · Jakarta & worldwide</span>
         </div>
       </div>

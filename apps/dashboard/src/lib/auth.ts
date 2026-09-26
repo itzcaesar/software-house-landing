@@ -11,7 +11,9 @@ export const getSessionUser = cache(async (): Promise<User | null> => {
   const userId = await verifySessionToken(store.get(SESSION_COOKIE)?.value);
   if (userId === null) return null;
   const rows = await getDb().select().from(users).where(eq(users.id, userId));
-  return rows[0] ?? null;
+  const user = rows[0];
+  // Removed members lose access immediately, even with a live session cookie.
+  return user && !user.disabledAt ? user : null;
 });
 
 /** Session user or redirect to /login — use in every protected page/action. */

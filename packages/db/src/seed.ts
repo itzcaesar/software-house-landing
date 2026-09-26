@@ -5,14 +5,16 @@ import { activities, leads, users } from "./schema";
 import { hashPassword } from "./password";
 
 /**
- * Seeds the two founder accounts (idempotent — skips existing emails) and,
+ * Seeds the founder accounts (idempotent — skips existing emails) and,
  * with --demo, a handful of sample leads for UI development.
- * Generated passwords are printed ONCE — store them, or change in Settings.
+ * Local dev password is "user//123"; against DATABASE_URL, generated passwords
+ * are printed ONCE — store them, or change in Settings.
  */
 
 const FOUNDERS = [
-  { email: "caesar@craftbyte.studio", name: "Muhammad Caesar Rifqi" },
-  { email: "gerrard@craftbyte.studio", name: "Gerrard Setiawan" },
+  { email: "caesar@callumc.id", name: "Caesar" },
+  { email: "fathi@callumc.id", name: "Fathi" },
+  { email: "aji@callumc.id", name: "Aji" },
 ];
 
 const DEMO_LEADS = [
@@ -34,7 +36,8 @@ async function main() {
       console.log(`= ${founder.email} already exists, skipping`);
       continue;
     }
-    const password = randomBytes(9).toString("base64url");
+    // Shared dev password locally; random per account when seeding a real DB (DATABASE_URL set).
+    const password = process.env.DATABASE_URL ? randomBytes(9).toString("base64url") : "user//123";
     await db.insert(users).values({
       email: founder.email,
       name: founder.name,

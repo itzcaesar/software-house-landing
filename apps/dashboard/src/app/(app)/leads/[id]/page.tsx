@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { asc, eq } from "drizzle-orm";
 import {
   ArrowLeft,
+  BadgeDollarSign,
   Building2,
   Mail,
   Reply,
@@ -15,7 +16,11 @@ import {
   StatusSelect,
   AssigneeSelect,
   DeleteLeadButton,
+  QuoteForm,
+  LostReasonForm,
 } from "@/components/lead-controls";
+import { EditLeadButton } from "@/components/add-lead";
+import { budgetValue, formatUsdCompact } from "@/lib/budget";
 import { NoteForm } from "@/components/note-form";
 import { FollowUpForm } from "@/components/follow-up-form";
 import { cn } from "@/lib/utils";
@@ -73,16 +78,25 @@ export default async function LeadDetailPage({
                 {lead.budget}
               </span>
             )}
+            {lead.quotedValue !== null && (
+              <span className="inline-flex items-center gap-1.5 font-medium text-emerald-300">
+                <BadgeDollarSign className="size-3.5" />
+                Quoted ${lead.quotedValue.toLocaleString("en-US")}
+              </span>
+            )}
           </p>
         </div>
-        <span
-          className={cn(
-            "rounded-full px-3 py-1 text-sm font-medium ring-1",
-            STATUS_META[lead.status].chip,
-          )}
-        >
-          {STATUS_META[lead.status].label}
-        </span>
+        <div className="flex items-center gap-2.5">
+          <EditLeadButton lead={lead} />
+          <span
+            className={cn(
+              "rounded-full px-3 py-1 text-sm font-medium ring-1",
+              STATUS_META[lead.status].chip,
+            )}
+          >
+            {STATUS_META[lead.status].label}
+          </span>
+        </div>
       </div>
 
       <div className="mt-6 grid gap-4 lg:grid-cols-[1.7fr_1fr]">
@@ -94,7 +108,7 @@ export default async function LeadDetailPage({
             </p>
             <p className="text-sm leading-relaxed whitespace-pre-wrap">{lead.message}</p>
             <a
-              href={`mailto:${lead.email}?subject=${encodeURIComponent("Re: your project inquiry — Craftbyte")}`}
+              href={`mailto:${lead.email}?subject=${encodeURIComponent("Re: your project inquiry — Callum C")}`}
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-brand-3 via-brand to-brand-2 px-3.5 py-2 text-sm font-semibold text-white transition-all hover:brightness-110"
             >
               <Reply className="size-4" />
@@ -155,14 +169,34 @@ export default async function LeadDetailPage({
               Status
             </label>
             <StatusSelect leadId={lead.id} value={lead.status} />
+            {lead.status === "lost" && (
+              <>
+                <label className="mt-4 mb-2 block text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                  Lost reason
+                </label>
+                <LostReasonForm key={lead.lostReason} leadId={lead.id} value={lead.lostReason} />
+              </>
+            )}
             <label className="mt-4 mb-2 block text-xs font-medium tracking-wide text-muted-foreground uppercase">
               Assignee
             </label>
             <AssigneeSelect
               leadId={lead.id}
               value={lead.assigneeId}
-              users={allUsers.map(({ id: uid, name }) => ({ id: uid, name }))}
+              users={allUsers.filter((u) => !u.disabledAt).map(({ id: uid, name }) => ({ id: uid, name }))}
             />
+          </section>
+
+          <section className="rounded-2xl border border-border bg-card p-5">
+            <p className="mb-2 flex items-baseline justify-between text-xs font-medium tracking-wide text-muted-foreground uppercase">
+              Deal value
+              {lead.quotedValue === null && budgetValue(lead.budget) > 0 && (
+                <span className="normal-case tracking-normal">
+                  est. ~{formatUsdCompact(budgetValue(lead.budget))} from budget
+                </span>
+              )}
+            </p>
+            <QuoteForm key={lead.quotedValue} leadId={lead.id} value={lead.quotedValue} />
           </section>
 
           <section className="rounded-2xl border border-border bg-card p-5">

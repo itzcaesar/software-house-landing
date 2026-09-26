@@ -2,7 +2,8 @@
 
 import { useActionState } from "react";
 import { motion } from "motion/react";
-import { Code2, Loader2, LogIn } from "lucide-react";
+import { Loader2, LogIn } from "lucide-react";
+import { CCGlyph } from "@/components/cc-glyph";
 import { login } from "@/app/actions";
 
 export default function LoginPage() {
@@ -25,10 +26,10 @@ export default function LoginPage() {
       >
         <div className="mb-8 flex flex-col items-center gap-3 text-center">
           <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-brand-3 via-brand to-brand-2 text-white shadow-elevated">
-            <Code2 className="size-6" />
+            <CCGlyph className="size-7" />
           </span>
           <div>
-            <h1 className="text-xl font-semibold">Craftbyte HQ</h1>
+            <h1 className="text-xl font-semibold">Callum C HQ</h1>
             <p className="mt-1 text-sm text-muted-foreground">Founders only. Sign in to continue.</p>
           </div>
         </div>
@@ -47,7 +48,7 @@ export default function LoginPage() {
             autoComplete="email"
             required
             className="mt-2 w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-brand/60 focus:ring-2 focus:ring-brand/30"
-            placeholder="you@craftbyte.studio"
+            placeholder="you@callumc.id"
           />
 
           <label className="mt-4 block text-sm font-medium" htmlFor="password">

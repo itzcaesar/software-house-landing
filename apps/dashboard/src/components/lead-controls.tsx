@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Loader2, Trash2 } from "lucide-react";
 import { LEAD_STATUSES, type LeadStatus, type User } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
-import { setLeadStatus, setLeadAssignee, deleteLead } from "@/app/actions";
+import { setLeadStatus, setLeadAssignee, deleteLead, setQuotedValue, setLostReason } from "@/app/actions";
 
 const selectClass =
   "w-full rounded-lg border border-input bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-brand/60 disabled:opacity-60";
@@ -89,5 +89,88 @@ export function DeleteLeadButton({ leadId, name }: { leadId: number; name: strin
       {pending ? <Loader2 className="size-4 animate-spin" /> : <Trash2 className="size-4" />}
       Delete lead
     </button>
+  );
+}
+
+const inputClass =
+  "w-full rounded-lg border border-input bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-brand/60";
+const saveClass =
+  "inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:border-brand/40 hover:text-brand-2 disabled:opacity-60";
+
+/** Actual quoted deal value (USD) — overrides the budget midpoint in pipeline math. */
+export function QuoteForm({ leadId, value }: { leadId: number; value: number | null }) {
+  const [pending, startTransition] = useTransition();
+  const router = useRouter();
+  return (
+    <form
+      action={(formData) =>
+        startTransition(async () => {
+          await setQuotedValue(leadId, formData);
+          toast.success(formData.get("value") ? "Quote saved" : "Quote cleared");
+          router.refresh();
+        })
+      }
+      className="flex gap-2"
+    >
+      <div className="relative flex-1">
+        <span className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-sm text-muted-foreground">
+          $
+        </span>
+        <input
+          name="value"
+          type="number"
+          min={0}
+          defaultValue={value ?? ""}
+          placeholder="e.g. 24000"
+          className={`${inputClass} pl-6 tabular-nums`}
+        />
+      </div>
+      <button type="submit" disabled={pending} className={saveClass}>
+        {pending ? <Loader2 className="size-4 animate-spin" /> : "Save"}
+      </button>
+    </form>
+  );
+}
+
+export const LOST_REASONS = [
+  "Budget too low",
+  "Went with a competitor",
+  "Bad timing",
+  "No response",
+  "Not a fit",
+  "Built in-house",
+];
+
+export function LostReasonForm({ leadId, value }: { leadId: number; value: string }) {
+  const [pending, startTransition] = useTransition();
+  const router = useRouter();
+  return (
+    <form
+      action={(formData) =>
+        startTransition(async () => {
+          await setLostReason(leadId, formData);
+          toast.success("Lost reason saved");
+          router.refresh();
+        })
+      }
+      className="flex gap-2"
+    >
+      <input
+        name="reason"
+        list="lost-reasons"
+        defaultValue={value}
+        maxLength={200}
+        placeholder="Why did we lose it?"
+        className={inputClass}
+      />
+      <datalist id="lost-reasons">
+        {LOST_REASONS.map((r) => (
+          <option key={r} value={r} />
+        ))}
+      </datalist>
+      <button type="submit" disabled={pending} className={saveClass}>
+        {pending ? <Loader2 className="size-4 animate-spin" /> : "Save"}
+      </button>
+    </form>
   );
 }

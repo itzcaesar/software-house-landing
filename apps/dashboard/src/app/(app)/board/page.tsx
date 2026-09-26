@@ -29,7 +29,7 @@ export default async function BoardPage() {
       </div>
       <Board
         leads={allLeads}
-        users={allUsers.map(({ id, name }) => ({ id, name }))}
+        users={allUsers.filter((u) => !u.disabledAt).map(({ id, name }) => ({ id, name }))}
         noteCounts={noteCounts}
       />
     </div>

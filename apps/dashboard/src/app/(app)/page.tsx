@@ -7,10 +7,13 @@ import {
   Sparkles,
   Trophy,
   Loader,
+  CircleDollarSign,
+  BadgeCheck,
 } from "lucide-react";
 import { getDb, leads, activities, users, type Lead } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
 import { timeAgo } from "@/lib/format";
+import { formatUsdCompact, leadValue } from "@/lib/budget";
 import { LeadsOverTime, StatusBreakdown } from "@/components/charts";
 import { cn } from "@/lib/utils";
 
@@ -34,6 +37,14 @@ export default async function OverviewPage() {
   const won = allLeads.filter((l) => l.status === "won").length;
   const closed = won + allLeads.filter((l) => l.status === "lost").length;
   const winRate = closed > 0 ? Math.round((won / closed) * 100) : null;
+  const sumValue = (list: Lead[]) => list.reduce((sum, l) => sum + leadValue(l), 0);
+  const openPipeline = sumValue(allLeads.filter((l) => ["new", "contacted", "discovery", "proposal"].includes(l.status)));
+  const wonRevenue = sumValue(allLeads.filter((l) => l.status === "won"));
+  const lostReasons = Object.entries(
+    allLeads
+      .filter((l) => l.status === "lost" && l.lostReason)
+      .reduce<Record<string, number>>((acc, l) => ({ ...acc, [l.lostReason]: (acc[l.lostReason] ?? 0) + 1 }), {}),
+  ).sort((a, b) => b[1] - a[1]);
   const userName = (id: number | null) => allUsers.find((u) => u.id === id)?.name ?? "System";
 
   const kpis = [
@@ -41,6 +52,8 @@ export default async function OverviewPage() {
     { label: "New this week", value: String(newThisWeek), icon: Sparkles },
     { label: "In progress", value: String(inProgress), icon: Loader },
     { label: "Win rate", value: winRate === null ? "—" : `${winRate}%`, icon: Trophy },
+    { label: "Open pipeline", value: formatUsdCompact(openPipeline), icon: CircleDollarSign },
+    { label: "Won revenue", value: formatUsdCompact(wonRevenue), icon: BadgeCheck },
   ];
 
   return (
@@ -51,7 +64,7 @@ export default async function OverviewPage() {
       </p>
 
       {/* KPIs */}
-      <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-6">
         {kpis.map(({ label, value, icon: Icon }) => (
           <div
             key={label}
@@ -77,6 +90,21 @@ export default async function OverviewPage() {
         <div className="rounded-2xl border border-border bg-card p-5">
           <p className="mb-4 text-sm font-medium">Pipeline breakdown</p>
           <StatusBreakdown leads={allLeads} />
+          {lostReasons.length > 0 && (
+            <div className="mt-5 border-t border-border pt-4">
+              <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                Why we lose
+              </p>
+              <ul className="space-y-1.5 text-sm">
+                {lostReasons.slice(0, 4).map(([reason, count]) => (
+                  <li key={reason} className="flex justify-between gap-3">
+                    <span className="truncate">{reason}</span>
+                    <span className="text-muted-foreground tabular-nums">{count}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 

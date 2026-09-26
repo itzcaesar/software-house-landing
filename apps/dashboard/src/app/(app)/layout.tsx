@@ -2,6 +2,7 @@ import { LogOut } from "lucide-react";
 import { requireUser } from "@/lib/auth";
 import { logout } from "@/app/actions";
 import { Sidebar } from "@/components/sidebar";
+import { CommandPalette } from "@/components/command-palette";
 import { initials } from "@/lib/format";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -12,8 +13,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <Sidebar />
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex h-14 items-center justify-between gap-4 border-b border-border bg-card/40 px-4 sm:px-6">
-          <div />
-          <div className="flex items-center gap-3">
+          <CommandPalette />
+          <div className="flex shrink-0 items-center gap-3">
             <span className="hidden text-sm text-muted-foreground sm:block">{user.name}</span>
             <span
               aria-hidden

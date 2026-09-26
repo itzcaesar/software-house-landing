@@ -1,6 +1,5 @@
 import { getDb } from "./client";
 import { activities, leads } from "./schema";
-import { notifyNewLead } from "./notify";
 
 export type NewLeadInput = {
   name: string;
@@ -14,8 +13,11 @@ export type NewLeadInput = {
   referrer?: string;
 };
 
-/** Insert a lead from the landing form + its "created" activity row. */
-export async function createLead(input: NewLeadInput): Promise<void> {
+/**
+ * Insert a lead from the landing form + its "created" activity row.
+ * Returns the new id; the caller sends the notification (after the response).
+ */
+export async function createLead(input: NewLeadInput): Promise<number> {
   const db = getDb();
   const now = new Date().toISOString();
   const [row] = await db
@@ -39,5 +41,5 @@ export async function createLead(input: NewLeadInput): Promise<void> {
     detail: "Submitted via landing contact form",
     createdAt: now,
   });
-  await notifyNewLead({ ...input, id: row.id });
+  return row.id;
 }

@@ -1,4 +1,4 @@
-# Deploying Craftbyte (web + dashboard)
+# Deploying Callum C (web + dashboard)
 
 Monorepo layout: `apps/web` (public landing, port 3000) · `apps/dashboard` (internal leads HQ, port 3001) · `packages/db` (shared Drizzle/libSQL layer).
 
@@ -41,8 +41,8 @@ Create **two** Vercel projects pointing at the same Git repo:
 
 | Project    | Root Directory   | Domain suggestion        |
 | ---------- | ---------------- | ------------------------ |
-| web        | `apps/web`       | `craftbyte.studio`       |
-| dashboard  | `apps/dashboard` | `admin.craftbyte.studio` |
+| web        | `apps/web`       | `callumc.id`       |
+| dashboard  | `apps/dashboard` | `admin.callumc.id` |
 
 Vercel auto-detects Next.js + pnpm workspaces. No custom build commands needed.
 
@@ -53,8 +53,11 @@ Vercel auto-detects Next.js + pnpm workspaces. No custom build commands needed.
 | `DATABASE_URL`        |  ✅  |     ✅     | Turso `libsql://…` URL                  |
 | `DATABASE_AUTH_TOKEN` |  ✅  |     ✅     | Turso token                             |
 | `SESSION_SECRET`      |  —  |     ✅     | `openssl rand -hex 32` — required       |
-| `NEXT_PUBLIC_SITE_URL`|  ✅  |     —     | `https://craftbyte.studio`              |
+| `NEXT_PUBLIC_SITE_URL`|  ✅  |     —     | `https://callumc.id`              |
 | `GOOGLE_MAPS_API_KEY` |  —  |    opt.   | Prospect finder (Places API New)        |
+| `RESEND_API_KEY`      | opt. |     —     | New-lead emails to the team; unset = no email |
+| `NOTIFY_FROM`         | opt. |     —     | Sender, e.g. `Callum C Leads <leads@callumc.id>` (domain verified in Resend) |
+| `DASHBOARD_URL`       | opt. |     —     | `https://admin.callumc.id` — link in the email |
 
 Missing `DATABASE_URL` or `SESSION_SECRET` in production fails loudly at boot — by design.
 
@@ -65,6 +68,3 @@ Missing `DATABASE_URL` or `SESSION_SECRET` in production fails loudly at boot �
 - Login has best-effort per-IP throttling (in-memory; serverless instances each keep their own counter). For two users this is adequate; add Upstash rate limiting if you ever open it wider.
 - Password changes do NOT revoke existing sessions (token carries only userId+exp). Rotate `SESSION_SECRET` if a device is lost.
 
-## Later (already seamed)
-
-- **Email on new lead**: implement `packages/db/src/notify.ts` with Resend + add `RESEND_API_KEY` to the web project. Nothing else changes.

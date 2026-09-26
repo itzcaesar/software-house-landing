@@ -21,7 +21,7 @@ export const en = {
     highlight: "inevitable",
     trailingText: ".",
     subtitle:
-      "Craftbyte is a product studio for teams who refuse to ship average. From MVP to enterprise scale — beautifully designed, expertly engineered, and shipped fast.",
+      "Callum C is a product studio for teams who refuse to ship average. From MVP to enterprise scale — beautifully designed, expertly engineered, and shipped fast.",
     primaryCta: "Start a project",
     secondaryCta: "See our work",
     ratingSuffix: "from 40+ teams",
@@ -79,7 +79,7 @@ export const en = {
     ctaButton: "Let's talk",
   },
   why: {
-    eyebrow: "Why Craftbyte",
+    eyebrow: "Why Callum C",
     title: "The upside of a senior team that actually cares",
     description:
       "We optimize for your outcomes, not our hours. Here's what that means for you.",
@@ -254,12 +254,12 @@ export const en = {
   testimonials: {
     eyebrow: "Loved by clients",
     title: "Don't just take our word for it",
-    description: "Founders and product leaders on what it's like to build with Craftbyte.",
+    description: "Founders and product leaders on what it's like to build with Callum C.",
     items: [
       {
         role: "Founder & CEO",
         quote:
-          "Craftbyte shipped our MVP in six weeks and it looked like a product from a company 10× our size. We closed our seed round a month later.",
+          "Callum C shipped our MVP in six weeks and it looked like a product from a company 10× our size. We closed our seed round a month later.",
       },
       {
         role: "Head of Product",
@@ -573,7 +573,7 @@ export const en = {
       },
       {
         q: "What tech stack do you use?",
-        a: "We favor Next.js, React, TypeScript, React Native, and modern edge infrastructure — chosen so your in-house team can maintain and scale everything with ease.",
+        a: "We favor Next.js, React, TypeScript, Go, Rust, Laravel, React Native, and modern cloud infrastructure (PostgreSQL, Redis, Docker, Kubernetes, AWS, Google Cloud, Vercel) — chosen so your in-house team can maintain and scale everything with ease.",
       },
       {
         q: "Can you work with our existing team?",
@@ -725,7 +725,7 @@ export const en = {
     },
   },
   about: {
-    eyebrow: "About Craftbyte",
+    eyebrow: "About Callum C",
     heroLead: "A young studio with an old-school obsession:",
     heroHighlight: "craft",
     heroTrail: ".",
@@ -740,9 +740,9 @@ export const en = {
     ],
     storyLabels: ["The itch", "The build", "The bet"],
     storyEyebrow: "Our story",
-    storyTitle: "Why Craftbyte exists",
+    storyTitle: "Why Callum C exists",
     storyParagraphs: [
-      "Craftbyte started in 2026 with a simple frustration: great products kept dying in handoffs between strategy decks, design agencies, and dev shops. We'd seen it from the inside — and knew a small, senior, end-to-end team could do better.",
+      "Callum C started in 2026 with a simple frustration: great products kept dying in handoffs between strategy decks, design agencies, and dev shops. We'd seen it from the inside — and knew a small, senior, end-to-end team could do better.",
       "So we built the studio we always wanted to hire. Designers and engineers in one room, weekly demos instead of status reports, and a rule we refuse to break: never ship average.",
       "We're intentionally small and intentionally early. That means every project gets founder-level attention — and every client helps shape what this studio becomes.",
     ],
@@ -837,7 +837,7 @@ export const en = {
   },
   footer: {
     description:
-      "Craftbyte is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
+      "Callum C is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
     colCompany: "Company",
     colResources: "Resources",
     colLegal: "Legal",
@@ -871,7 +871,7 @@ export const id: Dict = {
     highlight: "tak tergantikan",
     trailingText: ".",
     subtitle:
-      "Craftbyte adalah studio produk untuk tim yang enggan berpuas diri dengan hasil biasa saja. Dari MVP hingga skala enterprise — dirancang indah, direkayasa matang, dan dirilis cepat.",
+      "Callum C adalah studio produk untuk tim yang enggan berpuas diri dengan hasil biasa saja. Dari MVP hingga skala enterprise — dirancang indah, direkayasa matang, dan dirilis cepat.",
     primaryCta: "Mulai proyek",
     secondaryCta: "Lihat karya kami",
     ratingSuffix: "dari 40+ tim",
@@ -929,7 +929,7 @@ export const id: Dict = {
     ctaButton: "Mari bicara",
   },
   why: {
-    eyebrow: "Kenapa Craftbyte",
+    eyebrow: "Kenapa Callum C",
     title: "Nilai lebih dari tim senior yang benar-benar peduli",
     description:
       "Kami mengutamakan hasil Anda, bukan jam kerja kami. Inilah artinya bagi Anda.",
@@ -1104,12 +1104,12 @@ export const id: Dict = {
   testimonials: {
     eyebrow: "Disukai klien",
     title: "Jangan hanya percaya kata kami",
-    description: "Para founder dan pemimpin produk bercerita soal pengalaman membangun bersama Craftbyte.",
+    description: "Para founder dan pemimpin produk bercerita soal pengalaman membangun bersama Callum C.",
     items: [
       {
         role: "Founder & CEO",
         quote:
-          "Craftbyte merilis MVP kami dalam enam minggu dan hasilnya seperti produk dari perusahaan 10× lebih besar. Sebulan kemudian kami menutup pendanaan seed.",
+          "Callum C merilis MVP kami dalam enam minggu dan hasilnya seperti produk dari perusahaan 10× lebih besar. Sebulan kemudian kami menutup pendanaan seed.",
       },
       {
         role: "Head of Product",
@@ -1420,7 +1420,7 @@ export const id: Dict = {
       },
       {
         q: "Teknologi apa yang Anda gunakan?",
-        a: "Kami mengandalkan Next.js, React, TypeScript, React Native, dan infrastruktur edge modern — dipilih agar tim internal Anda mudah memelihara dan mengembangkannya.",
+        a: "Kami mengandalkan Next.js, React, TypeScript, Go, Rust, Laravel, React Native, dan infrastruktur cloud modern (PostgreSQL, Redis, Docker, Kubernetes, AWS, Google Cloud, Vercel) — dipilih agar tim internal Anda mudah memelihara dan mengembangkannya.",
       },
       {
         q: "Bisakah Anda berkolaborasi dengan tim kami yang sudah ada?",
@@ -1572,7 +1572,7 @@ export const id: Dict = {
     },
   },
   about: {
-    eyebrow: "Tentang Craftbyte",
+    eyebrow: "Tentang Callum C",
     heroLead: "Studio muda dengan obsesi gaya lama:",
     heroHighlight: "kualitas karya",
     heroTrail: ".",
@@ -1587,9 +1587,9 @@ export const id: Dict = {
     ],
     storyLabels: ["Kegelisahan", "Pembangunan", "Taruhan"],
     storyEyebrow: "Cerita kami",
-    storyTitle: "Kenapa Craftbyte ada",
+    storyTitle: "Kenapa Callum C ada",
     storyParagraphs: [
-      "Craftbyte lahir pada 2026 dari satu kegelisahan sederhana: produk-produk hebat terlalu sering mati di tengah serah terima antara deck strategi, agensi desain, dan vendor pengembang. Kami melihatnya dari dalam — dan yakin tim kecil, senior, dan menyeluruh bisa melakukannya lebih baik.",
+      "Callum C lahir pada 2026 dari satu kegelisahan sederhana: produk-produk hebat terlalu sering mati di tengah serah terima antara deck strategi, agensi desain, dan vendor pengembang. Kami melihatnya dari dalam — dan yakin tim kecil, senior, dan menyeluruh bisa melakukannya lebih baik.",
       "Maka kami membangun studio yang selama ini ingin kami sewa sendiri. Desainer dan engineer dalam satu ruangan, demo mingguan alih-alih laporan status, dan satu aturan yang pantang kami langgar: jangan pernah merilis yang biasa-biasa saja.",
       "Kami sengaja kecil dan sengaja memulai dari awal. Artinya, setiap proyek mendapat perhatian setingkat founder — dan setiap klien ikut membentuk masa depan studio ini.",
     ],
@@ -1684,7 +1684,7 @@ export const id: Dict = {
   },
   footer: {
     description:
-      "Craftbyte adalah studio produk yang merancang dan membangun aplikasi web, aplikasi mobile, dan platform SaaS yang cepat dan indah untuk startup maupun perusahaan — dari MVP hingga skala besar.",
+      "Callum C adalah studio produk yang merancang dan membangun aplikasi web, aplikasi mobile, dan platform SaaS yang cepat dan indah untuk startup maupun perusahaan — dari MVP hingga skala besar.",
     colCompany: "Perusahaan",
     colResources: "Sumber Daya",
     colLegal: "Legal",

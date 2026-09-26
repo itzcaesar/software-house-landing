@@ -1,9 +1,9 @@
-# Craftbyte — Software House Landing Page
+# Callum C — Software House Landing Page
 
 A premium, high-conversion landing page for a software house / product studio.
 Built for performance, SEO, and accessibility.
 
-> **Craftbyte** is a placeholder brand. Rebrand from a single file: `src/lib/site.ts`.
+> Rebrand from a single file: `src/lib/site.ts`.
 
 ## Stack
 

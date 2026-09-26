@@ -1,5 +1,23 @@
+import type { SVGProps } from "react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
+
+/** "CC" monogram — two nested C's. Shared by the navbar logo, favicon and OG image. */
+export function CCGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      {...props}
+    >
+      <path d="M17.66 6.34A8 8 0 1 0 17.66 17.66" />
+      <path d="M14.47 9.53A3.5 3.5 0 1 0 14.47 14.47" />
+    </svg>
+  );
+}
 
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -10,18 +28,7 @@ export function LogoMark({ className }: { className?: string }) {
       )}
       aria-hidden
     >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="size-4 text-white"
-        stroke="currentColor"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M9 8 5 12l4 4" />
-        <path d="m15 8 4 4-4 4" />
-      </svg>
+      <CCGlyph className="size-5 text-white" />
     </span>
   );
 }

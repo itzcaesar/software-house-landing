@@ -4,20 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import {
-  Code2,
   LayoutDashboard,
   Users,
   KanbanSquare,
+  Radar,
   MapPin,
   Settings,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CCGlyph } from "@/components/cc-glyph";
 
 const NAV: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/leads", label: "Leads", icon: Users },
   { href: "/board", label: "Board", icon: KanbanSquare },
+  { href: "/sources", label: "Sources", icon: Radar },
   { href: "/prospects", label: "Prospects", icon: MapPin },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
@@ -32,9 +34,9 @@ export function Sidebar() {
         className="mb-4 flex items-center gap-2.5 self-center px-1 lg:self-start lg:px-2"
       >
         <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-brand-3 via-brand to-brand-2 text-white">
-          <Code2 className="size-4.5" />
+          <CCGlyph className="size-5" />
         </span>
-        <span className="hidden text-sm font-semibold lg:block">Craftbyte HQ</span>
+        <span className="hidden text-sm font-semibold lg:block">Callum C HQ</span>
       </Link>
 
       {NAV.map(({ href, label, icon: Icon }) => {

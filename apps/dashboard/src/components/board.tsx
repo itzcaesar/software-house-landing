@@ -18,7 +18,7 @@ import { toast } from "sonner";
 import { CalendarClock, Flame, MessageSquare, Search } from "lucide-react";
 import { LEAD_STATUSES, type Lead, type LeadStatus, type User } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
-import { budgetValue, formatUsdCompact } from "@/lib/budget";
+import { formatUsdCompact, leadValue } from "@/lib/budget";
 import { initials, timeAgo } from "@/lib/format";
 import { setLeadStatus } from "@/app/actions";
 import { cn } from "@/lib/utils";
@@ -61,7 +61,7 @@ export function Board({ leads, users, noteCounts }: BoardProps) {
 
   const pipelineValue = visible
     .filter((l) => ACTIVE_STATUSES.includes(l.status))
-    .reduce((sum, l) => sum + budgetValue(l.budget), 0);
+    .reduce((sum, l) => sum + leadValue(l), 0);
 
   const onDragStart = (event: DragStartEvent) => setActiveId(Number(event.active.id));
 
@@ -155,7 +155,7 @@ function Column({
 }) {
   const { isOver, setNodeRef } = useDroppable({ id: status });
   const meta = STATUS_META[status];
-  const value = leads.reduce((sum, l) => sum + budgetValue(l.budget), 0);
+  const value = leads.reduce((sum, l) => sum + leadValue(l), 0);
 
   return (
     <div
@@ -292,10 +292,16 @@ function Card({
       )}
 
       <div className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[11px]">
-        {lead.budget && (
-          <span className="rounded-full bg-brand/10 px-2 py-0.5 font-medium text-brand-2 ring-1 ring-brand/20">
-            {lead.budget}
+        {lead.quotedValue !== null ? (
+          <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 font-medium text-emerald-300 ring-1 ring-emerald-500/20">
+            {formatUsdCompact(lead.quotedValue)} quoted
           </span>
+        ) : (
+          lead.budget && (
+            <span className="rounded-full bg-brand/10 px-2 py-0.5 font-medium text-brand-2 ring-1 ring-brand/20">
+              {lead.budget}
+            </span>
+          )
         )}
         {notes > 0 && (
           <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-muted-foreground">

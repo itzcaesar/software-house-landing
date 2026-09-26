@@ -7,7 +7,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], dis
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "Craftbyte HQ", template: "%s · Craftbyte HQ" },
+  title: { default: "Callum C HQ", template: "%s · Callum C HQ" },
   description: "Internal leads dashboard.",
   robots: { index: false, follow: false },
 };

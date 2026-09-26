@@ -4,16 +4,16 @@
  */
 
 export const siteConfig = {
-  name: "Craftbyte",
-  legalName: "Craftbyte Studio",
+  name: "Callum C",
+  legalName: "Callum C",
   tagline: "We design & engineer premium digital products.",
   description:
-    "Craftbyte is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
+    "Callum C is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
   // Override in production with NEXT_PUBLIC_SITE_URL
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://craftbyte.studio",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://callumc.id",
   ogImage: "/opengraph-image",
   locale: "en_US",
-  email: "hello@craftbyte.studio",
+  email: "callumc@callumc.id",
   phone: "+62 812 3456 7890",
   /** Discovery-call scheduling link (cal.com / calendly). */
   bookingUrl: "https://cal.com/craftbyte/discovery",

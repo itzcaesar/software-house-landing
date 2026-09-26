@@ -13,7 +13,7 @@ export async function GET() {
   if (userId === null) return new Response("Unauthorized", { status: 401 });
 
   const rows = await getDb().select().from(leads).orderBy(desc(leads.createdAt));
-  const header = ["id", "created_at", "name", "email", "company", "budget", "status", "message"];
+  const header = ["id", "created_at", "name", "email", "company", "budget", "quoted_value", "status", "lost_reason", "message"];
   const lines = [
     header.join(","),
     ...rows.map((l) =>
@@ -24,7 +24,9 @@ export async function GET() {
         l.email,
         l.company,
         l.budget,
+        l.quotedValue === null ? "" : String(l.quotedValue),
         l.status,
+        l.lostReason,
         l.message,
       ]
         .map(csvEscape)
@@ -35,7 +37,7 @@ export async function GET() {
   return new Response(lines.join("\r\n"), {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="craftbyte-leads-${new Date().toISOString().slice(0, 10)}.csv"`,
+      "Content-Disposition": `attachment; filename="callumc-leads-${new Date().toISOString().slice(0, 10)}.csv"`,
     },
   });
 }

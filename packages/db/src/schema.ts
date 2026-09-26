@@ -17,6 +17,8 @@ export const ACTIVITY_TYPES = [
   "note_added",
   "next_action",
   "quoted",
+  "edited",
+  "lost_reason",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -26,6 +28,8 @@ export const users = sqliteTable("users", {
   name: text("name").notNull(),
   passwordHash: text("password_hash").notNull(),
   createdAt: text("created_at").notNull(),
+  // Set when a member is removed from the team — blocks login, keeps history.
+  disabledAt: text("disabled_at"),
 });
 
 export const leads = sqliteTable("leads", {
@@ -49,6 +53,8 @@ export const leads = sqliteTable("leads", {
   // Actual quoted deal value in USD (null until quoted) — overrides the
   // budget-range midpoint in pipeline math.
   quotedValue: integer("quoted_value"),
+  // Why a lost deal was lost — free text, presets offered in the UI.
+  lostReason: text("lost_reason").notNull().default(""),
   createdAt: text("created_at").notNull(),
   updatedAt: text("updated_at").notNull(),
 });

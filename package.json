@@ -5,7 +5,7 @@
   "scripts": {
     "dev:web": "pnpm --filter web dev",
     "dev:dash": "pnpm --filter dashboard dev",
-    "dev": "pnpm --filter web dev",
+    "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
     "build:web": "pnpm --filter web build",
     "build:dash": "pnpm --filter dashboard build",

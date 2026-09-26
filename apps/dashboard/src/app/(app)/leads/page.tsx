@@ -2,11 +2,9 @@ import Link from "next/link";
 import { desc } from "drizzle-orm";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { getDb, leads, users } from "@craftbyte/db";
-import { STATUS_META } from "@/lib/status";
-import { formatDate, initials } from "@/lib/format";
 import { FilterBar } from "@/components/filter-bar";
 import { AddLeadButton } from "@/components/add-lead";
-import { cn } from "@/lib/utils";
+import { LeadsTable } from "@/components/leads-table";
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +41,6 @@ export default async function LeadsPage({
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, pages);
   const slice = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
-  const userById = (id: number | null) => allUsers.find((u) => u.id === id);
 
   const pageLink = (p: number) => {
     const next = new URLSearchParams();
@@ -76,81 +73,13 @@ export default async function LeadsPage({
       </div>
 
       <div className="mt-5">
-        <FilterBar users={allUsers.map(({ id, name }) => ({ id, name }))} />
+        <FilterBar users={allUsers.filter((u) => !u.disabledAt).map(({ id, name }) => ({ id, name }))} />
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-card">
-        <table className="w-full min-w-[640px] text-sm">
-          <thead>
-            <tr className="border-b border-border text-left text-xs text-muted-foreground uppercase tracking-wide">
-              <th className="px-4 py-3 font-medium">Lead</th>
-              <th className="px-4 py-3 font-medium">Budget</th>
-              <th className="px-4 py-3 font-medium">Status</th>
-              <th className="px-4 py-3 font-medium">Assignee</th>
-              <th className="px-4 py-3 font-medium">Received</th>
-            </tr>
-          </thead>
-          <tbody>
-            {slice.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-4 py-10 text-center text-muted-foreground">
-                  No leads match these filters.
-                </td>
-              </tr>
-            )}
-            {slice.map((lead) => {
-              const assigned = userById(lead.assigneeId);
-              return (
-                <tr
-                  key={lead.id}
-                  className="group border-b border-border/60 transition-colors last:border-0 hover:bg-secondary/40"
-                >
-                  <td className="px-4 py-3">
-                    <Link href={`/leads/${lead.id}`} className="block">
-                      <span className="font-medium group-hover:text-brand-2">{lead.name}</span>
-                      <span className="block text-xs text-muted-foreground">
-                        {lead.email}
-                        {lead.company && ` · ${lead.company}`}
-                      </span>
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3 text-muted-foreground">{lead.budget || "—"}</td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={cn(
-                        "rounded-full px-2.5 py-0.5 text-xs font-medium ring-1",
-                        STATUS_META[lead.status].chip,
-                      )}
-                    >
-                      {STATUS_META[lead.status].label}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3">
-                    {assigned ? (
-                      <span className="inline-flex items-center gap-2">
-                        <span
-                          aria-hidden
-                          className="grid size-6 place-items-center rounded-full bg-gradient-to-br from-brand-3 to-brand-2 text-[10px] font-semibold text-white"
-                        >
-                          {initials(assigned.name)}
-                        </span>
-                        <span className="hidden text-xs text-muted-foreground xl:inline">
-                          {assigned.name.split(" ")[0]}
-                        </span>
-                      </span>
-                    ) : (
-                      <span className="text-xs text-muted-foreground">—</span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-xs text-muted-foreground whitespace-nowrap">
-                    {formatDate(lead.createdAt)}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <LeadsTable
+        rows={slice}
+        users={allUsers.map(({ id, name, disabledAt }) => ({ id, name, disabledAt }))}
+      />
 
       {pages > 1 && (
         <div className="mt-4 flex items-center justify-center gap-2 text-sm">

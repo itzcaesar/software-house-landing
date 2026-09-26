@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { eq } from "drizzle-orm";
+import { eq, inArray } from "drizzle-orm";
 import {
   getDb,
   users,
@@ -52,7 +52,7 @@ export async function login(_prev: { error: string } | null, formData: FormData)
 
   const rows = await getDb().select().from(users).where(eq(users.email, email));
   const user = rows[0];
-  if (!user || !verifyPassword(password, user.passwordHash)) {
+  if (!user || user.disabledAt || !verifyPassword(password, user.passwordHash)) {
     return { error: "Invalid email or password." };
   }
 
@@ -91,6 +91,58 @@ export async function changePassword(_prev: { error?: string; ok?: boolean } | n
   if (next.length < 10) return { error: "New password must be at least 10 characters." };
 
   await getDb().update(users).set({ passwordHash: hashPassword(next) }).where(eq(users.id, user.id));
+  return { ok: true };
+}
+
+/* ---------- team ---------- */
+
+export async function addTeamMember(_prev: { error?: string; ok?: boolean } | null, formData: FormData) {
+  await requireUser();
+  const name = String(formData.get("name") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const password = String(formData.get("password") ?? "");
+  if (name.length < 2) return { error: "Name is too short." };
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Invalid email." };
+  if (password.length < 10) return { error: "Password must be at least 10 characters." };
+
+  const db = getDb();
+  const existing = (await db.select().from(users).where(eq(users.email, email)))[0];
+  if (existing && !existing.disabledAt) return { error: "That email is already on the team." };
+
+  const passwordHash = hashPassword(password);
+  if (existing) {
+    // Re-adding a removed member revives their account (and their history).
+    await db.update(users).set({ name, passwordHash, disabledAt: null }).where(eq(users.id, existing.id));
+  } else {
+    await db.insert(users).values({ name, email, passwordHash, createdAt: new Date().toISOString() });
+  }
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
+
+export async function removeTeamMember(userId: number) {
+  const user = await requireUser();
+  if (userId === user.id) return { error: "You can't remove yourself." };
+  const db = getDb();
+  const member = (await db.select().from(users).where(eq(users.id, userId)))[0];
+  if (!member || member.disabledAt) return { error: "Member not found." };
+
+  const now = new Date().toISOString();
+  await db.update(users).set({ disabledAt: now }).where(eq(users.id, userId));
+  const owned = await db.select({ id: leads.id }).from(leads).where(eq(leads.assigneeId, userId));
+  if (owned.length > 0) {
+    await db.update(leads).set({ assigneeId: null, updatedAt: now }).where(eq(leads.assigneeId, userId));
+    await db.insert(activities).values(
+      owned.map(({ id }) => ({
+        leadId: id,
+        actorId: user.id,
+        type: "assigned" as const,
+        detail: `Unassigned — ${member.name} left the team`,
+        createdAt: now,
+      })),
+    );
+  }
+  revalidatePath("/", "layout");
   return { ok: true };
 }
 
@@ -174,7 +226,7 @@ export async function setLeadAssignee(leadId: number, assigneeIdRaw: string) {
   let detail = "Unassigned";
   if (assigneeId !== null) {
     const assignee = (await db.select().from(users).where(eq(users.id, assigneeId)))[0];
-    if (!assignee) return;
+    if (!assignee || assignee.disabledAt) return;
     detail = `Assigned to ${assignee.name}`;
   }
 
@@ -255,6 +307,71 @@ export async function setQuotedValue(leadId: number, formData: FormData) {
     createdAt: now,
   });
   revalidatePath("/", "layout");
+}
+
+const EDITABLE_FIELDS = ["name", "email", "company", "budget", "message"] as const;
+
+export async function updateLead(leadId: number, formData: FormData) {
+  const user = await requireUser();
+  const next = Object.fromEntries(
+    EDITABLE_FIELDS.map((f) => [f, String(formData.get(f) ?? "").trim()]),
+  ) as Record<(typeof EDITABLE_FIELDS)[number], string>;
+  if (next.name.length < 2) return { error: "Name is required (2+ characters)." };
+  if (next.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(next.email)) return { error: "Invalid email." };
+
+  const db = getDb();
+  const lead = (await db.select().from(leads).where(eq(leads.id, leadId)))[0];
+  if (!lead) return { error: "Lead not found." };
+  const changed = EDITABLE_FIELDS.filter((f) => lead[f] !== next[f]);
+  if (changed.length === 0) return { ok: true };
+
+  const now = new Date().toISOString();
+  await db.update(leads).set({ ...next, updatedAt: now }).where(eq(leads.id, leadId));
+  await db.insert(activities).values({
+    leadId,
+    actorId: user.id,
+    type: "edited",
+    detail: `Edited ${changed.join(", ")}`,
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
+
+export async function setLostReason(leadId: number, formData: FormData) {
+  const user = await requireUser();
+  const reason = String(formData.get("reason") ?? "").trim().slice(0, 200);
+  const db = getDb();
+  const now = new Date().toISOString();
+
+  await db.update(leads).set({ lostReason: reason, updatedAt: now }).where(eq(leads.id, leadId));
+  await db.insert(activities).values({
+    leadId,
+    actorId: user.id,
+    type: "lost_reason",
+    detail: reason ? `Lost reason: ${reason}` : "Lost reason cleared",
+    createdAt: now,
+  });
+  revalidatePath("/", "layout");
+}
+
+/** Apply one change to many leads from the list view. Reuses the single-lead actions so each lead gets its activity row. */
+export async function bulkUpdateLeads(
+  ids: number[],
+  change: { status: string } | { assignee: string } | { delete: true },
+) {
+  await requireUser();
+  const valid = ids.filter(Number.isInteger);
+  if (valid.length === 0) return;
+  if ("delete" in change) {
+    await getDb().delete(leads).where(inArray(leads.id, valid));
+    revalidatePath("/", "layout");
+    return;
+  }
+  for (const id of valid) {
+    if ("status" in change) await setLeadStatus(id, change.status);
+    else await setLeadAssignee(id, change.assignee);
+  }
 }
 
 /** Top lead matches for the command palette. */

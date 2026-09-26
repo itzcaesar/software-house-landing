@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { CCGlyph } from "@/components/common/logo";
 
 export const size = { width: 512, height: 512 };
 export const contentType = "image/png";
@@ -15,13 +16,9 @@ export default function Icon() {
           justifyContent: "center",
           borderRadius: 112,
           background: "linear-gradient(135deg, #5b9dff 0%, #2f6bff 50%, #1e50e6 100%)",
-          color: "white",
-          fontSize: 300,
-          fontWeight: 800,
-          letterSpacing: -12,
         }}
       >
-        {"</>"}
+        <CCGlyph width={320} height={320} stroke="white" />
       </div>
     ),
     { ...size },

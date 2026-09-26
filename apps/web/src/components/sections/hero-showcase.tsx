@@ -118,7 +118,7 @@ export function HeroShowcase() {
           </div>
           <div className="mx-auto flex items-center gap-2 rounded-md bg-background/60 px-3 py-1 text-xs text-muted-foreground ring-1 ring-border">
             <Circle className="size-2 fill-emerald-500 text-emerald-500" />
-            app.craftbyte.studio
+            app.callumc.id
           </div>
         </div>
 

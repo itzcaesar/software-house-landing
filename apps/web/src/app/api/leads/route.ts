@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { z } from "zod";
-import { createLead } from "@craftbyte/db";
+import { createLead, notifyNewLead } from "@craftbyte/db";
 
 const leadSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -8,8 +8,6 @@ const leadSchema = z.object({
   company: z.string().trim().max(160).optional().default(""),
   budget: z.string().trim().max(60).optional().default(""),
   message: z.string().trim().min(10).max(5000),
-  // Honeypot — humans never see or fill this field.
-  website: z.string().max(0).optional().default(""),
   // First-touch attribution (best-effort, all optional).
   utmSource: z.string().trim().max(120).optional().default(""),
   utmMedium: z.string().trim().max(120).optional().default(""),
@@ -36,20 +34,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const { name, email, company, budget, message, utmSource, utmMedium, utmCampaign, referrer } =
-    parsed.data;
+  // The honeypot (`website`) is handled above; zod strips it from parsed.data.
+  const lead = parsed.data;
   try {
-    await createLead({
-      name,
-      email,
-      company,
-      budget,
-      message,
-      utmSource,
-      utmMedium,
-      utmCampaign,
-      referrer,
-    });
+    const id = await createLead(lead);
+    // Email the team once the response is sent — the visitor never waits on it.
+    after(() => notifyNewLead({ ...lead, id }));
   } catch (err) {
     console.error("lead insert failed:", err);
     return NextResponse.json({ ok: false }, { status: 500 });
