@@ -15,17 +15,18 @@ export const siteConfig = {
   locale: "en_US",
   email: "callumc@callumc.id",
   phone: "+62 812 3456 7890",
-  /** Discovery-call scheduling link (cal.com / calendly). */
-  bookingUrl: "https://cal.com/craftbyte/discovery",
+  /** Discovery-call scheduling link (cal.com / calendly). Empty = booking card hidden. */
+  bookingUrl: "", // [ISI: link booking asli]
   location: "Jakarta, Indonesia · Remote worldwide",
   foundedYear: 2024,
+  /** Empty = icon hidden. [ISI: akun sosial asli] */
   socials: {
-    x: "https://x.com/craftbyte",
-    github: "https://github.com/craftbyte",
-    linkedin: "https://www.linkedin.com/company/craftbyte",
-    dribbble: "https://dribbble.com/craftbyte",
-    instagram: "https://instagram.com/craftbyte",
-  },
+    x: "",
+    github: "",
+    linkedin: "",
+    dribbble: "",
+    instagram: "",
+  } as Record<"x" | "github" | "linkedin" | "dribbble" | "instagram", string>,
 } as const;
 
 export type NavItem = { label: string; href: string };

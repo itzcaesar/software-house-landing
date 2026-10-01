@@ -121,6 +121,12 @@ export function techColor(tag: string): string {
   return techColors[tag] ?? "var(--brand)";
 }
 
+/**
+ * Portfolio + /work case studies are sample content, not real clients.
+ * Keep off until real, approved projects replace projectMeta. [ISI: portofolio asli]
+ */
+export const SHOW_PORTFOLIO = false;
+
 export const projectMeta: {
   slug: string;
   title: string;

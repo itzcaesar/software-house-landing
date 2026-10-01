@@ -104,6 +104,7 @@ export function Contact() {
                 </Reveal>
 
                 {/* discovery-call booking card */}
+                {siteConfig.bookingUrl && (
                 <Reveal delay={0.15} className="mt-8">
                   <a
                     href={siteConfig.bookingUrl}
@@ -126,6 +127,7 @@ export function Contact() {
                     </span>
                   </a>
                 </Reveal>
+                )}
 
                 <Reveal delay={0.2} className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
                   <span className="inline-flex items-center gap-2">

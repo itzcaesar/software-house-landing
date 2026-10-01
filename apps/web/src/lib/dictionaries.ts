@@ -23,8 +23,7 @@ export const en = {
     subtitle:
       "Callum C is a product studio for teams who refuse to ship average. From MVP to enterprise scale — beautifully designed, expertly engineered, and shipped fast.",
     primaryCta: "Start a project",
-    secondaryCta: "See our work",
-    ratingSuffix: "from 40+ teams",
+    secondaryCta: "Explore services",
     stackLabel: "Built with a modern stack",
   },
   trusted: {
@@ -113,7 +112,7 @@ export const en = {
       {
         title: "Partners, not vendors",
         description:
-          "We think in outcomes, not tickets. Most clients stay with us long after launch — 98% and counting.",
+          "We think in outcomes, not tickets.",
       },
     ],
   },
@@ -873,8 +872,7 @@ export const id: Dict = {
     subtitle:
       "Callum C adalah studio produk untuk tim yang tidak mau puas dengan hasil biasa. Mulai dari MVP sampai skala enterprise, kami desain dengan detail, bangun dengan solid, dan rilis tepat waktu.",
     primaryCta: "Mulai proyek",
-    secondaryCta: "Lihat portofolio",
-    ratingSuffix: "dari 40+ klien",
+    secondaryCta: "Lihat layanan",
     stackLabel: "Teknologi yang kami gunakan",
   },
   trusted: {
@@ -963,7 +961,7 @@ export const id: Dict = {
       {
         title: "Partner, bukan sekadar vendor",
         description:
-          "Kami ikut memikirkan hasil bisnis, bukan hanya menyelesaikan task. 98% klien tetap bekerja sama dengan kami setelah produk rilis.",
+          "Kami ikut memikirkan hasil bisnis, bukan hanya menyelesaikan task.",
       },
     ],
   },

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { projectMeta } from "@/lib/content";
+import { projectMeta, SHOW_PORTFOLIO } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    ...projectMeta.map((p) => ({
+    ...(SHOW_PORTFOLIO ? projectMeta : []).map((p) => ({
       url: `${siteConfig.url}/work/${p.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

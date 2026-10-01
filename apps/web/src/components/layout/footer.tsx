@@ -19,7 +19,7 @@ const socials = [
   { label: "LinkedIn", href: siteConfig.socials.linkedin, Icon: LinkedinIcon },
   { label: "Dribbble", href: siteConfig.socials.dribbble, Icon: DribbbleIcon },
   { label: "Instagram", href: siteConfig.socials.instagram, Icon: InstagramIcon },
-];
+].filter((s) => s.href);
 
 export function Footer() {
   const t = useDict();
@@ -33,14 +33,12 @@ export function Footer() {
         { label: t.nav.services, href: "/#services" },
         { label: t.footer.linkWhy, href: "/#why-us" },
         { label: t.nav.process, href: "/#process" },
-        { label: t.nav.work, href: "/#portfolio" },
       ],
     },
     {
       title: t.footer.colResources,
       links: [
         { label: t.nav.pricing, href: "/pricing" },
-        { label: t.footer.linkTestimonials, href: "/#testimonials" },
         { label: t.nav.faq, href: "/#faq" },
         { label: t.footer.linkContact, href: "/#contact" },
       ],

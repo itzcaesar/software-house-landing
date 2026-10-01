@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, Sparkles, Star, Play } from "lucide-react";
+import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { useDict } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { CtaButton } from "@/components/ui/cta-button";
@@ -134,7 +134,7 @@ export function Hero() {
               nativeButton={false}
               className="h-12 w-full rounded-full px-6 text-[0.95rem] sm:w-auto"
               render={
-                <a href="#portfolio">
+                <a href="#services">
                   <Play className="size-4" />
                   {t.hero.secondaryCta}
                 </a>
@@ -142,29 +142,6 @@ export function Hero() {
             />
           </motion.div>
 
-          <motion.div
-            variants={item}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground"
-          >
-            <div className="flex -space-x-2" aria-hidden>
-              {["from-blue-500 to-indigo-500", "from-sky-400 to-cyan-500", "from-cyan-400 to-blue-500", "from-indigo-400 to-blue-600"].map(
-                (g, i) => (
-                  <span
-                    key={i}
-                    className={`size-7 rounded-full border-2 border-background bg-gradient-to-br ${g}`}
-                  />
-                ),
-              )}
-            </div>
-            <span className="flex items-center gap-1">
-              <span className="flex" aria-hidden>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-3.5 fill-amber-400 text-amber-400" />
-                ))}
-              </span>
-              <span className="font-medium text-foreground">4.9/5</span> {t.hero.ratingSuffix}
-            </span>
-          </motion.div>
         </motion.div>
       </div>
 

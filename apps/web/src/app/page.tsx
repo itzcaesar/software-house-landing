@@ -10,6 +10,7 @@ import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
 import { FaqJsonLd } from "@/components/seo/structured-data";
 import { en } from "@/lib/dictionaries";
+import { SHOW_PORTFOLIO } from "@/lib/content";
 
 // Section on/off switches — flip to re-enable (components stay in the tree).
 const SHOW_TRUSTED_BY = false;
@@ -24,7 +25,7 @@ export default function HomePage() {
       <Services />
       <WhyUs />
       <Process />
-      <Portfolio />
+      {SHOW_PORTFOLIO && <Portfolio />}
       {SHOW_TESTIMONIALS && <Testimonials />}
       <Pricing />
       <Faq />
