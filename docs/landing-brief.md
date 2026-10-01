@@ -19,21 +19,24 @@ Core message: start from a working product instead of a blank page; pay for what
 look unique through your own theme and branding; one team keeps it updated, secure, and supported.
 How it works (internally): one shared platform, nine product "engines", many niches. The page sells the niches, not the engines.
 
-## 4. Availability (OWNER MUST CONFIRM: copy the status you want shown)
+## 4. Availability (confirmed by owner 2026-10-01)
 | Offer | Status on the page |
 |-------|--------------------|
-| Custom projects (software/websites to order) | Live |
-| Company profile / portfolio sites | Live or Coming soon: [owner to set] |
-| Online store (physical, digital, food) | Coming soon: [owner to set] |
-| Top-up & PPOB (game, e-wallet, pulsa, bills) | Coming soon: [owner to set] |
-| Booking & ticketing (salon, workshop, rental, events) | Coming soon: [owner to set] |
+| Custom projects (software/websites to order) | Live. Public price: "mulai Rp 15 juta" |
+| Company profile / portfolio sites | Coming soon |
+| Online store (physical, digital, food) | Coming soon |
+| Top-up & PPOB (game, e-wallet, pulsa, bills) | Coming soon |
+| Booking & ticketing (salon, workshop, rental, events) | Coming soon |
 | Learning & membership | Coming soon |
 | Marketplace | Coming soon |
 | AI support bot / AI workspace | Coming soon |
 | Business tools (POS, inventory, invoice) | Coming soon |
 | Hosting & server billing | Coming soon |
-| Care plan (updates, security, backups, support) | Live with the first client: [owner to set] |
-"Coming soon" items get a waitlist/WhatsApp CTA, not a purchase flow, and no delivery promises.
+| Care plan (updates, security, backups, support) | Coming soon |
+"Coming soon" items get a waitlist/WhatsApp CTA, not a purchase flow, no price, and no delivery promises.
+Only public figure: custom projects from Rp 15 juta. All other figures in platform-starter `05-pricing.md` stay internal.
+Deposit % and warranty length are not published; FAQ says payment terms and warranty are agreed in the contract.
+Language: Indonesian is the server default (SEO); English stays as a toggle.
 
 ## 5. Page structure (adapt to the existing layout)
 1. Hero: headline, one-sentence subhead, primary CTA (WhatsApp), secondary CTA (see niches).
