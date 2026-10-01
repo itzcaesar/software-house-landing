@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/sections/legal";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "How this site and our engagements work.",
+  title: "Syarat & Ketentuan",
+  description: "Cara kerja situs ini dan kerja sama dengan kami.",
   alternates: { canonical: "/terms" },
 };
 

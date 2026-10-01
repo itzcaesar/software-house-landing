@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useSyncExternalStore,
   type ReactNode,
@@ -28,12 +29,10 @@ function readInitial(): Locale {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (isLocale(stored)) return stored;
-    if (typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("id"))
-      return "id";
   } catch {
     /* ignore */
   }
-  return "en";
+  return "id";
 }
 
 function getSnapshot(): Locale {
@@ -42,7 +41,7 @@ function getSnapshot(): Locale {
 }
 
 function getServerSnapshot(): Locale {
-  return "en";
+  return "id";
 }
 
 function subscribe(cb: () => void) {
@@ -74,6 +73,11 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const locale = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  // Server renders lang="id"; sync it when a stored EN choice takes over.
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const setLocale = useCallback((l: Locale) => setLocaleGlobal(l), []);
   const toggle = useCallback(

@@ -29,16 +29,12 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
-    "software house",
-    "product studio",
-    "web development",
-    "mobile app development",
-    "UI UX design",
-    "SaaS development",
-    "MVP development",
-    "AI integration",
-    "Next.js agency",
-    "Indonesia software agency",
+    "jasa pembuatan website",
+    "jasa pembuatan software",
+    "software house Indonesia",
+    "website bisnis",
+    "aplikasi kustom",
+    "template website",
   ],
   authors: [{ name: siteConfig.legalName, url: siteConfig.url }],
   creator: siteConfig.legalName,
@@ -86,7 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
@@ -98,7 +94,7 @@ export default function RootLayout({
             href="#top"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-elevated focus:ring-2 focus:ring-ring"
           >
-            Skip to content
+            Langsung ke konten
           </a>
           <Navbar />
           <main className="flex-1">{children}</main>

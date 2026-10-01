@@ -1,22 +1,23 @@
 import {
-  Code2,
-  Smartphone,
-  PenTool,
-  Sparkles,
-  LayoutDashboard,
-  BrainCircuit,
+  Scissors,
+  ShoppingBag,
+  GraduationCap,
+  Building2,
   Rocket,
-  Gauge,
-  ShieldCheck,
+  Handshake,
+  Layers,
+  Wallet,
+  Palette,
   Users,
   MessagesSquare,
-  Layers,
-  Search,
-  Palette,
-  Hammer,
-  FlaskConical,
-  Send,
+  ListChecks,
   LifeBuoy,
+  Smartphone,
+  CalendarCheck,
+  Store,
+  Bot,
+  Calculator,
+  Server,
   type LucideIcon,
 } from "lucide-react";
 
@@ -37,39 +38,41 @@ export const trustedLogos: string[] = [
   "Arclight",
 ];
 
-export const statMeta: { value: string }[] = [
-  { value: "40+" },
-  { value: "4.9/5" },
-  { value: "12" },
-  { value: "98%" },
-];
-
-export const serviceMeta: { icon: LucideIcon; tags: string[] }[] = [
-  { icon: Code2, tags: ["Next.js", "React", "Vue", "Vite", "TypeScript", "Tailwind CSS", "Laravel", "Blade", "PHP", "Node.js", "Go", "Rust", "GraphQL"] },
-  { icon: Smartphone, tags: ["React Native", "Flutter", "Expo", "Swift", "Kotlin", "Firebase"] },
-  { icon: PenTool, tags: ["Figma", "Prototyping", "Design systems"] },
-  { icon: Sparkles, tags: ["Identity", "Guidelines", "Motion"] },
-  { icon: LayoutDashboard, tags: ["Go", "Rust", "PostgreSQL", "Redis", "Stripe", "Docker", "Kubernetes", "AWS"] },
-  { icon: BrainCircuit, tags: ["LLMs", "RAG", "Agents", "Python", "Go", "Rust"] },
-  { icon: Rocket, tags: ["0→1", "Rapid build", "Validation", "Supabase", "Firebase", "Vercel"] },
+/** Audience cards ("Siapa yang cocok"), zipped with `services.items` by index. */
+export const audienceMeta: { icon: LucideIcon; live: boolean }[] = [
+  { icon: Scissors, live: false },
+  { icon: ShoppingBag, live: false },
+  { icon: GraduationCap, live: false },
+  { icon: Building2, live: false },
+  { icon: Rocket, live: true },
+  { icon: Handshake, live: false },
 ];
 
 export const benefitMeta: { icon: LucideIcon }[] = [
-  { icon: Gauge },
+  { icon: Layers },
+  { icon: Wallet },
   { icon: Palette },
   { icon: Users },
-  { icon: ShieldCheck },
-  { icon: MessagesSquare },
-  { icon: Layers },
 ];
 
 export const processMeta: { icon: LucideIcon; step: string }[] = [
-  { icon: Search, step: "01" },
-  { icon: Palette, step: "02" },
-  { icon: Hammer, step: "03" },
-  { icon: FlaskConical, step: "04" },
-  { icon: Send, step: "05" },
-  { icon: LifeBuoy, step: "06" },
+  { icon: MessagesSquare, step: "01" },
+  { icon: ListChecks, step: "02" },
+  { icon: Rocket, step: "03" },
+  { icon: LifeBuoy, step: "04" },
+];
+
+/** Niche families, zipped with `niches.families` by index. All coming soon until the owner says otherwise. */
+export const nicheMeta: { icon: LucideIcon }[] = [
+  { icon: Building2 },
+  { icon: ShoppingBag },
+  { icon: Smartphone },
+  { icon: CalendarCheck },
+  { icon: GraduationCap },
+  { icon: Store },
+  { icon: Bot },
+  { icon: Calculator },
+  { icon: Server },
 ];
 
 /** Brand colors for known tech tags — rendered as a dot inside tag chips. */

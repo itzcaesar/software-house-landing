@@ -9,9 +9,9 @@ import {
 } from "@/components/sections/about";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Tentang Kami",
   description:
-    "Callum C is a young product studio with senior craft — our story, mission, values, roadmap, and the team behind the work.",
+    "Kenali Callum C: cerita, misi, nilai, rencana, dan tim di balik setiap proyek.",
   alternates: { canonical: "/about" },
 };
 

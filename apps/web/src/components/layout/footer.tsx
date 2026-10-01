@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, waLink } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
 import { Logo } from "@/components/common/logo";
 import {
@@ -30,7 +30,7 @@ export function Footer() {
       title: t.footer.colCompany,
       links: [
         { label: t.nav.about, href: "/about" },
-        { label: t.nav.services, href: "/#services" },
+        { label: t.nav.services, href: "/#untuk-siapa" },
         { label: t.footer.linkWhy, href: "/#why-us" },
         { label: t.nav.process, href: "/#process" },
       ],
@@ -38,7 +38,8 @@ export function Footer() {
     {
       title: t.footer.colResources,
       links: [
-        { label: t.nav.pricing, href: "/pricing" },
+        { label: t.nav.niches, href: "/#niche" },
+        { label: t.nav.pricing, href: "/#pricing" },
         { label: t.nav.faq, href: "/#faq" },
         { label: t.footer.linkContact, href: "/#contact" },
       ],
@@ -102,7 +103,7 @@ export function Footer() {
             © {year} {siteConfig.legalName}. {t.footer.rights}
           </p>
           <Link
-            href="/#contact"
+            href={waLink(t.wa.consult)}
             className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-brand"
           >
             {t.footer.cta}

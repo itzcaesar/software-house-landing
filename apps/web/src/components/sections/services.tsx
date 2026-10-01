@@ -1,37 +1,38 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { serviceMeta } from "@/lib/content";
+import { audienceMeta } from "@/lib/content";
 import { useDict } from "@/lib/i18n";
+import { waLink } from "@/lib/site";
 import { Section, SectionHeading } from "@/components/common/section";
 import { Reveal } from "@/components/common/reveal";
 import { BentoGrid, type BentoItem } from "@/components/ui/bento-grid";
 
-// Vary tile sizes for a real bento rhythm (7 services tile a 3-col grid cleanly).
-const spanPattern: Array<1 | 2> = [2, 1, 1, 2, 1, 1, 1];
+// Three wide tiles keep 6 cards tiling a 3-col grid cleanly.
+const spanPattern: Array<1 | 2> = [2, 1, 1, 2, 2, 1];
 
+/** "Siapa yang cocok": audience cards with live / coming-soon status. */
 export function Services() {
   const t = useDict();
 
-  const items: BentoItem[] = serviceMeta.map((s, i) => ({
-    icon: s.icon,
-    title: t.services.items[i].title,
-    description: t.services.items[i].description,
-    tags: s.tags,
-    colSpan: spanPattern[i],
-    featured: i === 0,
-  }));
+  const items: BentoItem[] = audienceMeta.map((a, i) => {
+    const copy = t.services.items[i];
+    return {
+      icon: a.icon,
+      title: copy.title,
+      description: copy.description,
+      meta: a.live ? t.status.live : t.status.soon,
+      colSpan: spanPattern[i],
+      featured: a.live,
+      href: a.live ? waLink(t.wa.consult) : "#niche",
+    };
+  });
 
   return (
-    <Section id="services">
+    <Section id="untuk-siapa">
       <SectionHeading
         eyebrow={t.services.eyebrow}
-        title={
-          <>
-            {t.services.titleLine1}
-            <br className="hidden sm:block" /> {t.services.titleLine2}
-          </>
-        }
+        title={t.services.title}
         description={t.services.description}
       />
 
@@ -41,7 +42,7 @@ export function Services() {
 
       <Reveal delay={0.1} className="mt-6">
         <a
-          href="#contact"
+          href={waLink(t.wa.consult)}
           className="group flex flex-col items-start justify-between gap-4 overflow-hidden rounded-2xl border border-brand/30 bg-gradient-to-r from-brand to-brand-2 p-6 text-white shadow-elevated transition-transform duration-300 hover:-translate-y-0.5 sm:flex-row sm:items-center"
         >
           <div>

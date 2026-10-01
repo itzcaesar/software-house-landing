@@ -13,6 +13,8 @@ export interface BentoItem {
   colSpan?: 1 | 2;
   /** Keep the hover treatment always on (for a featured tile). */
   featured?: boolean;
+  /** Makes the whole tile a link. */
+  href?: string;
 }
 
 /**
@@ -24,14 +26,16 @@ export function BentoGrid({ items, className }: { items: BentoItem[]; className?
     <div className={cn("grid grid-cols-1 gap-4 md:grid-cols-3", className)}>
       {items.map((item, i) => {
         const Icon = item.icon;
+        const Tile = item.href ? "a" : "div";
         return (
           <TiltCard
             key={i}
             className={item.colSpan === 2 ? "md:col-span-2" : "col-span-1"}
           >
-            <div
+            <Tile
+              href={item.href}
               className={cn(
-                "group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300",
+                "group relative block h-full overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300",
                 "hover:border-brand/40 hover:shadow-elevated",
                 item.featured && "shadow-soft",
               )}
@@ -86,7 +90,7 @@ export function BentoGrid({ items, className }: { items: BentoItem[]; className?
                 </ul>
               ) : null}
             </div>
-            </div>
+            </Tile>
           </TiltCard>
         );
       })}

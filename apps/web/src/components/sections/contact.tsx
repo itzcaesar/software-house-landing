@@ -2,8 +2,8 @@
 
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, ArrowRight, Loader2, CalendarCheck, ShieldCheck } from "lucide-react";
-import { siteConfig } from "@/lib/site";
+import { Mail, MessageCircle, MapPin, ArrowRight, Loader2, CalendarCheck, ShieldCheck } from "lucide-react";
+import { siteConfig, waLink } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
 import { readAttribution } from "@/components/common/attribution";
 import { Reveal } from "@/components/common/reveal";
@@ -39,7 +39,9 @@ export function Contact() {
 
   const contactDetails = [
     { icon: Mail, label: t.contact.detailEmail, value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-    { icon: Phone, label: t.contact.detailPhone, value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/\s/g, "")}` },
+    ...(siteConfig.whatsapp
+      ? [{ icon: MessageCircle, label: t.contact.detailPhone, value: `+${siteConfig.whatsapp}`, href: waLink(t.wa.consult) }]
+      : []),
     { icon: MapPin, label: t.contact.detailLocation, value: siteConfig.location, href: undefined as string | undefined },
   ];
 
@@ -76,6 +78,17 @@ export function Contact() {
                     {t.contact.title}
                   </h2>
                   <p className="mt-4 max-w-md text-white/85 text-pretty">{t.contact.subtitle}</p>
+                  {siteConfig.whatsapp && (
+                    <a
+                      href={waLink(t.wa.consult)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-3 shadow-elevated transition-transform duration-200 hover:scale-[1.02] active:scale-95"
+                    >
+                      <MessageCircle className="size-4" />
+                      {t.contact.waCta}
+                    </a>
+                  )}
                 </Reveal>
 
                 <Reveal delay={0.1} className="mt-10 space-y-4">

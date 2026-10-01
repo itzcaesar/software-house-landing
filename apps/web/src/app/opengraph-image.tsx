@@ -43,16 +43,16 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.05, maxWidth: 940, letterSpacing: -2 }}>
-            We design & build digital products that feel inevitable.
+            Website dan software untuk cara kerja bisnis Anda.
           </div>
           <div style={{ fontSize: 34, color: "rgba(255,255,255,0.7)", maxWidth: 900 }}>
-            Web · Mobile · UI/UX · SaaS · AI · MVPs — from idea to scale.
+            Proyek kustom · Template per niche segera hadir
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, color: "rgba(255,255,255,0.6)" }}>
           <span>callumc.id</span>
-          <span>Product studio · Jakarta & worldwide</span>
+          <span>Konsultasi gratis via WhatsApp</span>
         </div>
       </div>
     ),

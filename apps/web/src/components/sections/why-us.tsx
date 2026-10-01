@@ -1,13 +1,10 @@
 "use client";
 
-import { benefitMeta, statMeta } from "@/lib/content";
+import { benefitMeta } from "@/lib/content";
 import { useDict } from "@/lib/i18n";
 import { Section, SectionHeading } from "@/components/common/section";
-import { Reveal, Stagger, StaggerItem } from "@/components/common/reveal";
+import { Stagger, StaggerItem } from "@/components/common/reveal";
 import { TiltCard } from "@/components/common/tilt-card";
-
-// Stats band on/off switch — flip to re-enable (markup stays below).
-const SHOW_STATS = false;
 
 export function WhyUs() {
   const t = useDict();
@@ -20,29 +17,8 @@ export function WhyUs() {
         description={t.why.description}
       />
 
-      {/* stats band */}
-      {SHOW_STATS && (
-        <Reveal className="mt-14">
-          <dl className="grid grid-cols-2 divide-x divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-soft sm:grid-cols-4 sm:divide-y-0">
-            {statMeta.map((s, i) => (
-              <div key={i} className="p-6 text-center">
-                <dt className="sr-only">{t.why.statLabels[i]}</dt>
-                <dd>
-                  <span className="block text-3xl font-semibold tracking-tight text-gradient-brand sm:text-4xl">
-                    {s.value}
-                  </span>
-                  <span className="mt-1 block text-sm text-muted-foreground">
-                    {t.why.statLabels[i]}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
-      )}
-
       {/* benefits */}
-      <Stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <Stagger className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
         {benefitMeta.map((benefit, i) => {
           const Icon = benefit.icon;
           return (

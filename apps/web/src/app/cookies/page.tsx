@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/sections/legal";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy",
-  description: "Exactly what this site stores in your browser, and why.",
+  title: "Kebijakan Cookie",
+  description: "Apa saja yang disimpan situs ini di browser Anda, dan alasannya.",
   alternates: { canonical: "/cookies" },
 };
 

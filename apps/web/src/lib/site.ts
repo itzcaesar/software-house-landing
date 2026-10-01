@@ -1,24 +1,24 @@
 /**
- * Central site configuration — brand, contact, navigation, socials.
- * Swap these placeholder values to rebrand the whole site from one file.
+ * Central site configuration — brand, contact, socials.
+ * Swap these values to rebrand the whole site from one file.
  */
 
 export const siteConfig = {
   name: "Callum C",
   legalName: "Callum C",
-  tagline: "We design & engineer premium digital products.",
+  tagline: "Website dan software untuk bisnis Anda",
   description:
-    "Callum C is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
+    "Callum C membuat website dan software kustom untuk bisnis Anda, dengan template siap pakai per niche yang segera hadir. Konsultasi gratis via WhatsApp.",
   // Override in production with NEXT_PUBLIC_SITE_URL
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://callumc.id",
   ogImage: "/opengraph-image",
-  locale: "en_US",
+  locale: "id_ID",
   email: "callumc@callumc.id",
-  phone: "+62 812 3456 7890",
+  /** WhatsApp number, digits only with country code (e.g. 62812…). Empty = CTAs fall back to the contact form. */
+  whatsapp: "" as string, // [ISI: nomor WhatsApp asli]
   /** Discovery-call scheduling link (cal.com / calendly). Empty = booking card hidden. */
   bookingUrl: "", // [ISI: link booking asli]
-  location: "Jakarta, Indonesia · Remote worldwide",
-  foundedYear: 2024,
+  location: "Jakarta, Indonesia",
   /** Empty = icon hidden. [ISI: akun sosial asli] */
   socials: {
     x: "",
@@ -29,41 +29,9 @@ export const siteConfig = {
   } as Record<"x" | "github" | "linkedin" | "dribbble" | "instagram", string>,
 } as const;
 
-export type NavItem = { label: string; href: string };
-
-export const navItems: NavItem[] = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#portfolio" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
-
-export const footerNav: { title: string; links: NavItem[] }[] = [
-  {
-    title: "Company",
-    links: [
-      { label: "Services", href: "#services" },
-      { label: "Why us", href: "#why-us" },
-      { label: "Process", href: "#process" },
-      { label: "Work", href: "#portfolio" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Pricing", href: "#pricing" },
-      { label: "Testimonials", href: "#testimonials" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "#contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Cookies", href: "#" },
-    ],
-  },
-];
+/** WhatsApp click-to-chat link with a prefilled message; the contact form until a number is set. */
+export function waLink(text: string): string {
+  return siteConfig.whatsapp
+    ? `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`
+    : "/#contact";
+}

@@ -6,152 +6,106 @@
 
 export const en = {
   nav: {
-    services: "Services",
+    services: "Who it's for",
+    niches: "Niches",
     work: "Work",
-    process: "Process",
+    process: "How it works",
     about: "About",
-    pricing: "Pricing",
+    pricing: "Packages",
     faq: "FAQ",
-    startProject: "Start a project",
+    startProject: "Free consultation",
   },
   hero: {
-    badgeNew: "New",
-    badgeText: "AI product engineering, end-to-end",
-    leadingText: "We design & build digital products that feel",
-    highlight: "inevitable",
+    badgeNew: "Soon",
+    badgeText: "Ready-made templates for your business niche are coming soon",
+    leadingText: "Websites and software built around how",
+    highlight: "your business works",
     trailingText: ".",
-    subtitle:
-      "Callum C is a product studio for teams who refuse to ship average. From MVP to enterprise scale — beautifully designed, expertly engineered, and shipped fast.",
-    primaryCta: "Start a project",
-    secondaryCta: "Explore services",
-    stackLabel: "Built with a modern stack",
+    subtitle: "Order a custom build today, or join the waitlist for a ready-made template for your niche. We help from the first conversation through branding and launch.",
+    primaryCta: "Free consultation on WhatsApp",
+    secondaryCta: "See niches",
   },
   trusted: {
     label: "Trusted by ambitious startups and enterprises worldwide",
   },
   services: {
-    eyebrow: "What we do",
-    titleLine1: "Everything you need to ship,",
-    titleLine2: "under one roof",
-    description:
-      "Strategy, design, and engineering as a single accountable team — so nothing gets lost in the handoff.",
+    eyebrow: "Who it's for",
+    title: "For businesses that want to look professional and run smoother",
+    description: "Pick the one closest to your business. Custom projects can start now; niche templates are coming soon.",
     items: [
       {
-        title: "Web Development",
-        description:
-          "Blazing-fast, SEO-ready websites and web apps built on Next.js, React, and modern edge infrastructure.",
+        title: "Salons, barbershops, workshops, and rentals",
+        description: "Online booking, deposits, and automatic reminders for your customers.",
       },
       {
-        title: "Mobile Apps",
-        description:
-          "Native-feeling iOS & Android apps from a single codebase, with delightful motion and offline support.",
+        title: "Online stores and resellers",
+        description: "Online store, digital products, top-ups and bill payments, and reseller pricing.",
       },
       {
-        title: "UI/UX Design",
-        description:
-          "Research-driven product design that turns complex flows into interfaces people love to use.",
+        title: "Creators and educators",
+        description: "Online courses, memberships, and a community for your audience.",
       },
       {
-        title: "Branding",
-        description:
-          "Identity systems — logo, type, color, and voice — that make your product feel unmistakably yours.",
+        title: "Companies and professionals",
+        description: "A credible website, portfolio, and a form that brings in new leads.",
       },
       {
-        title: "SaaS Development",
-        description:
-          "Multi-tenant platforms with billing, auth, dashboards, and analytics — architected to scale from day one.",
+        title: "Startups with a unique idea",
+        description: "A custom MVP or marketplace built around how your business works. Available now.",
       },
       {
-        title: "AI Integration",
-        description:
-          "Ship AI features that matter — assistants, search, and automation powered by the latest models.",
-      },
-      {
-        title: "MVP Development",
-        description:
-          "Go from idea to a fundable, production-grade MVP in weeks — validated fast, built to grow.",
+        title: "Agencies",
+        description: "White-label websites you can sell to clients under your own brand.",
       },
     ],
-    ctaTitle: "Have something else in mind?",
-    ctaDesc:
-      "Tell us about your product — we'll shape the right scope, team, and timeline for it.",
-    ctaButton: "Let's talk",
+    ctaTitle: "Don't see your business here?",
+    ctaDesc: "Tell us about it. We'll help you pick the path that makes the most sense — free, no strings attached.",
+    ctaButton: "Chat on WhatsApp",
   },
   why: {
-    eyebrow: "Why Callum C",
-    title: "The upside of a senior team that actually cares",
-    description:
-      "We optimize for your outcomes, not our hours. Here's what that means for you.",
-    statLabels: ["Products shipped", "Client rating", "Countries served", "Client retention"],
+    eyebrow: "Why this approach",
+    title: "Faster and leaner, without looking like a template",
+    description: "We don't rebuild everything from scratch for every client, so you pay for what you actually need.",
     benefits: [
       {
-        title: "Ship in weeks, not quarters",
-        description:
-          "A lean senior team and a battle-tested toolkit mean you launch faster — without cutting corners on quality.",
+        title: "Built from reusable modules",
+        description: "Common features like login, payments, and admin dashboards are built as modules, so your budget goes to what is unique to your business.",
       },
       {
-        title: "Design-led engineering",
-        description:
-          "Designers and engineers work as one. Every pixel is intentional and every interaction feels effortless.",
+        title: "Pay for what you need",
+        description: "Start simple, then add features as your business grows.",
       },
       {
-        title: "One team, end-to-end",
-        description:
-          "Strategy, design, and code under one roof. No handoffs, no finger-pointing — just accountable delivery.",
+        title: "Still looks like you",
+        description: "Theme, colours, and flows are tailored to your brand, so it never looks like a template.",
       },
       {
-        title: "Built to scale",
-        description:
-          "Clean architecture, strong typing, and tested code you can hand to your in-house team without regret.",
-      },
-      {
-        title: "Radically transparent",
-        description:
-          "Live previews, weekly demos, and a shared board. You always know exactly where your product stands.",
-      },
-      {
-        title: "Partners, not vendors",
-        description:
-          "We think in outcomes, not tickets.",
+        title: "One team, start to finish",
+        description: "Consultation, build, and post-launch support are handled by the same team. Monthly care plans are coming soon.",
       },
     ],
   },
   process: {
-    eyebrow: "How we work",
-    title: "A proven path from idea to launch",
-    description:
-      "A transparent, six-step roadmap that keeps you in the loop and momentum high — every single week.",
+    eyebrow: "How it works",
+    title: "Four steps from first chat to launch",
+    description: "A clear process, with scope and cost agreed in writing before any work starts.",
     stepLabel: "Step",
     steps: [
       {
-        title: "Discovery",
-        description:
-          "We align on goals, users, and scope — then turn ambiguity into a clear, prioritized roadmap.",
+        title: "Consultation",
+        description: "Tell us about your business and what you need, on WhatsApp or through the form. Free, no obligation.",
       },
       {
-        title: "Design",
-        description:
-          "Wireframes to polished, interactive prototypes. You see and feel the product before we build it.",
+        title: "Choose your path",
+        description: "A custom scope, or a niche template once available. Scope, timeline, and cost go into a written quote.",
       },
       {
-        title: "Development",
-        description:
-          "Clean, typed, well-tested code shipped in weekly increments you can review at every step.",
+        title: "Setup and launch",
+        description: "Branding, content, and integrations, tested together with you before going live.",
       },
       {
-        title: "Testing",
-        description:
-          "Automated and manual QA across devices, plus performance and accessibility audits before launch.",
-      },
-      {
-        title: "Launch",
-        description:
-          "Zero-downtime deploys on modern edge infra, with monitoring and analytics wired in from day one.",
-      },
-      {
-        title: "Support",
-        description:
-          "Ongoing iteration, maintenance, and a partner on call — we grow the product alongside you.",
+        title: "Care",
+        description: "Post-launch support as agreed in the contract. Monthly care plans for updates, security, and backups are coming soon.",
       },
     ],
   },
@@ -288,315 +242,132 @@ export const en = {
     ],
   },
   pricing: {
-    eyebrow: "Pricing",
-    notePrefix: "Prices shown in",
-    noteTail: "Switch anytime — your choice is remembered.",
-    custom: "Custom",
-    footerText: "Need something custom or have a tighter budget?",
-    footerLink: "Let's find a fit",
-    // Dedicated /pricing page
-    pageTitle: "Pricing that fits what you're building",
-    pageDescription:
-      "Web or mobile — clear starting points for every stage. After a short call, we'll tailor a quote to your exact scope.",
-    webTab: "Web Development",
-    appTab: "App Development",
-    web: {
-      label: "Web Development",
-      tagline: "Marketing sites, web apps, dashboards, and SaaS platforms.",
-      plans: [
-        {
-          name: "Starter",
-          description: "For landing pages, marketing sites, and small MVPs.",
-          badge: "",
-          priceSuffix: "starting",
-          cta: "Start a project",
-          features: [
-            "Up to 6 pages",
-            "Custom design in Figma",
-            "Responsive & SEO-ready build",
-            "Basic CMS integration",
-            "2 rounds of revisions",
-            "2–3 week delivery",
-          ],
-        },
-        {
-          name: "Professional",
-          description: "For full web apps and fundable SaaS MVPs.",
-          badge: "Most popular",
-          priceSuffix: "starting",
-          cta: "Book a discovery call",
-          features: [
-            "Everything in Starter",
-            "Full web app build",
-            "Design system & component library",
-            "Auth & user accounts",
-            "Payments, AI & analytics as add-ons",
-            "4–8 week delivery",
-            "30 days post-launch support",
-          ],
-        },
-        {
-          name: "Enterprise",
-          description: "For complex platforms and long-term partnerships.",
-          badge: "",
-          priceSuffix: "",
-          cta: "Talk to us",
-          features: [
-            "Everything in Professional",
-            "Payments, AI & analytics included",
-            "Dedicated senior product team",
-            "Multi-platform & scalable architecture",
-            "Security & compliance reviews",
-            "SLA & priority support",
-            "Ongoing roadmap & iteration",
-            "Flexible monthly retainer",
-          ],
-        },
-      ],
-      compareRows: [
-        { label: "Custom design in Figma", values: [true, true, true] },
-        { label: "Pages", values: ["6", "15", "Unlimited"] },
-        { label: "Responsive & SEO-ready", values: [true, true, true] },
-        { label: "CMS integration", values: ["Basic", "Full", "Full + workflows"] },
-        { label: "Design system & components", values: [false, true, true] },
-        { label: "Auth & user accounts", values: [false, true, true] },
-        { label: "Payments & dashboards", values: ["Add-on", "Add-on", true] },
-        { label: "AI feature integration", values: ["Add-on", "Add-on", true] },
-        { label: "Analytics & performance tuning", values: ["Add-on", "Add-on", true] },
-        { label: "Multi-platform architecture", values: [false, false, true] },
-        { label: "Security & compliance review", values: [false, false, true] },
-        { label: "Revisions", values: ["2 rounds", "4 rounds", "Unlimited"] },
-        { label: "Delivery", values: ["2–3 weeks", "4–8 weeks", "Custom"] },
-        { label: "Post-launch support", values: ["14 days", "30 days", "SLA + retainer"] },
-      ],
-      addons: [
-        { name: "Payments & dashboards", description: "Checkout, subscriptions, and an admin dashboard." },
-        { name: "AI feature integration", description: "LLM, search, or automation features where they truly fit." },
-        { name: "Analytics & performance tuning", description: "Event tracking, dashboards, and speed optimization." },
-        { name: "Extra page", description: "Additional designed & built page, on-brand." },
-        { name: "SEO starter pack", description: "Technical SEO, sitemap, schema, and Search Console setup." },
-        { name: "CMS training", description: "1:1 session so your team can edit content confidently." },
-        { name: "Copywriting", description: "Conversion-focused copy for up to 6 pages." },
-        { name: "Care plan", description: "Hosting, updates, backups, and small monthly tweaks." },
-        { name: "Rush delivery", description: "Priority scheduling to launch on a tighter timeline." },
-      ],
-    },
-    app: {
-      label: "App Development",
-      tagline: "Native & cross-platform mobile apps for iOS and Android.",
-      plans: [
-        {
-          name: "Starter",
-          description: "For focused single-platform apps and mobile MVPs.",
-          badge: "",
-          priceSuffix: "starting",
-          cta: "Start a project",
-          features: [
-            "iOS or Android (single platform)",
-            "Up to 8 core screens",
-            "Custom UI design in Figma",
-            "API integration & auth",
-            "2 rounds of revisions",
-            "4–6 week delivery",
-          ],
-        },
-        {
-          name: "Professional",
-          description: "For cross-platform apps ready for the App Store & Play Store.",
-          badge: "Most popular",
-          priceSuffix: "starting",
-          cta: "Book a discovery call",
-          features: [
-            "Everything in Starter",
-            "iOS + Android (React Native)",
-            "Design system & component library",
-            "Payments, push & offline sync",
-            "AI & analytics as add-ons",
-            "Store submission & release",
-            "8–12 week delivery",
-            "30 days post-launch support",
-          ],
-        },
-        {
-          name: "Enterprise",
-          description: "For complex, high-scale mobile platforms.",
-          badge: "",
-          priceSuffix: "",
-          cta: "Talk to us",
-          features: [
-            "Everything in Professional",
-            "AI & analytics included",
-            "Dedicated senior mobile team",
-            "Native modules & deep integrations",
-            "Security & compliance reviews",
-            "SLA & priority support",
-            "Ongoing releases & iteration",
-            "Flexible monthly retainer",
-          ],
-        },
-      ],
-      compareRows: [
-        { label: "Custom UI design in Figma", values: [true, true, true] },
-        { label: "Platforms", values: ["iOS or Android", "iOS + Android", "iOS + Android + web"] },
-        { label: "Core screens", values: ["8", "20", "Unlimited"] },
-        { label: "API integration & auth", values: [true, true, true] },
-        { label: "Design system & components", values: [false, true, true] },
-        { label: "Payments & in-app purchase", values: [false, true, true] },
-        { label: "Push notifications", values: [false, true, true] },
-        { label: "Offline sync", values: [false, true, true] },
-        { label: "AI feature integration", values: ["Add-on", "Add-on", true] },
-        { label: "Native modules & deep integrations", values: [false, false, true] },
-        { label: "Store submission & release", values: [false, true, true] },
-        { label: "Security & compliance review", values: [false, false, true] },
-        { label: "Revisions", values: ["2 rounds", "4 rounds", "Unlimited"] },
-        { label: "Delivery", values: ["4–6 weeks", "8–12 weeks", "Custom"] },
-        { label: "Post-launch support", values: ["14 days", "30 days", "SLA + retainer"] },
-      ],
-      addons: [
-        { name: "Extra platform", description: "Add web or the second mobile OS to your build." },
-        { name: "Custom backend & API", description: "Dedicated backend, database, and admin panel." },
-        { name: "AI feature integration", description: "On-device or cloud AI features where they add value." },
-        { name: "Push & CRM setup", description: "Notification service and lifecycle campaign tooling." },
-        { name: "Product analytics", description: "Event tracking, funnels, and live dashboards." },
-        { name: "Real-time & chat", description: "In-app messaging, presence, and live data sync." },
-        { name: "App localization", description: "Multi-language support with localized content and formats." },
-        { name: "Care plan", description: "Store updates, monitoring, and monthly bug fixes." },
-        { name: "Rush delivery", description: "Priority scheduling to launch on a tighter timeline." },
-      ],
-    },
-    // Shared across both scopes
-    compareTitle: "Compare plans in detail",
-    featureLabel: "Feature",
-    addonsTitle: "Add-ons & extras",
-    addonsSubtitle: "Bolt on exactly what you need — priced upfront, no surprises.",
-    addonsFrom: "from",
-    addonsDisclaimer:
-      "AI feature integration is scoped case by case — it only fits products where it genuinely adds value, which we confirm together during discovery.",
-    perMonth: "/mo",
-    pricingFaqTitle: "Pricing questions",
-    pricingFaq: [
+    eyebrow: "Ways to work with us",
+    title: "Pick the path that fits your business",
+    description: "We're taking custom projects now. Ready-made templates and care plans are coming soon.",
+    fromLabel: "From",
+    cards: [
       {
-        q: "How does payment work?",
-        a: "Projects run on a simple milestone schedule: 50% to start, 30% at the build midpoint, and 20% before launch. Monthly retainers are billed at the start of each cycle.",
+        title: "Custom project",
+        description: "For unique workflows: internal systems, MVPs, or marketplaces. Scope, timeline, and cost are agreed in writing before we start.",
+        price: "IDR 15 million",
+        cta: "Request a quote",
       },
       {
-        q: "Who owns the code and design files?",
-        a: "You do — fully. On final payment you receive all source code, design files, and assets, with no lock-in and no license fees.",
+        title: "Ready-made template",
+        description: "For common niches. A working product, tailored to your brand and needs.",
+        cta: "Join the waitlist",
       },
       {
-        q: "What counts as a revision?",
-        a: "A revision is a round of consolidated feedback on a delivered milestone. Starter includes 2 rounds, Professional 4, and Enterprise is unlimited within the sprint scope.",
-      },
-      {
-        q: "Are the prices fixed?",
-        a: "The tier prices are starting points for a defined scope. After a short discovery call we send a fixed quote — the number you approve is the number you pay.",
-      },
-      {
-        q: "Do prices include tax?",
-        a: "IDR prices exclude 11% VAT (PPN); USD prices are net. Any applicable tax is shown clearly on your invoice.",
-      },
-      {
-        q: "What happens after launch?",
-        a: "Every plan includes a support window. After that you can continue on a monthly Care plan for hosting, updates, monitoring, and new features.",
+        title: "Care plan",
+        description: "A monthly service for hosting, updates, security, backups, and support.",
+        cta: "Join the waitlist",
       },
     ],
-    engageEyebrow: "How it works",
-    engageTitle: "From first call to launch",
-    engageSteps: [
-      { title: "Discovery call", description: "A free 30-minute call to understand your goals, scope, and timeline." },
-      { title: "Proposal & quote", description: "A fixed-scope proposal with a clear price, timeline, and deliverables." },
-      { title: "Design & build", description: "We work in weekly sprints so you see real progress the whole way." },
-      { title: "Launch & support", description: "We ship, hand over full ownership, and support you post-launch." },
-    ],
-    guarantees: [
-      { title: "On-time delivery", description: "We commit to your timeline in writing — and hit it." },
-      { title: "Full source ownership", description: "All code and design files are yours on final payment." },
-      { title: "Post-launch support", description: "Every plan includes a support window after you go live." },
-    ],
-    // Home-page teaser
-    teaser: {
-      eyebrow: "Pricing",
-      title: "Simple pricing for web & app builds",
-      description:
-        "Transparent starting points for both web and mobile products. Explore the full plans and find the tier that fits.",
-      webLabel: "Web development",
-      appLabel: "App development",
-      fromLabel: "from",
-      cta: "View full pricing",
-    },
+    note: "Final pricing depends on scope. We send a written quote after the consultation; the figure above is a starting point, not a binding offer.",
   },
-  estimator: {
-    eyebrow: "Estimator",
-    title: "Estimate your build in 30 seconds",
-    description:
-      "Drag, tick, and watch the number move. Honest ballpark — the final quote always comes from a real conversation.",
-    sizeLabel: { web: "Pages", app: "Core screens" },
-    addonsLabel: "Add-ons",
-    timelineLabel: "Timeline",
-    timelineStandard: "Standard",
-    timelineRush: "Rush",
-    estimateLabel: "Estimated investment",
-    startingSuffix: "starting",
-    baseLine: "Base build",
-    addonsLine: "Add-ons",
-    rushLine: "Rush delivery",
-    monthlyLine: "Care plan (monthly)",
-    disclaimer:
-      "Indicative estimate, not a quote. We confirm scope together on a free discovery call.",
-    ctaCall: "Book a discovery call",
-    ctaContact: "Send project details",
+  status: {
+    live: "Available",
+    soon: "Coming soon",
+  },
+  wa: {
+    consult: "Hi Callum C, I'd like a free consultation about a website or software for my business.",
+    waitlist: "Hi Callum C, please add me to the waitlist for:",
+  },
+  niches: {
+    eyebrow: "Niches",
+    title: "Templates by niche, coming soon",
+    description: "Join the waitlist for your niche and we'll let you know on WhatsApp when its template is ready.",
+    cta: "Join the waitlist",
+    families: [
+      {
+        name: "Company profile and portfolio",
+        items: "Company profile, portfolio, business directory, job board.",
+      },
+      {
+        name: "Online store",
+        items: "Online shop, dropship and reseller, pre-order, digital products and ebooks, food ordering, catering.",
+      },
+      {
+        name: "Top-ups and bill payments",
+        items: "Game top-ups, e-wallet top-ups, mobile credit and data, bill payments.",
+      },
+      {
+        name: "Booking and tickets",
+        items: "Service booking, salons and barbershops, workshops, car and motorbike rental, event tickets.",
+      },
+      {
+        name: "Courses and membership",
+        items: "Online courses, memberships, communities and forums.",
+      },
+      {
+        name: "Marketplace",
+        items: "Multi-seller marketplace, freelance services, digital assets, online tutoring.",
+      },
+      {
+        name: "AI chatbot",
+        items: "An AI customer-support chatbot, then assistants for writing, search, and documents.",
+      },
+      {
+        name: "Business apps",
+        items: "Point of sale (POS), inventory, and invoicing.",
+      },
+      {
+        name: "Hosting and server billing",
+        items: "VPS and game-server billing.",
+      },
+    ],
   },
   faq: {
     eyebrow: "FAQ",
-    titleLine1: "Questions,",
-    titleLine2: "answered",
-    subPrefix: "Can't find what you're looking for?",
-    subLink: "Reach out",
-    subSuffix: "and we'll get back to you within one business day.",
+    titleLine1: "Frequently asked",
+    titleLine2: "questions",
+    subPrefix: "Still have questions?",
+    subLink: "Get in touch",
+    subSuffix: "on WhatsApp or through the form below.",
     items: [
       {
-        q: "How long does a typical project take?",
-        a: "Most MVPs ship in 4–8 weeks. Larger platforms run 3–4 months, delivered in weekly increments so you see progress the whole way through. We'll give you a concrete timeline after discovery.",
+        q: "What's the difference between a template and a custom project?",
+        a: "A template is a working product for one niche, tailored to your brand. A custom project is built for needs a template doesn't cover. We're taking custom projects now; templates are coming soon.",
       },
       {
-        q: "How do you price your work?",
-        a: "We offer fixed-scope project pricing and monthly retainers. Our plans below are starting points — after a short call we'll tailor a quote to your exact scope and budget.",
+        q: "How much can it be customized?",
+        a: "Look and feel (colours, fonts, layout), configuration (fields, steps, payment methods), add-on modules, and fully custom modules. Changes that need new development are quoted separately.",
       },
       {
-        q: "Do you work with early-stage startups?",
-        a: "Absolutely. A large part of our work is taking founders from idea to a fundable, production-grade MVP — fast, and without cutting corners on quality.",
+        q: "What is a care plan?",
+        a: "A monthly service that keeps your website secure and running: updates, backups, monitoring, and support. Care plans are coming soon; details and pricing will be announced when available.",
       },
       {
-        q: "Who owns the code and designs?",
-        a: "You do. On final payment, you receive full ownership of all source code, design files, and assets. No lock-in, no surprises.",
+        q: "Who owns the data and content?",
+        a: "Your content and customer data are yours and can be exported. Platform licensing, source-code access, and ownership of custom modules are agreed in the contract.",
       },
       {
-        q: "What tech stack do you use?",
-        a: "We favor Next.js, React, TypeScript, Go, Rust, Laravel, React Native, and modern cloud infrastructure (PostgreSQL, Redis, Docker, Kubernetes, AWS, Google Cloud, Vercel) — chosen so your in-house team can maintain and scale everything with ease.",
+        q: "How long does it take and what does it cost?",
+        a: "Custom projects start from IDR 15 million. Exact cost and timeline depend on scope, and go into a written quote after the consultation.",
       },
       {
-        q: "Can you work with our existing team?",
-        a: "Yes. We can embed with your designers and engineers, augment specific gaps, or run the whole build — whatever gets you to the outcome fastest.",
+        q: "Can I add features later?",
+        a: "Yes. Start simple, then add modules as your business grows. Features that need new development are quoted separately.",
       },
       {
-        q: "What happens after launch?",
-        a: "We offer ongoing support and iteration plans for maintenance, new features, and performance. Many clients keep us on as a long-term product partner.",
+        q: "What about payments and security?",
+        a: "If your website takes payments, they are processed by a licensed payment provider; we never hold your funds. Project payment terms and warranty are agreed in the contract.",
       },
       {
-        q: "How do we get started?",
-        a: "Send us a message through the contact form below. We'll reply within one business day and set up a free 30-minute discovery call.",
+        q: "How do I get started?",
+        a: "Message us on WhatsApp or fill in the form below. The first consultation is free, with no obligation.",
       },
     ],
   },
   contact: {
-    badge: "Let's build",
-    title: "Tell us about your project",
-    subtitle:
-      "Book a free 30-minute discovery call. We'll reply within one business day with clear next steps — no pressure, no jargon.",
+    badge: "Start here",
+    title: "Tell us what you need",
+    subtitle: "We'll help you pick the path that makes the most sense. The first consultation is free — no obligation, no jargon.",
     detailEmail: "Email",
-    detailPhone: "Phone",
+    detailPhone: "WhatsApp",
     detailLocation: "Location",
-    chipReply: "Reply within 1 business day",
+    chipReply: "Free consultation",
     chipPrivate: "Your details stay private",
     name: "Name",
     namePlaceholder: "Jane Doe",
@@ -606,8 +377,8 @@ export const en = {
     companyPlaceholder: "Acme Inc.",
     budget: "Budget",
     budgetPlaceholder: "Select a range",
-    message: "Project details",
-    messagePlaceholder: "What are you building, and what would success look like?",
+    message: "What you need",
+    messagePlaceholder: "Tell us about your business and what you'd like to build.",
     optional: "Optional",
     submit: "Send message",
     submitting: "Sending…",
@@ -615,13 +386,14 @@ export const en = {
     nameRequired: "Please enter your name.",
     emailRequired: "Please enter your email.",
     emailInvalid: "Please enter a valid email.",
-    messageRequired: "Tell us a little about your project.",
+    messageRequired: "Tell us a little about what you need.",
     messageMin: "Tell us a little more (10+ characters).",
-    success: "Message sent! We'll reply within one business day.",
+    success: "Message sent! We'll get back to you soon.",
     error: "Something went wrong — please try again, or email us directly.",
     bookTitle: "Prefer to talk it through?",
-    bookDesc: "Grab a free 30-minute discovery slot that fits your calendar.",
+    bookDesc: "Pick a free consultation slot that fits your calendar.",
     bookCta: "Book a call",
+    waCta: "Chat on WhatsApp now",
   },
   notFound: {
     quip: "$ callumc resolve /this-page — Error: route not found",
@@ -634,7 +406,7 @@ export const en = {
   legal: {
     eyebrow: "Legal",
     updatedLabel: "Last updated",
-    updatedDate: "July 27, 2026",
+    updatedDate: "October 1, 2026",
     contactLine: "Questions about this policy? Reach us at",
     backHome: "Back to home",
     privacy: {
@@ -644,7 +416,7 @@ export const en = {
       sections: [
         {
           h: "What we collect",
-          body: "When you submit the contact form we receive the details you type: your name, email, company, budget range, and message. The site also stores your language and currency preference in your own browser's local storage — that data never leaves your device.",
+          body: "When you submit the contact form we receive the details you type: your name, email, company, budget range, and message. The form also sends how you found us (campaign tags such as utm_source, and the referring site), which the site keeps in your browser for the current session. Your language preference stays in your browser and never leaves your device.",
         },
         {
           h: "How we use it",
@@ -660,7 +432,7 @@ export const en = {
         },
         {
           h: "Your rights",
-          body: "You may request access to, correction of, or deletion of your personal data, and you may withdraw consent at any time by emailing us. We respond within one business day.",
+          body: "You may request access to, correction of, or deletion of your personal data, and you may withdraw consent at any time by emailing us.",
         },
         {
           h: "Changes",
@@ -683,11 +455,11 @@ export const en = {
         },
         {
           h: "Payments",
-          body: "Projects run on a milestone schedule — typically 50% to start, 30% at the build midpoint, and 20% before launch — unless the proposal states otherwise.",
+          body: "Payment terms, including any deposit and milestones, are set out in the written proposal or contract for each project.",
         },
         {
           h: "Intellectual property",
-          body: "Upon final payment, you own the source code, design files, and assets delivered for your project. We retain the right to reference the work in our portfolio unless agreed otherwise.",
+          body: "Your content, customer data, and brand assets remain yours and can be exported. Licensing of our platform, source-code access, and ownership of custom modules are set out in the contract for each project.",
         },
         {
           h: "Liability",
@@ -706,7 +478,7 @@ export const en = {
       sections: [
         {
           h: "What we store",
-          body: "Two small values in your browser's local storage: your language choice (English or Indonesian) and your currency choice (USD or IDR). Plus your theme preference, handled by your browser.",
+          body: "Your language choice (Indonesian or English) in local storage, and, for the current session only, how you arrived (campaign tags and referring site) so the contact form can include it. Plus your theme preference, handled by your browser.",
         },
         {
           h: "What we don't do",
@@ -835,8 +607,7 @@ export const en = {
     ctaButton: "Say hello",
   },
   footer: {
-    description:
-      "Callum C is a product studio that designs and builds fast, beautiful web apps, mobile apps, and SaaS platforms for startups and enterprises — from MVP to scale.",
+    description: "Callum C builds custom websites and software for businesses, with ready-made niche templates coming soon.",
     colCompany: "Company",
     colResources: "Resources",
     colLegal: "Legal",
@@ -847,7 +618,7 @@ export const en = {
     linkTerms: "Terms",
     linkCookies: "Cookies",
     rights: "All rights reserved.",
-    cta: "Start a project",
+    cta: "Free consultation",
   },
 };
 
@@ -855,152 +626,106 @@ export type Dict = typeof en;
 
 export const id: Dict = {
   nav: {
-    services: "Layanan",
+    services: "Untuk siapa",
+    niches: "Niche",
     work: "Portofolio",
-    process: "Proses",
-    about: "Tentang Kami",
-    pricing: "Harga",
+    process: "Cara kerja",
+    about: "Tentang",
+    pricing: "Paket",
     faq: "FAQ",
-    startProject: "Mulai proyek",
+    startProject: "Konsultasi gratis",
   },
   hero: {
-    badgeNew: "Baru",
-    badgeText: "Kini juga melayani pengembangan produk AI",
-    leadingText: "Kami desain dan bangun produk digital yang",
-    highlight: "siap bersaing",
+    badgeNew: "Segera",
+    badgeText: "Template siap pakai per niche bisnis segera hadir",
+    leadingText: "Website dan software yang dibuat untuk cara kerja",
+    highlight: "bisnis Anda",
     trailingText: ".",
-    subtitle:
-      "Callum C adalah studio produk untuk tim yang tidak mau puas dengan hasil biasa. Mulai dari MVP sampai skala enterprise, kami desain dengan detail, bangun dengan solid, dan rilis tepat waktu.",
-    primaryCta: "Mulai proyek",
-    secondaryCta: "Lihat layanan",
-    stackLabel: "Teknologi yang kami gunakan",
+    subtitle: "Pesan solusi kustom sekarang, atau daftar waitlist template siap pakai untuk niche bisnis Anda. Kami bantu dari konsultasi, branding, sampai peluncuran.",
+    primaryCta: "Konsultasi gratis via WhatsApp",
+    secondaryCta: "Lihat pilihan niche",
   },
   trusted: {
     label: "Dipercaya startup dan perusahaan dari berbagai negara",
   },
   services: {
-    eyebrow: "Layanan kami",
-    titleLine1: "Semua kebutuhan produk digital Anda,",
-    titleLine2: "ditangani satu tim",
-    description:
-      "Strategi, desain, dan development dikerjakan oleh tim yang sama. Tidak ada informasi yang hilang saat pekerjaan berpindah tangan.",
+    eyebrow: "Siapa yang cocok",
+    title: "Untuk bisnis yang ingin tampil profesional dan bekerja lebih rapi",
+    description: "Pilih yang paling mirip dengan bisnis Anda. Proyek kustom bisa dimulai sekarang, template per niche segera hadir.",
     items: [
       {
-        title: "Pengembangan Web",
-        description:
-          "Website dan aplikasi web yang cepat dan SEO-friendly, dibangun dengan Next.js, React, dan infrastruktur cloud modern.",
+        title: "Salon, barbershop, bengkel, dan rental",
+        description: "Booking online, deposit, dan pengingat otomatis untuk pelanggan.",
       },
       {
-        title: "Aplikasi Mobile",
-        description:
-          "Satu basis kode untuk iOS dan Android, dengan performa setara aplikasi native, animasi yang halus, dan tetap bisa dipakai saat offline.",
+        title: "Toko online dan reseller",
+        description: "Toko online, produk digital, top up dan PPOB, serta harga khusus reseller.",
       },
       {
-        title: "Desain UI/UX",
-        description:
-          "Desain berbasis riset pengguna. Alur yang rumit kami sederhanakan jadi tampilan yang mudah dipahami.",
+        title: "Kreator dan pengajar",
+        description: "Kursus online, membership, dan komunitas untuk audiens Anda.",
       },
       {
-        title: "Branding",
-        description:
-          "Logo, tipografi, warna, sampai gaya komunikasi. Identitas yang membuat produk Anda mudah diingat.",
+        title: "Perusahaan dan profesional",
+        description: "Website yang kredibel, portofolio, dan formulir untuk menjaring calon klien.",
       },
       {
-        title: "Pengembangan SaaS",
-        description:
-          "Platform multi-tenant lengkap dengan billing, login, dasbor, dan analitik. Siap berkembang sejak hari pertama.",
+        title: "Startup dengan ide unik",
+        description: "MVP kustom atau marketplace yang dibangun sesuai alur bisnis Anda. Bisa dimulai sekarang.",
       },
       {
-        title: "Integrasi AI",
-        description:
-          "Fitur AI yang benar-benar terpakai, seperti asisten virtual, pencarian pintar, dan otomasi alur kerja.",
-      },
-      {
-        title: "Pengembangan MVP",
-        description:
-          "Ubah ide jadi MVP yang siap pakai dalam hitungan minggu. Cepat divalidasi, siap dipresentasikan ke investor.",
+        title: "Agensi",
+        description: "Website white-label yang bisa Anda jual ke klien dengan merek Anda sendiri.",
       },
     ],
-    ctaTitle: "Kebutuhan Anda berbeda?",
-    ctaDesc:
-      "Ceritakan produk yang ingin Anda bangun. Kami bantu susun lingkup, tim, dan timeline yang paling pas.",
-    ctaButton: "Konsultasi sekarang",
+    ctaTitle: "Bisnis Anda tidak ada di daftar?",
+    ctaDesc: "Ceritakan kebutuhan Anda. Kami bantu pilih jalur yang paling masuk akal, gratis dan tanpa kewajiban.",
+    ctaButton: "Chat WhatsApp",
   },
   why: {
-    eyebrow: "Mengapa Callum C",
-    title: "Dikerjakan tim senior yang peduli dengan hasil",
-    description:
-      "Yang kami kejar adalah hasil untuk bisnis Anda, bukan jumlah jam kerja. Ini yang Anda dapatkan.",
-    statLabels: ["Produk dirilis", "Rating klien", "Negara", "Klien bertahan"],
+    eyebrow: "Kenapa pendekatan ini",
+    title: "Lebih cepat dan hemat, tanpa terlihat seperti template",
+    description: "Kami tidak membangun semuanya dari nol untuk setiap klien. Anda cukup membayar untuk yang benar-benar dibutuhkan.",
     benefits: [
       {
-        title: "Rilis dalam hitungan minggu",
-        description:
-          "Tim senior yang ramping dan proses yang sudah teruji membuat produk Anda lebih cepat sampai ke pengguna, tanpa kompromi soal kualitas.",
+        title: "Dibangun dari modul yang bisa dipakai ulang",
+        description: "Fitur umum seperti login, pembayaran, dan dasbor admin kami bangun sebagai modul. Anggaran Anda terpakai untuk hal yang benar-benar khas bisnis Anda.",
       },
       {
-        title: "Desain dan development berjalan beriringan",
-        description:
-          "Desainer dan engineer bekerja dalam satu tim, jadi setiap detail tampilan dan interaksi benar-benar dipikirkan.",
+        title: "Bayar sesuai kebutuhan",
+        description: "Mulai dari yang sederhana, lalu tambah fitur seiring bisnis Anda berkembang.",
+      },
+      {
+        title: "Tetap tampil beda",
+        description: "Tema, warna, dan alur disesuaikan dengan merek Anda, jadi tidak terlihat seperti template.",
       },
       {
         title: "Satu tim dari awal sampai akhir",
-        description:
-          "Strategi, desain, dan kode ada di satu tempat. Tidak perlu koordinasi dengan banyak vendor, dan tidak ada saling lempar tanggung jawab.",
-      },
-      {
-        title: "Siap dikembangkan jangka panjang",
-        description:
-          "Arsitektur yang rapi dan kode yang teruji, sehingga mudah dilanjutkan oleh tim internal Anda nanti.",
-      },
-      {
-        title: "Progres selalu terlihat",
-        description:
-          "Ada preview langsung, demo setiap minggu, dan board kerja bersama. Anda selalu tahu sejauh mana produk sudah berjalan.",
-      },
-      {
-        title: "Partner, bukan sekadar vendor",
-        description:
-          "Kami ikut memikirkan hasil bisnis, bukan hanya menyelesaikan task.",
+        description: "Konsultasi, pengerjaan, dan dukungan setelah peluncuran ditangani tim yang sama. Paket perawatan bulanan segera hadir.",
       },
     ],
   },
   process: {
-    eyebrow: "Cara kerja kami",
-    title: "Dari ide sampai rilis, dengan proses yang jelas",
-    description:
-      "Enam tahap yang transparan. Anda terlibat di setiap langkah, dan progres terus berjalan tiap minggu.",
-    stepLabel: "Tahap",
+    eyebrow: "Cara kerja",
+    title: "Empat langkah dari konsultasi sampai tayang",
+    description: "Proses yang jelas, dengan lingkup dan biaya yang disepakati tertulis sebelum pekerjaan dimulai.",
+    stepLabel: "Langkah",
     steps: [
       {
-        title: "Discovery",
-        description:
-          "Kami samakan persepsi soal tujuan, target pengguna, dan lingkup proyek, lalu menyusunnya jadi roadmap yang jelas dan terprioritaskan.",
+        title: "Konsultasi",
+        description: "Ceritakan bisnis dan kebutuhan Anda lewat WhatsApp atau formulir. Gratis dan tanpa kewajiban.",
       },
       {
-        title: "Desain",
-        description:
-          "Mulai dari wireframe sampai prototipe interaktif. Anda bisa mencoba alurnya sebelum development dimulai.",
+        title: "Pilih jalur",
+        description: "Lingkup kustom, atau template sesuai niche begitu tersedia. Lingkup, jadwal, dan biaya kami tuangkan dalam penawaran tertulis.",
       },
       {
-        title: "Development",
-        description:
-          "Kode yang rapi dan teruji, dirilis bertahap setiap minggu supaya bisa Anda review kapan saja.",
+        title: "Setup dan peluncuran",
+        description: "Branding, konten, dan integrasi, lalu diuji bersama Anda sebelum tayang.",
       },
       {
-        title: "Testing",
-        description:
-          "Pengujian otomatis dan manual di berbagai perangkat, plus pengecekan performa dan aksesibilitas sebelum rilis.",
-      },
-      {
-        title: "Rilis",
-        description:
-          "Deploy tanpa downtime di infrastruktur cloud, dengan monitoring dan analitik yang aktif sejak hari pertama.",
-      },
-      {
-        title: "Dukungan",
-        description:
-          "Maintenance dan pengembangan fitur berkelanjutan. Kami terus mendampingi produk Anda setelah rilis.",
+        title: "Perawatan",
+        description: "Dukungan setelah peluncuran sesuai kontrak. Paket perawatan bulanan untuk pembaruan, keamanan, dan backup segera hadir.",
       },
     ],
   },
@@ -1137,260 +862,81 @@ export const id: Dict = {
     ],
   },
   pricing: {
-    eyebrow: "Harga",
-    notePrefix: "Harga ditampilkan dalam",
-    noteTail: "Bisa diganti kapan saja, dan pilihan Anda akan tersimpan.",
-    custom: "Custom",
-    footerText: "Butuh paket khusus atau anggaran Anda lebih terbatas?",
-    footerLink: "Diskusikan dengan kami",
-    pageTitle: "Harga yang menyesuaikan kebutuhan Anda",
-    pageDescription:
-      "Untuk web maupun mobile, setiap paket punya titik awal yang jelas. Setelah konsultasi singkat, kami kirimkan penawaran sesuai lingkup proyek Anda.",
-    webTab: "Pengembangan Web",
-    appTab: "Pengembangan Aplikasi",
-    web: {
-      label: "Pengembangan Web",
-      tagline: "Website company profile, aplikasi web, dasbor, dan platform SaaS.",
-      plans: [
-        {
-          name: "Starter",
-          description: "Cocok untuk landing page, website company profile, dan MVP sederhana.",
-          badge: "",
-          priceSuffix: "mulai dari",
-          cta: "Mulai proyek",
-          features: [
-            "Maksimal 6 halaman",
-            "Desain custom di Figma",
-            "Responsif & SEO-friendly",
-            "Integrasi CMS dasar",
-            "2 kali revisi",
-            "Pengerjaan 2–3 minggu",
-          ],
-        },
-        {
-          name: "Professional",
-          description: "Cocok untuk aplikasi web lengkap dan MVP SaaS yang siap dipresentasikan ke investor.",
-          badge: "Paling populer",
-          priceSuffix: "mulai dari",
-          cta: "Jadwalkan konsultasi",
-          features: [
-            "Semua fitur Starter",
-            "Aplikasi web lengkap",
-            "Design system & library komponen",
-            "Login & akun pengguna",
-            "Pembayaran, AI & analitik (add-on)",
-            "Pengerjaan 4–8 minggu",
-            "Dukungan 30 hari setelah rilis",
-          ],
-        },
-        {
-          name: "Enterprise",
-          description: "Untuk platform yang kompleks dan kerja sama jangka panjang.",
-          badge: "",
-          priceSuffix: "",
-          cta: "Hubungi kami",
-          features: [
-            "Semua fitur Professional",
-            "Sudah termasuk pembayaran, AI & analitik",
-            "Tim produk senior khusus untuk Anda",
-            "Arsitektur multi-platform yang scalable",
-            "Review keamanan & compliance",
-            "SLA & dukungan prioritas",
-            "Roadmap & pengembangan berkelanjutan",
-            "Retainer bulanan yang fleksibel",
-          ],
-        },
-      ],
-      compareRows: [
-        { label: "Desain custom di Figma", values: [true, true, true] },
-        { label: "Jumlah halaman", values: ["6", "15", "Tidak terbatas"] },
-        { label: "Responsif & SEO-friendly", values: [true, true, true] },
-        { label: "Integrasi CMS", values: ["Dasar", "Lengkap", "Lengkap + workflow"] },
-        { label: "Design system & komponen", values: [false, true, true] },
-        { label: "Login & akun pengguna", values: [false, true, true] },
-        { label: "Pembayaran & dasbor", values: ["Add-on", "Add-on", true] },
-        { label: "Fitur AI", values: ["Add-on", "Add-on", true] },
-        { label: "Analitik & optimasi performa", values: ["Add-on", "Add-on", true] },
-        { label: "Arsitektur multi-platform", values: [false, false, true] },
-        { label: "Review keamanan & compliance", values: [false, false, true] },
-        { label: "Revisi", values: ["2 kali", "4 kali", "Tidak terbatas"] },
-        { label: "Durasi pengerjaan", values: ["2–3 minggu", "4–8 minggu", "Custom"] },
-        { label: "Dukungan setelah rilis", values: ["14 hari", "30 hari", "SLA + retainer"] },
-      ],
-      addons: [
-        { name: "Pembayaran & dasbor", description: "Checkout, sistem langganan, dan dasbor admin." },
-        { name: "Fitur AI", description: "Chatbot, pencarian pintar, atau otomasi yang sesuai kebutuhan produk." },
-        { name: "Analitik & optimasi performa", description: "Tracking event, dasbor, dan optimasi kecepatan website." },
-        { name: "Halaman tambahan", description: "Satu halaman baru, didesain dan dibangun sesuai brand Anda." },
-        { name: "Paket SEO dasar", description: "SEO teknis, sitemap, schema, dan setup Google Search Console." },
-        { name: "Pelatihan CMS", description: "Sesi 1-on-1 supaya tim Anda bisa mengelola konten sendiri." },
-        { name: "Copywriting", description: "Penulisan konten yang mendorong konversi, maksimal 6 halaman." },
-        { name: "Paket maintenance", description: "Hosting, update, backup, dan revisi kecil setiap bulan." },
-        { name: "Pengerjaan ekspres", description: "Jadwal prioritas agar produk bisa rilis lebih cepat." },
-      ],
-    },
-    app: {
-      label: "Pengembangan Aplikasi",
-      tagline: "Aplikasi mobile native dan cross-platform untuk iOS dan Android.",
-      plans: [
-        {
-          name: "Starter",
-          description: "Cocok untuk aplikasi satu platform dan MVP mobile.",
-          badge: "",
-          priceSuffix: "mulai dari",
-          cta: "Mulai proyek",
-          features: [
-            "iOS atau Android (satu platform)",
-            "Maksimal 8 layar utama",
-            "Desain UI custom di Figma",
-            "Integrasi API & login",
-            "2 kali revisi",
-            "Pengerjaan 4–6 minggu",
-          ],
-        },
-        {
-          name: "Professional",
-          description: "Cocok untuk aplikasi iOS dan Android yang siap rilis di App Store dan Play Store.",
-          badge: "Paling populer",
-          priceSuffix: "mulai dari",
-          cta: "Jadwalkan konsultasi",
-          features: [
-            "Semua fitur Starter",
-            "iOS + Android (React Native)",
-            "Design system & library komponen",
-            "Pembayaran, push notification & mode offline",
-            "AI & analitik (add-on)",
-            "Bantuan submit ke App Store & Play Store",
-            "Pengerjaan 8–12 minggu",
-            "Dukungan 30 hari setelah rilis",
-          ],
-        },
-        {
-          name: "Enterprise",
-          description: "Untuk aplikasi mobile skala besar dengan kebutuhan yang kompleks.",
-          badge: "",
-          priceSuffix: "",
-          cta: "Hubungi kami",
-          features: [
-            "Semua fitur Professional",
-            "Sudah termasuk AI & analitik",
-            "Tim mobile senior khusus untuk Anda",
-            "Modul native & integrasi lanjutan",
-            "Review keamanan & compliance",
-            "SLA & dukungan prioritas",
-            "Update & pengembangan berkelanjutan",
-            "Retainer bulanan yang fleksibel",
-          ],
-        },
-      ],
-      compareRows: [
-        { label: "Desain UI custom di Figma", values: [true, true, true] },
-        { label: "Platform", values: ["iOS atau Android", "iOS + Android", "iOS + Android + web"] },
-        { label: "Jumlah layar utama", values: ["8", "20", "Tidak terbatas"] },
-        { label: "Integrasi API & login", values: [true, true, true] },
-        { label: "Design system & komponen", values: [false, true, true] },
-        { label: "Pembayaran & in-app purchase", values: [false, true, true] },
-        { label: "Push notification", values: [false, true, true] },
-        { label: "Mode offline", values: [false, true, true] },
-        { label: "Fitur AI", values: ["Add-on", "Add-on", true] },
-        { label: "Modul native & integrasi lanjutan", values: [false, false, true] },
-        { label: "Submit ke App Store & Play Store", values: [false, true, true] },
-        { label: "Review keamanan & compliance", values: [false, false, true] },
-        { label: "Revisi", values: ["2 kali", "4 kali", "Tidak terbatas"] },
-        { label: "Durasi pengerjaan", values: ["4–6 minggu", "8–12 minggu", "Custom"] },
-        { label: "Dukungan setelah rilis", values: ["14 hari", "30 hari", "SLA + retainer"] },
-      ],
-      addons: [
-        { name: "Platform tambahan", description: "Tambah versi web atau platform mobile kedua." },
-        { name: "Backend & API custom", description: "Backend, database, dan panel admin khusus untuk aplikasi Anda." },
-        { name: "Fitur AI", description: "Fitur AI di perangkat maupun cloud yang benar-benar berguna bagi pengguna." },
-        { name: "Push notification & CRM", description: "Setup notifikasi dan tools untuk kampanye ke pengguna." },
-        { name: "Analitik produk", description: "Tracking event, funnel, dan dasbor real-time." },
-        { name: "Real-time & chat", description: "Fitur chat, status online, dan sinkronisasi data secara langsung." },
-        { name: "Multi-bahasa", description: "Aplikasi dalam beberapa bahasa, dengan format tanggal dan mata uang yang menyesuaikan." },
-        { name: "Paket maintenance", description: "Update di store, monitoring, dan perbaikan bug setiap bulan." },
-        { name: "Pengerjaan ekspres", description: "Jadwal prioritas agar produk bisa rilis lebih cepat." },
-      ],
-    },
-    compareTitle: "Bandingkan paket",
-    featureLabel: "Fitur",
-    addonsTitle: "Add-on",
-    addonsSubtitle: "Tambahkan sesuai kebutuhan. Harga jelas dari awal, tanpa biaya tersembunyi.",
-    addonsFrom: "mulai",
-    addonsDisclaimer:
-      "Fitur AI kami sesuaikan per proyek. Kami hanya menyarankannya kalau memang bermanfaat untuk produk Anda, dan akan dibahas bersama saat konsultasi.",
-    perMonth: "/bln",
-    pricingFaqTitle: "Pertanyaan seputar harga",
-    pricingFaq: [
+    eyebrow: "Cara bekerja sama",
+    title: "Pilih jalur yang sesuai dengan bisnis Anda",
+    description: "Saat ini kami menerima proyek kustom. Template siap pakai dan paket perawatan segera hadir.",
+    fromLabel: "Mulai",
+    cards: [
       {
-        q: "Bagaimana sistem pembayarannya?",
-        a: "Pembayaran dibagi menjadi tiga termin: 50% di awal, 30% di tengah pengerjaan, dan 20% sebelum rilis. Untuk retainer bulanan, tagihan dikirim di awal setiap bulan.",
+        title: "Proyek kustom",
+        description: "Untuk alur kerja yang unik: sistem internal, MVP, atau marketplace. Lingkup, jadwal, dan biaya disepakati tertulis sebelum mulai.",
+        price: "Rp 15 juta",
+        cta: "Minta penawaran",
       },
       {
-        q: "Siapa yang memiliki kode dan file desainnya?",
-        a: "Anda, sepenuhnya. Setelah pelunasan, seluruh source code, file desain, dan aset menjadi milik Anda. Tidak ada lock-in maupun biaya lisensi.",
+        title: "Template siap pakai",
+        description: "Untuk niche yang umum. Produk yang sudah berfungsi, disesuaikan dengan merek dan kebutuhan Anda.",
+        cta: "Daftar waitlist",
       },
       {
-        q: "Revisi dihitung seperti apa?",
-        a: "Satu revisi adalah satu kali pengiriman masukan yang sudah dirangkum untuk setiap milestone. Paket Starter mendapat 2 kali revisi, Professional 4 kali, dan Enterprise tidak terbatas selama masih dalam lingkup sprint.",
-      },
-      {
-        q: "Apakah harganya bisa berubah?",
-        a: "Harga paket adalah titik awal untuk lingkup tertentu. Setelah konsultasi, kami kirimkan penawaran dengan harga tetap. Angka yang Anda setujui adalah angka yang Anda bayar.",
-      },
-      {
-        q: "Apakah harga sudah termasuk pajak?",
-        a: "Harga dalam Rupiah belum termasuk PPN 11%, sedangkan harga dalam USD sudah net. Rincian pajak akan tercantum jelas di invoice.",
-      },
-      {
-        q: "Bagaimana setelah produk rilis?",
-        a: "Setiap paket sudah termasuk masa dukungan. Setelah itu, Anda bisa lanjut dengan paket maintenance bulanan untuk hosting, update, monitoring, dan penambahan fitur.",
+        title: "Paket perawatan",
+        description: "Layanan bulanan untuk hosting, pembaruan, keamanan, backup, dan dukungan.",
+        cta: "Daftar waitlist",
       },
     ],
-    engageEyebrow: "Alur kerja sama",
-    engageTitle: "Dari konsultasi pertama sampai produk rilis",
-    engageSteps: [
-      { title: "Konsultasi", description: "Diskusi gratis 30 menit untuk memahami tujuan, lingkup, dan target waktu Anda." },
-      { title: "Proposal & penawaran", description: "Proposal lengkap berisi lingkup, harga, timeline, dan deliverable yang jelas." },
-      { title: "Desain & development", description: "Kami bekerja dengan sprint mingguan, jadi Anda bisa melihat progres nyata setiap minggu." },
-      { title: "Rilis & dukungan", description: "Produk dirilis, seluruh aset diserahkan ke Anda, dan kami tetap mendampingi setelahnya." },
-    ],
-    guarantees: [
-      { title: "Tepat waktu", description: "Timeline yang disepakati di awal akan kami tepati." },
-      { title: "Kode sepenuhnya milik Anda", description: "Seluruh kode dan file desain jadi milik Anda setelah pelunasan." },
-      { title: "Dukungan setelah rilis", description: "Setiap paket sudah termasuk masa dukungan setelah produk live." },
-    ],
-    teaser: {
-      eyebrow: "Harga",
-      title: "Harga transparan untuk web dan aplikasi",
-      description:
-        "Setiap paket punya titik awal yang jelas. Lihat detailnya dan pilih yang paling sesuai dengan kebutuhan Anda.",
-      webLabel: "Pengembangan web",
-      appLabel: "Pengembangan aplikasi",
-      fromLabel: "mulai",
-      cta: "Lihat semua paket",
-    },
+    note: "Harga akhir mengikuti lingkup pekerjaan. Kami kirim penawaran tertulis setelah konsultasi; angka di atas adalah titik awal, bukan penawaran yang mengikat.",
   },
-  estimator: {
-    eyebrow: "Kalkulator biaya",
-    title: "Hitung estimasi biaya dalam 30 detik",
-    description:
-      "Atur kebutuhan Anda dan lihat estimasinya langsung berubah. Harga final tetap kami tentukan setelah berdiskusi dengan Anda.",
-    sizeLabel: { web: "Jumlah halaman", app: "Jumlah layar" },
-    addonsLabel: "Add-on",
-    timelineLabel: "Timeline",
-    timelineStandard: "Standar",
-    timelineRush: "Ekspres",
-    estimateLabel: "Estimasi biaya",
-    startingSuffix: "mulai dari",
-    baseLine: "Biaya dasar",
-    addonsLine: "Add-on",
-    rushLine: "Pengerjaan ekspres",
-    monthlyLine: "Maintenance (per bulan)",
-    disclaimer:
-      "Ini hanya estimasi, bukan penawaran resmi. Lingkup proyek akan kami pastikan bersama saat konsultasi gratis.",
-    ctaCall: "Jadwalkan konsultasi",
-    ctaContact: "Kirim detail proyek",
+  status: {
+    live: "Tersedia",
+    soon: "Segera hadir",
+  },
+  wa: {
+    consult: "Halo Callum C, saya ingin konsultasi gratis tentang website atau software untuk bisnis saya.",
+    waitlist: "Halo Callum C, saya ingin masuk waitlist untuk:",
+  },
+  niches: {
+    eyebrow: "Pilihan niche",
+    title: "Template per niche, segera hadir",
+    description: "Daftar waitlist untuk niche Anda. Kami kabari lewat WhatsApp begitu templatenya siap.",
+    cta: "Daftar waitlist",
+    families: [
+      {
+        name: "Profil perusahaan dan portofolio",
+        items: "Company profile, portofolio, direktori bisnis, lowongan kerja.",
+      },
+      {
+        name: "Toko online",
+        items: "Toko online, dropship dan reseller, pre-order, produk digital dan ebook, pesan makanan, catering.",
+      },
+      {
+        name: "Top up dan PPOB",
+        items: "Top up game, top up e-wallet, pulsa dan paket data, pembayaran tagihan.",
+      },
+      {
+        name: "Booking dan tiket",
+        items: "Booking jasa, salon dan barbershop, bengkel, rental mobil dan motor, tiket event.",
+      },
+      {
+        name: "Kursus dan membership",
+        items: "Kursus online, membership, komunitas dan forum.",
+      },
+      {
+        name: "Marketplace",
+        items: "Marketplace multi-penjual, jasa freelancer, aset digital, les online.",
+      },
+      {
+        name: "Chatbot AI",
+        items: "Chatbot AI untuk layanan pelanggan, lalu asisten untuk menulis, mencari, dan mengolah dokumen.",
+      },
+      {
+        name: "Aplikasi bisnis",
+        items: "Kasir (POS), inventori, dan invoice.",
+      },
+      {
+        name: "Hosting dan billing server",
+        items: "Billing VPS dan server game.",
+      },
+    ],
   },
   faq: {
     eyebrow: "FAQ",
@@ -1398,51 +944,50 @@ export const id: Dict = {
     titleLine2: "sering diajukan",
     subPrefix: "Masih ada pertanyaan lain?",
     subLink: "Hubungi kami",
-    subSuffix: "dan tim kami akan membalas dalam 1 hari kerja.",
+    subSuffix: "lewat WhatsApp atau formulir di bawah.",
     items: [
       {
-        q: "Berapa lama pengerjaan sebuah proyek?",
-        a: "Umumnya MVP selesai dalam 4–8 minggu. Untuk platform yang lebih besar, butuh sekitar 3–4 bulan dengan rilis bertahap setiap minggu, jadi Anda bisa memantau progresnya. Timeline pastinya akan kami sampaikan setelah tahap discovery.",
+        q: "Apa bedanya template dan proyek kustom?",
+        a: "Template adalah produk yang sudah berfungsi untuk satu niche, lalu disesuaikan dengan merek Anda. Proyek kustom dibangun untuk kebutuhan yang tidak tercakup template. Saat ini kami menerima proyek kustom; template segera hadir.",
       },
       {
-        q: "Bagaimana cara menentukan harga?",
-        a: "Ada dua pilihan: proyek dengan lingkup dan harga tetap, atau retainer bulanan. Paket yang tercantum adalah titik awal. Setelah konsultasi singkat, kami buatkan penawaran sesuai lingkup dan anggaran Anda.",
+        q: "Seberapa jauh bisa disesuaikan?",
+        a: "Tampilan (warna, font, tata letak), konfigurasi (kolom, alur, metode pembayaran), modul tambahan, hingga modul kustom. Perubahan yang butuh pengembangan baru dihitung terpisah.",
       },
       {
-        q: "Apakah bisa untuk startup yang baru mulai?",
-        a: "Tentu bisa. Sebagian besar proyek kami justru membantu founder mengubah ide menjadi MVP yang siap dipakai dan siap dipresentasikan ke investor, dengan cepat dan tetap berkualitas.",
+        q: "Apa itu paket perawatan?",
+        a: "Layanan bulanan untuk menjaga website tetap aman dan berjalan: pembaruan, backup, pemantauan, dan dukungan. Paket ini segera hadir; rincian dan harganya kami umumkan saat tersedia.",
       },
       {
-        q: "Siapa yang memiliki kode dan desainnya?",
-        a: "Anda. Setelah pelunasan, seluruh source code, file desain, dan aset sepenuhnya menjadi milik Anda. Tidak ada lock-in dan tidak ada biaya tersembunyi.",
+        q: "Siapa pemilik data dan kontennya?",
+        a: "Konten dan data pelanggan adalah milik Anda dan bisa diekspor. Lisensi platform, akses source code, dan kepemilikan modul kustom disepakati di kontrak.",
       },
       {
-        q: "Teknologi apa yang digunakan?",
-        a: "Kami menggunakan Next.js, React, TypeScript, Go, Rust, Laravel, dan React Native, didukung infrastruktur cloud modern seperti PostgreSQL, Redis, Docker, Kubernetes, AWS, Google Cloud, dan Vercel. Semuanya dipilih agar produk mudah dirawat dan dikembangkan oleh tim Anda sendiri.",
+        q: "Berapa lama pengerjaannya dan berapa biayanya?",
+        a: "Proyek kustom mulai dari Rp 15 juta. Biaya dan jadwal pastinya tergantung lingkup, dan kami tuangkan dalam penawaran tertulis setelah konsultasi.",
       },
       {
-        q: "Bisa bekerja sama dengan tim internal kami?",
-        a: "Bisa. Kami bisa bergabung dengan desainer dan engineer Anda, mengisi peran yang masih kosong, atau mengerjakan seluruh proyek dari awal. Semua menyesuaikan cara yang paling efektif untuk tim Anda.",
+        q: "Bisa tambah fitur nanti?",
+        a: "Bisa. Mulai dari yang sederhana, lalu tambah modul seiring bisnis Anda berkembang. Fitur yang butuh pengembangan baru dihitung terpisah.",
       },
       {
-        q: "Bagaimana setelah produk rilis?",
-        a: "Kami menyediakan paket maintenance dan pengembangan lanjutan, mulai dari perbaikan, fitur baru, hingga peningkatan performa. Banyak klien memilih bekerja sama dengan kami dalam jangka panjang.",
+        q: "Bagaimana dengan pembayaran dan keamanan?",
+        a: "Jika website Anda menerima pembayaran, transaksi diproses lewat penyedia pembayaran berlisensi; kami tidak menyimpan dana Anda. Termin pembayaran proyek dan garansi disepakati di kontrak.",
       },
       {
         q: "Bagaimana cara memulainya?",
-        a: "Cukup isi formulir kontak di bawah. Kami akan membalas dalam 1 hari kerja dan menjadwalkan konsultasi gratis selama 30 menit.",
+        a: "Chat kami di WhatsApp atau isi formulir di bawah. Konsultasi pertama gratis dan tanpa kewajiban.",
       },
     ],
   },
   contact: {
-    badge: "Mari berkolaborasi",
-    title: "Ceritakan proyek Anda",
-    subtitle:
-      "Jadwalkan konsultasi gratis selama 30 menit. Kami akan membalas dalam 1 hari kerja dengan langkah selanjutnya yang jelas, tanpa paksaan dan tanpa istilah teknis yang membingungkan.",
+    badge: "Mulai dari sini",
+    title: "Ceritakan kebutuhan Anda",
+    subtitle: "Kami bantu pilih jalur yang paling masuk akal. Konsultasi pertama gratis, tanpa kewajiban dan tanpa istilah teknis yang membingungkan.",
     detailEmail: "Email",
-    detailPhone: "Telepon",
+    detailPhone: "WhatsApp",
     detailLocation: "Lokasi",
-    chipReply: "Balasan dalam 1 hari kerja",
+    chipReply: "Konsultasi gratis",
     chipPrivate: "Data Anda aman",
     name: "Nama",
     namePlaceholder: "Nama lengkap Anda",
@@ -1452,8 +997,8 @@ export const id: Dict = {
     companyPlaceholder: "Nama perusahaan",
     budget: "Anggaran",
     budgetPlaceholder: "Pilih kisaran anggaran",
-    message: "Detail proyek",
-    messagePlaceholder: "Ceritakan produk yang ingin Anda bangun dan target yang ingin dicapai.",
+    message: "Kebutuhan Anda",
+    messagePlaceholder: "Ceritakan bisnis Anda dan apa yang ingin dibuat.",
     optional: "Opsional",
     submit: "Kirim pesan",
     submitting: "Mengirim…",
@@ -1461,13 +1006,14 @@ export const id: Dict = {
     nameRequired: "Nama wajib diisi.",
     emailRequired: "Email wajib diisi.",
     emailInvalid: "Format email tidak valid.",
-    messageRequired: "Ceritakan sedikit tentang proyek Anda.",
-    messageMin: "Detail proyek minimal 10 karakter.",
-    success: "Pesan terkirim. Kami akan membalas dalam 1 hari kerja.",
+    messageRequired: "Ceritakan sedikit tentang kebutuhan Anda.",
+    messageMin: "Detail kebutuhan minimal 10 karakter.",
+    success: "Pesan terkirim. Kami akan segera menghubungi Anda.",
     error: "Pesan gagal terkirim. Silakan coba lagi atau kirim email langsung ke kami.",
     bookTitle: "Ingin diskusi langsung?",
-    bookDesc: "Pilih jadwal konsultasi gratis 30 menit yang sesuai dengan waktu Anda.",
+    bookDesc: "Pilih jadwal konsultasi gratis yang sesuai dengan waktu Anda.",
     bookCta: "Pilih jadwal",
+    waCta: "Chat WhatsApp sekarang",
   },
   notFound: {
     quip: "$ callumc resolve /halaman-ini — Error: route not found",
@@ -1479,7 +1025,7 @@ export const id: Dict = {
   legal: {
     eyebrow: "Legal",
     updatedLabel: "Terakhir diperbarui",
-    updatedDate: "27 Juli 2026",
+    updatedDate: "1 Oktober 2026",
     contactLine: "Ada pertanyaan terkait kebijakan ini? Hubungi kami di",
     backHome: "Kembali ke beranda",
     privacy: {
@@ -1489,7 +1035,7 @@ export const id: Dict = {
       sections: [
         {
           h: "Data yang kami kumpulkan",
-          body: "Saat Anda mengisi formulir kontak, kami menerima data yang Anda masukkan, yaitu nama, email, perusahaan, kisaran anggaran, dan pesan. Selain itu, situs ini menyimpan pilihan bahasa dan mata uang di browser Anda sendiri. Data tersebut tidak pernah dikirim ke server kami.",
+          body: "Saat Anda mengisi formulir kontak, kami menerima data yang Anda masukkan, yaitu nama, email, perusahaan, kisaran anggaran, dan pesan. Formulir juga mengirimkan dari mana Anda menemukan kami (tag kampanye seperti utm_source dan situs perujuk), yang disimpan di browser Anda selama sesi berjalan. Pilihan bahasa tetap tersimpan di browser Anda dan tidak pernah dikirim ke server kami.",
         },
         {
           h: "Penggunaan data",
@@ -1505,7 +1051,7 @@ export const id: Dict = {
         },
         {
           h: "Hak Anda",
-          body: "Anda berhak meminta akses, perbaikan, atau penghapusan data pribadi Anda, serta menarik persetujuan kapan saja melalui email. Kami akan menanggapi permintaan Anda dalam 1 hari kerja.",
+          body: "Anda berhak meminta akses, perbaikan, atau penghapusan data pribadi Anda, serta menarik persetujuan kapan saja melalui email.",
         },
         {
           h: "Perubahan kebijakan",
@@ -1528,11 +1074,11 @@ export const id: Dict = {
         },
         {
           h: "Pembayaran",
-          body: "Pembayaran dilakukan dalam beberapa termin, umumnya 50% di awal, 30% di tengah pengerjaan, dan 20% sebelum rilis, kecuali diatur berbeda dalam proposal.",
+          body: "Ketentuan pembayaran, termasuk uang muka dan termin, diatur dalam proposal atau kontrak tertulis untuk setiap proyek.",
         },
         {
           h: "Hak kekayaan intelektual",
-          body: "Setelah pelunasan, source code, file desain, dan aset proyek sepenuhnya menjadi milik Anda. Kami tetap boleh menampilkan hasil pekerjaan tersebut di portofolio kami, kecuali ada kesepakatan lain.",
+          body: "Konten, data pelanggan, dan aset merek Anda tetap milik Anda dan bisa diekspor. Lisensi platform kami, akses source code, dan kepemilikan modul kustom diatur dalam kontrak untuk setiap proyek.",
         },
         {
           h: "Batasan tanggung jawab",
@@ -1551,7 +1097,7 @@ export const id: Dict = {
       sections: [
         {
           h: "Data yang disimpan",
-          body: "Hanya dua pengaturan kecil di browser Anda: pilihan bahasa (Inggris atau Indonesia) dan mata uang (USD atau IDR). Tema terang atau gelap diatur oleh browser Anda sendiri.",
+          body: "Pilihan bahasa (Indonesia atau Inggris) di local storage, dan khusus selama sesi berjalan, dari mana Anda datang (tag kampanye dan situs perujuk) agar bisa disertakan di formulir kontak. Tema terang atau gelap diatur oleh browser Anda sendiri.",
         },
         {
           h: "Yang tidak kami lakukan",
@@ -1559,7 +1105,7 @@ export const id: Dict = {
         },
         {
           h: "Mengatur data tersimpan",
-          body: "Anda bisa menghapus data ini kapan saja lewat pengaturan browser. Situs tetap berfungsi normal, hanya saja pilihan bahasa dan mata uang Anda akan kembali ke pengaturan awal.",
+          body: "Anda bisa menghapus data ini kapan saja lewat pengaturan browser. Situs tetap berfungsi normal, hanya saja pilihan bahasa Anda akan kembali ke pengaturan awal.",
         },
         {
           h: "Rencana ke depan",
@@ -1680,8 +1226,7 @@ export const id: Dict = {
     ctaButton: "Hubungi kami",
   },
   footer: {
-    description:
-      "Callum C adalah studio produk yang mendesain dan membangun website, aplikasi mobile, dan platform SaaS untuk startup maupun perusahaan, dari MVP hingga skala besar.",
+    description: "Callum C membuat website dan software kustom untuk bisnis, dengan template siap pakai per niche yang segera hadir.",
     colCompany: "Perusahaan",
     colResources: "Informasi",
     colLegal: "Legal",
@@ -1692,7 +1237,7 @@ export const id: Dict = {
     linkTerms: "Syarat & Ketentuan",
     linkCookies: "Cookie",
     rights: "Hak cipta dilindungi.",
-    cta: "Mulai proyek",
+    cta: "Konsultasi gratis",
   },
 };
 

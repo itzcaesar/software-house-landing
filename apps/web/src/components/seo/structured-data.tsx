@@ -1,7 +1,6 @@
 import { siteConfig } from "@/lib/site";
-import { en } from "@/lib/dictionaries";
 
-/** JSON-LD structured data for rich results (Organization, Website, Services, FAQ). */
+/** JSON-LD structured data for rich results (Organization, Website, Service, FAQ). */
 export function StructuredData() {
   const graph = [
     {
@@ -13,14 +12,13 @@ export function StructuredData() {
       description: siteConfig.description,
       logo: `${siteConfig.url}/icon`,
       email: siteConfig.email,
-      telephone: siteConfig.phone,
-      foundingDate: String(siteConfig.foundedYear),
+      ...(siteConfig.whatsapp && { telephone: `+${siteConfig.whatsapp}` }),
       sameAs: Object.values(siteConfig.socials).filter(Boolean),
       contactPoint: {
         "@type": "ContactPoint",
         email: siteConfig.email,
         contactType: "sales",
-        availableLanguage: ["en", "id"],
+        availableLanguage: ["id", "en"],
       },
     },
     {
@@ -30,7 +28,7 @@ export function StructuredData() {
       name: siteConfig.name,
       description: siteConfig.description,
       publisher: { "@id": `${siteConfig.url}/#organization` },
-      inLanguage: "en",
+      inLanguage: "id",
     },
     {
       "@type": "ProfessionalService",
@@ -39,20 +37,8 @@ export function StructuredData() {
       image: `${siteConfig.url}/opengraph-image`,
       url: siteConfig.url,
       description: siteConfig.description,
-      areaServed: "Worldwide",
+      areaServed: "Indonesia",
       provider: { "@id": `${siteConfig.url}/#organization` },
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Software development services",
-        itemListElement: en.services.items.map((s) => ({
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: s.title,
-            description: s.description,
-          },
-        })),
-      },
     },
   ];
 

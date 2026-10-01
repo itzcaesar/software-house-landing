@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, waLink } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
 import { Logo } from "@/components/common/logo";
 import { ThemeToggle } from "@/components/common/theme-toggle";
@@ -22,10 +22,11 @@ export function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const navItems = [
-    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.services, href: "/#untuk-siapa" },
+    { label: t.nav.niches, href: "/#niche" },
     { label: t.nav.process, href: "/#process" },
+    { label: t.nav.pricing, href: "/#pricing" },
     { label: t.nav.about, href: "/about" },
-    { label: t.nav.pricing, href: "/pricing" },
     { label: t.nav.faq, href: "/#faq" },
   ];
 
@@ -113,7 +114,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <CtaButton size="sm" href="/#contact" className="hidden md:inline-flex">
+          <CtaButton size="sm" href={waLink(t.wa.consult)} className="hidden md:inline-flex">
             {t.nav.startProject}
             <ArrowRight className="size-4" />
           </CtaButton>
@@ -158,7 +159,7 @@ export function Navbar() {
                   nativeButton={false}
                   className="h-10 rounded-xl"
                   render={
-                    <Link href="/#contact" onClick={() => setOpen(false)}>
+                    <Link href={waLink(t.wa.consult)} onClick={() => setOpen(false)}>
                       {t.nav.startProject}
                       <ArrowRight className="size-4" />
                     </Link>

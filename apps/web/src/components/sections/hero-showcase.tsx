@@ -21,9 +21,9 @@ import {
 import { cn } from "@/lib/utils";
 
 const kpis = [
-  { label: "Revenue", value: "$128.4k", up: "+18%", icon: DollarSign },
-  { label: "Active users", value: "24,918", up: "+9%", icon: Users },
-  { label: "Conversion", value: "6.4%", up: "+2.1%", icon: Percent },
+  { label: "Penjualan", value: "Rp 128,4 jt", up: "+18%", icon: DollarSign },
+  { label: "Pengunjung", value: "24.918", up: "+9%", icon: Users },
+  { label: "Konversi", value: "6,4%", up: "+2,1%", icon: Percent },
 ];
 
 const bars = [38, 52, 44, 61, 55, 72, 64, 80, 71, 86, 78, 94];

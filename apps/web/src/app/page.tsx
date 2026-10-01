@@ -6,28 +6,31 @@ import { Process } from "@/components/sections/process";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Pricing } from "@/components/sections/pricing";
+import { Niches } from "@/components/sections/niches";
 import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
 import { FaqJsonLd } from "@/components/seo/structured-data";
-import { en } from "@/lib/dictionaries";
+import { id } from "@/lib/dictionaries";
 import { SHOW_PORTFOLIO } from "@/lib/content";
 
-// Section on/off switches — flip to re-enable (components stay in the tree).
+// Proof sections stay off until real, approved material exists:
+// [ISI: logo klien] (TrustedBy), [ISI: testimoni asli] (Testimonials), [ISI: portofolio asli] (SHOW_PORTFOLIO).
 const SHOW_TRUSTED_BY = false;
 const SHOW_TESTIMONIALS = false;
 
 export default function HomePage() {
   return (
     <>
-      <FaqJsonLd id="faq" items={en.faq.items} />
+      <FaqJsonLd id="faq" items={id.faq.items} />
       <Hero />
       {SHOW_TRUSTED_BY && <TrustedBy />}
       <Services />
       <WhyUs />
       <Process />
+      <Pricing />
+      <Niches />
       {SHOW_PORTFOLIO && <Portfolio />}
       {SHOW_TESTIMONIALS && <Testimonials />}
-      <Pricing />
       <Faq />
       <Contact />
     </>

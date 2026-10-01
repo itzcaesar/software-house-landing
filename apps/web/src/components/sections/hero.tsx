@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Sparkles, LayoutGrid, MessageCircle } from "lucide-react";
 import { useDict } from "@/lib/i18n";
+import { waLink } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuroraBackground, GridBackdrop } from "@/components/common/backgrounds";
@@ -14,32 +15,6 @@ const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
-
-const STACK = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Laravel",
-  "Go",
-  "Rust",
-  "Node.js",
-  "Python",
-  "GraphQL",
-  "React Native",
-  "Flutter",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Supabase",
-  "Firebase",
-  "Docker",
-  "Kubernetes",
-  "Terraform",
-  "Vercel",
-  "AWS",
-  "Google Cloud",
-];
 
 export function Hero() {
   const t = useDict();
@@ -85,7 +60,7 @@ export function Hero() {
         >
           <motion.a
             variants={item}
-            href="#services"
+            href="#niche"
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 py-1.5 pr-3 pl-1.5 text-sm text-muted-foreground shadow-soft transition-colors hover:text-foreground"
           >
             <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-brand-3 via-brand to-brand-2 px-2.5 py-0.5 text-xs font-semibold text-white">
@@ -124,9 +99,9 @@ export function Hero() {
             variants={item}
             className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
           >
-            <CtaButton size="lg" href="#contact" className="w-full sm:w-auto">
+            <CtaButton size="lg" href={waLink(t.wa.consult)} className="w-full sm:w-auto">
+              <MessageCircle className="size-4" />
               {t.hero.primaryCta}
-              <ArrowRight className="size-4" />
             </CtaButton>
             <Button
               size="lg"
@@ -134,14 +109,13 @@ export function Hero() {
               nativeButton={false}
               className="h-12 w-full rounded-full px-6 text-[0.95rem] sm:w-auto"
               render={
-                <a href="#services">
-                  <Play className="size-4" />
+                <a href="#niche">
+                  <LayoutGrid className="size-4" />
                   {t.hero.secondaryCta}
                 </a>
               }
             />
           </motion.div>
-
         </motion.div>
       </div>
 
@@ -152,31 +126,6 @@ export function Hero() {
         className="mx-auto mt-12 w-full max-w-6xl px-4 sm:mt-16 sm:px-6 lg:mt-20 lg:px-8"
       >
         <HeroShowcase />
-      </motion.div>
-
-      {/* tech stack marquee */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
-        className="mt-16 lg:mt-20"
-      >
-        <p className="text-center font-mono text-[11px] tracking-[0.22em] text-muted-foreground/80 uppercase">
-          {t.hero.stackLabel}
-        </p>
-        <div className="relative mt-4 w-full overflow-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-          <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap [animation-duration:60s]">
-            {[...STACK, ...STACK].map((tech, i) => (
-              <span
-                key={i}
-                className="flex items-center gap-10 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {tech}
-                <span aria-hidden className="size-1 rounded-full bg-brand/60" />
-              </span>
-            ))}
-          </div>
-        </div>
       </motion.div>
     </section>
   );
