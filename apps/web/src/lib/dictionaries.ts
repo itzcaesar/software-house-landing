@@ -15,6 +15,7 @@ export const en = {
     faq: "FAQ",
     startProject: "Free consultation",
     servicesPage: "Services",
+    customPage: "Custom projects",
   },
   a11y: {
     language: "Language",
@@ -161,6 +162,84 @@ export const en = {
     ctaTitle: "Have a project in mind?",
     ctaDesc: "Tell us what you want to build. We'll suggest scope and stack in a free consultation.",
     ctaButton: "Free consultation",
+  },
+  customPage: {
+    eyebrow: "Custom projects",
+    title: "Custom website and software development",
+    subtitle: "For businesses that need more than a template: a website, internal system, or app built around how you work. Scope, timeline, and cost are agreed in writing before we start.",
+    priceLabel: "From",
+    price: "IDR 15 million",
+    cta: "Free consultation on WhatsApp",
+    secondaryCta: "Services and tech stack",
+    buildEyebrow: "What we build",
+    buildTitle: "From websites to internal systems",
+    builds: [
+      {
+        title: "Company websites and landing pages",
+        description: "A credible, fast website with a contact form and WhatsApp button to bring in new leads.",
+      },
+      {
+        title: "Custom online stores",
+        description: "Catalogue, cart, and checkout with payments through a licensed provider, shaped around how you sell.",
+      },
+      {
+        title: "Internal systems and admin dashboards",
+        description: "Manage orders, stock, schedules, or customer data in one place, the way your team works.",
+      },
+      {
+        title: "Web apps and SaaS",
+        description: "Digital products with login, subscriptions, and dashboards, ready to grow with your users.",
+      },
+      {
+        title: "Mobile apps",
+        description: "iOS and Android apps from a single codebase, connected to the same system.",
+      },
+      {
+        title: "Integrations and AI features",
+        description: "Connect WhatsApp, payments, or other APIs, and add AI features like a customer-support chatbot.",
+      },
+    ],
+    getEyebrow: "What you get",
+    getTitle: "Clear from the start, tidy through launch",
+    gets: [
+      "A written quote with scope, timeline, and cost before any work begins",
+      "Design tailored to your brand, not a raw template",
+      "Mobile-friendly, fast-loading pages with clean SEO basics",
+      "Testing together with you before the site or app goes live",
+      "One team from consultation to post-launch support",
+    ],
+    costEyebrow: "Cost",
+    costTitle: "How much does a custom website cost?",
+    costIntro: "Custom projects start from IDR 15 million. The final figure depends on scope, and goes into a written quote after the consultation. What moves the price most:",
+    costFactors: [
+      "Number of pages, features, and user roles",
+      "Integrations such as payments, WhatsApp, or other systems",
+      "Custom design and branding needs",
+      "Content readiness: copy, photos, and product data",
+    ],
+    faq: [
+      {
+        q: "How much does website development cost?",
+        a: "Custom projects start from IDR 15 million. The exact cost depends on scope and goes into a written quote after a free consultation.",
+      },
+      {
+        q: "How long does it take?",
+        a: "It depends on scope and how ready your content is. The timeline is set out in the written quote before work begins.",
+      },
+      {
+        q: "Can you build a mobile app too?",
+        a: "Yes. We build iOS and Android apps from a single codebase, and they can connect to the same website or system.",
+      },
+      {
+        q: "Are domain and hosting included?",
+        a: "We discuss domain and hosting during the consultation and include them in the quote. Monthly care plans for hosting, updates, and backups are coming soon.",
+      },
+      {
+        q: "What if a template fits my needs?",
+        a: "Ready-made niche templates are coming soon and are usually more affordable. Join the waitlist on the home page, or ask us first which path makes the most sense.",
+      },
+    ],
+    crumb: "Custom projects",
   },
   why: {
     eyebrow: "Why this approach",
@@ -365,6 +444,7 @@ export const en = {
       },
     ],
     note: "Final pricing depends on scope. We send a written quote after the consultation; the figure above is a starting point, not a binding offer.",
+    customLink: "Custom project details",
   },
   status: {
     live: "Available",
@@ -844,6 +924,7 @@ export const id: Dict = {
     faq: "FAQ",
     startProject: "Konsultasi gratis",
     servicesPage: "Layanan",
+    customPage: "Proyek kustom",
   },
   a11y: {
     language: "Bahasa",
@@ -990,6 +1071,84 @@ export const id: Dict = {
     ctaTitle: "Punya proyek yang ingin dibangun?",
     ctaDesc: "Ceritakan kebutuhan Anda. Kami sarankan lingkup dan teknologi yang tepat dalam konsultasi gratis.",
     ctaButton: "Konsultasi gratis",
+  },
+  customPage: {
+    eyebrow: "Proyek kustom",
+    title: "Jasa pembuatan website dan software kustom",
+    subtitle: "Untuk bisnis yang butuh lebih dari template: website, sistem internal, atau aplikasi yang dibangun sesuai alur kerja Anda. Lingkup, jadwal, dan biaya disepakati tertulis sebelum mulai.",
+    priceLabel: "Mulai",
+    price: "Rp 15 juta",
+    cta: "Konsultasi gratis via WhatsApp",
+    secondaryCta: "Layanan dan teknologi",
+    buildEyebrow: "Yang bisa kami buat",
+    buildTitle: "Dari website sampai sistem internal",
+    builds: [
+      {
+        title: "Website perusahaan dan landing page",
+        description: "Website yang kredibel dan cepat, lengkap dengan formulir dan tombol WhatsApp untuk menjaring calon klien.",
+      },
+      {
+        title: "Toko online kustom",
+        description: "Katalog, keranjang, dan checkout dengan pembayaran lewat penyedia berlisensi, disesuaikan dengan cara Anda berjualan.",
+      },
+      {
+        title: "Sistem internal dan dasbor admin",
+        description: "Kelola pesanan, stok, jadwal, atau data pelanggan di satu tempat, sesuai alur kerja tim Anda.",
+      },
+      {
+        title: "Aplikasi web dan SaaS",
+        description: "Produk digital dengan login, langganan, dan dasbor, siap dikembangkan seiring pengguna bertambah.",
+      },
+      {
+        title: "Aplikasi mobile",
+        description: "Aplikasi iOS dan Android dari satu basis kode, terhubung dengan sistem yang sama.",
+      },
+      {
+        title: "Integrasi dan fitur AI",
+        description: "Hubungkan WhatsApp, pembayaran, atau API lain, dan tambahkan fitur AI seperti chatbot layanan pelanggan.",
+      },
+    ],
+    getEyebrow: "Yang Anda dapatkan",
+    getTitle: "Jelas sejak awal, rapi sampai tayang",
+    gets: [
+      "Penawaran tertulis berisi lingkup, jadwal, dan biaya sebelum pekerjaan dimulai",
+      "Desain yang disesuaikan dengan merek Anda, bukan template mentah",
+      "Tampilan ramah ponsel, cepat dimuat, dan dasar SEO yang rapi",
+      "Pengujian bersama Anda sebelum website atau aplikasi tayang",
+      "Satu tim dari konsultasi sampai dukungan setelah peluncuran",
+    ],
+    costEyebrow: "Biaya",
+    costTitle: "Berapa biaya pembuatan website kustom?",
+    costIntro: "Proyek kustom mulai dari Rp 15 juta. Angka akhirnya tergantung lingkup, dan kami tuliskan di penawaran setelah konsultasi. Yang paling memengaruhi biaya:",
+    costFactors: [
+      "Jumlah halaman, fitur, dan peran pengguna",
+      "Integrasi seperti pembayaran, WhatsApp, atau sistem lain",
+      "Desain kustom dan kebutuhan branding",
+      "Kesiapan konten: teks, foto, dan data produk",
+    ],
+    faq: [
+      {
+        q: "Berapa biaya jasa pembuatan website?",
+        a: "Proyek kustom mulai dari Rp 15 juta. Biaya pastinya tergantung lingkup dan kami tuliskan dalam penawaran setelah konsultasi gratis.",
+      },
+      {
+        q: "Berapa lama proses pembuatannya?",
+        a: "Tergantung lingkup dan kesiapan konten. Jadwalnya kami cantumkan di penawaran tertulis sebelum pekerjaan dimulai.",
+      },
+      {
+        q: "Apakah bisa membuat aplikasi mobile juga?",
+        a: "Bisa. Kami membuat aplikasi iOS dan Android dari satu basis kode, dan bisa terhubung dengan website atau sistem yang sama.",
+      },
+      {
+        q: "Apakah sudah termasuk domain dan hosting?",
+        a: "Kebutuhan domain dan hosting kami bahas saat konsultasi dan cantumkan di penawaran. Paket perawatan bulanan untuk hosting, pembaruan, dan backup segera hadir.",
+      },
+      {
+        q: "Bagaimana kalau kebutuhan saya cocok dengan template?",
+        a: "Template siap pakai per niche segera hadir dan biasanya lebih hemat. Daftar waitlist di halaman utama, atau konsultasikan dulu untuk memilih jalur yang paling masuk akal.",
+      },
+    ],
+    crumb: "Proyek kustom",
   },
   why: {
     eyebrow: "Kenapa pendekatan ini",
@@ -1194,6 +1353,7 @@ export const id: Dict = {
       },
     ],
     note: "Harga akhir mengikuti lingkup pekerjaan. Kami kirim penawaran tertulis setelah konsultasi; angka di atas adalah titik awal, bukan penawaran yang mengikat.",
+    customLink: "Detail proyek kustom",
   },
   status: {
     live: "Tersedia",

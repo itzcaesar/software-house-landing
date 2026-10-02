@@ -65,6 +65,8 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
+  // Google Search Console ownership check; set GOOGLE_SITE_VERIFICATION in Vercel.
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
 };
 
 export const viewport: Viewport = {

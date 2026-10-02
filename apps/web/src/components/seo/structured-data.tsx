@@ -39,6 +39,12 @@ export function StructuredData() {
       description: siteConfig.description,
       areaServed: "Indonesia",
       provider: { "@id": `${siteConfig.url}/#organization` },
+      makesOffer: {
+        "@type": "Offer",
+        url: `${siteConfig.url}/jasa-pembuatan-website`,
+        itemOffered: { "@type": "Service", name: "Jasa pembuatan website dan software kustom" },
+        priceSpecification: { "@type": "PriceSpecification", minPrice: 15_000_000, priceCurrency: "IDR" },
+      },
     },
   ];
 
@@ -49,6 +55,31 @@ export function StructuredData() {
       type="application/ld+json"
       // Structured data is static & trusted (built from site config).
       dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
+/** Render any JSON-LD object (page-scoped schema: breadcrumbs, services, offers). */
+export function JsonLd({ data }: { data: Record<string, unknown> }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...data }) }}
+    />
+  );
+}
+
+/** BreadcrumbList for a subpage: Home → page. */
+export function BreadcrumbJsonLd({ name, path }: { name: string; path: string }) {
+  return (
+    <JsonLd
+      data={{
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Beranda", item: siteConfig.url },
+          { "@type": "ListItem", position: 2, name, item: `${siteConfig.url}${path}` },
+        ],
+      }}
     />
   );
 }

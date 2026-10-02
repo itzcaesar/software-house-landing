@@ -10,8 +10,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export function Faq() {
+/** FAQ accordion; pass `items` for a page-specific list (defaults to the home FAQ). */
+export function Faq({ items }: { items?: readonly { q: string; a: string }[] }) {
   const t = useDict();
+  const list = items ?? t.faq.items;
 
   return (
     <Section id="faq">
@@ -33,7 +35,7 @@ export function Faq() {
 
         <Reveal delay={0.1}>
           <Accordion multiple={false} className="w-full">
-            {t.faq.items.map((faq, i) => (
+            {list.map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
                 <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
                   {faq.q}

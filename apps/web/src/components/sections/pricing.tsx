@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, Wrench, LayoutTemplate, ShieldCheck } from "lucide-react";
 import { useDict } from "@/lib/i18n";
 import { waLink } from "@/lib/site";
@@ -54,6 +55,11 @@ export function Pricing() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
                   {card.description}
                 </p>
+                {live && (
+                  <Link href="/jasa-pembuatan-website" className="mt-3 text-sm font-medium text-brand hover:underline">
+                    {t.pricing.customLink}
+                  </Link>
+                )}
                 {card.price && (
                   <p className="mt-6 flex items-baseline gap-2">
                     <span className="text-xs tracking-wide text-muted-foreground uppercase">
