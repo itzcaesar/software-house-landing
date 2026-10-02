@@ -86,18 +86,35 @@ export const processMeta: { icon: LucideIcon; step: string }[] = [
 ];
 
 /** Niche families, zipped with `niches.families` by index. All coming soon until the owner says otherwise. */
-export type NichePreview = "hero" | "grid" | "calendar" | "list" | "chat";
+export type NichePreview =
+  | "company"
+  | "store"
+  | "topup"
+  | "booking"
+  | "learning"
+  | "marketplace"
+  | "ai"
+  | "pos"
+  | "hosting";
+
+/** Illustrative prices for the niche previews (sample shop data, not our pricing). Index-aligned with `samples`. */
+export const nicheSamplePrices: Partial<Record<NichePreview, number[]>> = {
+  store: [22_000, 18_000, 12_000, 15_000, 25_000, 10_000],
+  topup: [10_000, 25_000, 50_000, 100_000],
+  pos: [22_000, 18_000, 5_000],
+  hosting: [75_000, 140_000, 120_000],
+};
 
 export const nicheMeta: { icon: LucideIcon; preview: NichePreview }[] = [
-  { icon: Building2, preview: "hero" },
-  { icon: ShoppingBag, preview: "grid" },
-  { icon: Smartphone, preview: "grid" },
-  { icon: CalendarCheck, preview: "calendar" },
-  { icon: GraduationCap, preview: "list" },
-  { icon: Store, preview: "grid" },
-  { icon: Bot, preview: "chat" },
-  { icon: Calculator, preview: "list" },
-  { icon: Server, preview: "list" },
+  { icon: Building2, preview: "company" },
+  { icon: ShoppingBag, preview: "store" },
+  { icon: Smartphone, preview: "topup" },
+  { icon: CalendarCheck, preview: "booking" },
+  { icon: GraduationCap, preview: "learning" },
+  { icon: Store, preview: "marketplace" },
+  { icon: Bot, preview: "ai" },
+  { icon: Calculator, preview: "pos" },
+  { icon: Server, preview: "hosting" },
 ];
 
 /** Brand colors for known tech tags — rendered as a dot inside tag chips. */
