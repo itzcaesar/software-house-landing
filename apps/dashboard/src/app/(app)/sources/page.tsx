@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getDb, leads } from "@craftbyte/db";
-import { formatUsdCompact } from "@/lib/budget";
+import { formatIdrCompact } from "@/lib/budget";
 import { channelOf, summarize, type SourceRow } from "@/lib/sources";
 import { cn } from "@/lib/utils";
 
@@ -138,10 +138,10 @@ function SourceTable({
                   )}
                 </td>
                 <td className="px-4 py-3 text-right tabular-nums text-muted-foreground">
-                  {r.openValue > 0 ? formatUsdCompact(r.openValue) : "—"}
+                  {r.openValue > 0 ? formatIdrCompact(r.openValue) : "—"}
                 </td>
                 <td className="px-4 py-3 text-right font-medium tabular-nums text-emerald-300">
-                  {r.wonValue > 0 ? formatUsdCompact(r.wonValue) : "—"}
+                  {r.wonValue > 0 ? formatIdrCompact(r.wonValue) : "—"}
                 </td>
               </tr>
             ))}

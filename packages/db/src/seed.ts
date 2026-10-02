@@ -18,11 +18,11 @@ const FOUNDERS = [
 ];
 
 const DEMO_LEADS = [
-  { name: "Amara Wijaya", email: "amara@fintrail.example", company: "Fintrail", budget: "$15k – $50k", message: "We need a dashboard rebuild for our personal-finance product. Timeline is aggressive — can we talk this week?", status: "new" as const },
-  { name: "Daniel Reyes", email: "daniel@nomad.example", company: "Nomad", budget: "$5k – $15k", message: "Looking for a React Native team to take over our travel app MVP and ship it to both stores.", status: "contacted" as const },
-  { name: "Sarah Chen", email: "sarah@atlas.example", company: "Atlas Health", budget: "$50k+", message: "Patient portal + design system. HIPAA experience required. Send your process and a ballpark.", status: "discovery" as const },
-  { name: "Marcus Bauer", email: "marcus@lumen.example", company: "Lumen", budget: "$15k – $50k", message: "We want RAG search over internal docs with citations. Prototype first, then production.", status: "proposal" as const },
-  { name: "Priya Nair", email: "priya@cobalt.example", company: "Cobalt Commerce", budget: "$15k – $50k", message: "Headless storefront migration — current site takes 4s to load on mobile. Help.", status: "won" as const },
+  { name: "Amara Wijaya", email: "amara@fintrail.example", company: "Fintrail", budget: "Rp 50 – 150 jt", message: "We need a dashboard rebuild for our personal-finance product. Timeline is aggressive — can we talk this week?", status: "new" as const },
+  { name: "Daniel Reyes", email: "daniel@nomad.example", company: "Nomad", budget: "Rp 15 – 50 jt", message: "Looking for a React Native team to take over our travel app MVP and ship it to both stores.", status: "contacted" as const },
+  { name: "Sarah Chen", email: "sarah@atlas.example", company: "Atlas Health", budget: "Rp 150 jt+", message: "Patient portal + design system. HIPAA experience required. Send your process and a ballpark.", status: "discovery" as const },
+  { name: "Marcus Bauer", email: "marcus@lumen.example", company: "Lumen", budget: "Rp 50 – 150 jt", message: "We want RAG search over internal docs with citations. Prototype first, then production.", status: "proposal" as const },
+  { name: "Priya Nair", email: "priya@cobalt.example", company: "Cobalt Commerce", budget: "Rp 50 – 150 jt", message: "Headless storefront migration — current site takes 4s to load on mobile. Help.", status: "won" as const },
 ];
 
 async function main() {

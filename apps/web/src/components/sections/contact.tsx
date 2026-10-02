@@ -24,7 +24,8 @@ type FormValues = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const budgets = ["< $5k", "$5k – $15k", "$15k – $50k", "$50k+"];
+// Keep in sync with BUDGET_VALUES in apps/dashboard/src/lib/budget.ts.
+const budgets = ["< Rp 15 jt", "Rp 15 – 50 jt", "Rp 50 – 150 jt", "Rp 150 jt+"];
 
 export function Contact() {
   const t = useDict();

@@ -20,7 +20,7 @@ import {
   LostReasonForm,
 } from "@/components/lead-controls";
 import { EditLeadButton } from "@/components/add-lead";
-import { budgetValue, formatUsdCompact } from "@/lib/budget";
+import { budgetValue, formatIdr, formatIdrCompact } from "@/lib/budget";
 import { NoteForm } from "@/components/note-form";
 import { FollowUpForm } from "@/components/follow-up-form";
 import { cn } from "@/lib/utils";
@@ -81,7 +81,7 @@ export default async function LeadDetailPage({
             {lead.quotedValue !== null && (
               <span className="inline-flex items-center gap-1.5 font-medium text-emerald-300">
                 <BadgeDollarSign className="size-3.5" />
-                Quoted ${lead.quotedValue.toLocaleString("en-US")}
+                Quoted {formatIdr(lead.quotedValue)}
               </span>
             )}
           </p>
@@ -192,7 +192,7 @@ export default async function LeadDetailPage({
               Deal value
               {lead.quotedValue === null && budgetValue(lead.budget) > 0 && (
                 <span className="normal-case tracking-normal">
-                  est. ~{formatUsdCompact(budgetValue(lead.budget))} from budget
+                  est. ~{formatIdrCompact(budgetValue(lead.budget))} from budget
                 </span>
               )}
             </p>

@@ -18,7 +18,7 @@ import { toast } from "sonner";
 import { CalendarClock, Flame, MessageSquare, Search } from "lucide-react";
 import { LEAD_STATUSES, type Lead, type LeadStatus, type User } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
-import { formatUsdCompact, leadValue } from "@/lib/budget";
+import { formatIdrCompact, leadValue } from "@/lib/budget";
 import { initials, timeAgo } from "@/lib/format";
 import { setLeadStatus } from "@/app/actions";
 import { cn } from "@/lib/utils";
@@ -114,7 +114,7 @@ export function Board({ leads, users, noteCounts }: BoardProps) {
         <span className="ml-auto rounded-full border border-border bg-card px-3.5 py-1.5 text-sm text-muted-foreground">
           Open pipeline{" "}
           <span className="font-semibold text-brand-2 tabular-nums">
-            ~{formatUsdCompact(pipelineValue)}
+            ~{formatIdrCompact(pipelineValue)}
           </span>
         </span>
       </div>
@@ -176,7 +176,7 @@ function Column({
         </span>
         {value > 0 && (
           <span className="ml-auto text-xs text-muted-foreground tabular-nums">
-            ~{formatUsdCompact(value)}
+            ~{formatIdrCompact(value)}
           </span>
         )}
       </div>
@@ -294,7 +294,7 @@ function Card({
       <div className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[11px]">
         {lead.quotedValue !== null ? (
           <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 font-medium text-emerald-300 ring-1 ring-emerald-500/20">
-            {formatUsdCompact(lead.quotedValue)} quoted
+            {formatIdrCompact(lead.quotedValue)} quoted
           </span>
         ) : (
           lead.budget && (

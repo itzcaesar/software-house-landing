@@ -97,7 +97,7 @@ const inputClass =
 const saveClass =
   "inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:border-brand/40 hover:text-brand-2 disabled:opacity-60";
 
-/** Actual quoted deal value (USD) — overrides the budget midpoint in pipeline math. */
+/** Actual quoted deal value (IDR) — overrides the budget midpoint in pipeline math. */
 export function QuoteForm({ leadId, value }: { leadId: number; value: number | null }) {
   const [pending, startTransition] = useTransition();
   const router = useRouter();
@@ -114,15 +114,15 @@ export function QuoteForm({ leadId, value }: { leadId: number; value: number | n
     >
       <div className="relative flex-1">
         <span className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-sm text-muted-foreground">
-          $
+          Rp
         </span>
         <input
           name="value"
           type="number"
           min={0}
           defaultValue={value ?? ""}
-          placeholder="e.g. 24000"
-          className={`${inputClass} pl-6 tabular-nums`}
+          placeholder="e.g. 25000000"
+          className={`${inputClass} pl-9 tabular-nums`}
         />
       </div>
       <button type="submit" disabled={pending} className={saveClass}>

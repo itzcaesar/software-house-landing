@@ -13,7 +13,7 @@ import {
 import { getDb, leads, activities, users, type Lead } from "@craftbyte/db";
 import { STATUS_META } from "@/lib/status";
 import { timeAgo } from "@/lib/format";
-import { formatUsdCompact, leadValue } from "@/lib/budget";
+import { formatIdrCompact, leadValue } from "@/lib/budget";
 import { LeadsOverTime, StatusBreakdown } from "@/components/charts";
 import { cn } from "@/lib/utils";
 
@@ -52,8 +52,8 @@ export default async function OverviewPage() {
     { label: "New this week", value: String(newThisWeek), icon: Sparkles },
     { label: "In progress", value: String(inProgress), icon: Loader },
     { label: "Win rate", value: winRate === null ? "—" : `${winRate}%`, icon: Trophy },
-    { label: "Open pipeline", value: formatUsdCompact(openPipeline), icon: CircleDollarSign },
-    { label: "Won revenue", value: formatUsdCompact(wonRevenue), icon: BadgeCheck },
+    { label: "Open pipeline", value: formatIdrCompact(openPipeline), icon: CircleDollarSign },
+    { label: "Won revenue", value: formatIdrCompact(wonRevenue), icon: BadgeCheck },
   ];
 
   return (

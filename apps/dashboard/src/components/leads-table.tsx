@@ -11,6 +11,7 @@ import { STATUS_META } from "@/lib/status";
 import { formatDate, initials } from "@/lib/format";
 import { bulkUpdateLeads } from "@/app/actions";
 import { cn } from "@/lib/utils";
+import { formatIdr } from "@/lib/budget";
 
 type Member = Pick<User, "id" | "name" | "disabledAt">;
 
@@ -106,7 +107,7 @@ export function LeadsTable({ rows, users }: { rows: Lead[]; users: Member[] }) {
                   <td className="px-4 py-3 whitespace-nowrap">
                     {lead.quotedValue !== null ? (
                       <span className="font-medium text-emerald-300 tabular-nums">
-                        ${lead.quotedValue.toLocaleString("en-US")}
+                        {formatIdr(lead.quotedValue)}
                       </span>
                     ) : (
                       <span className="text-muted-foreground">{lead.budget || "—"}</span>
