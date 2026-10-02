@@ -662,16 +662,15 @@ export const en = {
   },
   about: {
     eyebrow: "About Callum C",
-    heroLead: "A young studio with an old-school obsession:",
-    heroHighlight: "craft",
+    heroLead: "A small team building websites and software for",
+    heroHighlight: "your business",
     heroTrail: ".",
-    heroSubtitle:
-      "We're at the beginning of our story. No inflated numbers, no borrowed logos — just a senior team, a sharp point of view, and work we're proud to sign.",
+    heroSubtitle: "We're at the beginning of our story. No inflated numbers, no borrowed logos — just a team taking on custom projects today, and building ready-made templates for many business niches.",
     marquee: [
       "Never ship average",
-      "Weeks, not quarters",
+      "Custom projects now, templates soon",
       "Design-led engineering",
-      "Founder-level attention",
+      "Owner-level attention",
       "Radical transparency",
     ],
     storyLabels: ["The itch", "The build", "The bet"],
@@ -683,11 +682,9 @@ export const en = {
       "We're intentionally small and intentionally early. That means every project gets founder-level attention — and every client helps shape what this studio becomes.",
     ],
     missionTitle: "Mission",
-    missionText:
-      "Make world-class product design and engineering accessible to ambitious teams of any size — from first-time founders to enterprises.",
+    missionText: "Make good websites and software affordable for businesses of every size: custom projects first, then ready-made templates you can tailor.",
     visionTitle: "Vision",
-    visionText:
-      "Become Southeast Asia's most trusted product studio — known globally for shipping digital products that feel inevitable.",
+    visionText: "Become the team Indonesian businesses trust for websites and software that are ready to use, easy to customize, and maintained by one team.",
     valuesEyebrow: "What we stand for",
     valuesTitle: "Values we actually practice",
     valuesDescription:
@@ -701,7 +698,7 @@ export const en = {
       {
         title: "Speed with intent",
         description:
-          "Ship in weeks, not quarters — but never by borrowing from quality or accruing silent debt.",
+          "Move quickly, but never by borrowing from quality or accruing silent debt.",
       },
       {
         title: "Radical transparency",
@@ -766,10 +763,9 @@ export const en = {
         tags: ["Brand", "UI/UX", "Motion", "Design systems"],
       },
     ],
-    ctaTitle: "Build the first chapter with us",
-    ctaDesc:
-      "Whether you're a founder with an idea or an investor who believes in the region's product talent — we'd love to talk.",
-    ctaButton: "Say hello",
+    ctaTitle: "Start here",
+    ctaDesc: "Does your business need a website or software? Tell us what you need on WhatsApp. The first consultation is free.",
+    ctaButton: "Chat on WhatsApp",
   },
   footer: {
     description: "Callum C builds custom websites and software for businesses, with ready-made niche templates coming soon.",
@@ -1446,16 +1442,15 @@ export const id: Dict = {
   },
   about: {
     eyebrow: "Tentang Callum C",
-    heroLead: "Studio yang masih baru, dengan satu fokus sejak awal:",
-    heroHighlight: "kualitas",
+    heroLead: "Tim kecil yang membuat website dan software untuk",
+    heroHighlight: "bisnis Anda",
     heroTrail: ".",
-    heroSubtitle:
-      "Kami memang baru memulai. Tidak ada angka yang dibesar-besarkan atau logo klien yang dipinjam. Yang ada adalah tim senior, cara pandang yang tajam, dan hasil kerja yang berani kami pertanggungjawabkan.",
+    heroSubtitle: "Kami memang baru memulai. Tidak ada angka yang dibesar-besarkan atau logo klien yang dipinjam. Yang ada adalah tim yang mengerjakan proyek kustom hari ini, sambil menyiapkan template siap pakai untuk berbagai niche bisnis.",
     marquee: [
       "Tidak puas dengan hasil biasa",
-      "Rilis dalam hitungan minggu",
+      "Proyek kustom sekarang, template segera hadir",
       "Desain dan kode berjalan beriringan",
-      "Berpikir seperti founder",
+      "Berpikir seperti pemilik bisnis",
       "Transparan di setiap tahap",
     ],
     storyLabels: ["Masalahnya", "Solusinya", "Komitmen kami"],
@@ -1467,11 +1462,9 @@ export const id: Dict = {
       "Tim kami sengaja dibuat kecil. Dengan begitu, setiap proyek mendapat perhatian penuh, dan setiap klien ikut menentukan arah perkembangan studio ini.",
     ],
     missionTitle: "Misi",
-    missionText:
-      "Membuat desain dan pengembangan produk berkualitas internasional bisa diakses oleh tim yang ambisius, mulai dari founder tahap awal sampai perusahaan besar.",
+    missionText: "Membuat website dan software yang bagus terjangkau untuk bisnis dari berbagai ukuran: dimulai dari proyek kustom, lalu template siap pakai yang bisa disesuaikan.",
     visionTitle: "Visi",
-    visionText:
-      "Menjadi studio produk yang paling dipercaya di Asia Tenggara, dan dikenal secara global lewat produk digital yang berkualitas.",
+    visionText: "Menjadi tim yang dipercaya bisnis di Indonesia untuk website dan software yang siap pakai, bisa disesuaikan, dan dirawat oleh satu tim.",
     valuesEyebrow: "Nilai kami",
     valuesTitle: "Prinsip yang kami pegang",
     valuesDescription:
@@ -1485,7 +1478,7 @@ export const id: Dict = {
       {
         title: "Cepat, tapi tetap terarah",
         description:
-          "Produk rilis dalam hitungan minggu, tanpa mengorbankan kualitas dan tanpa meninggalkan masalah teknis untuk nanti.",
+          "Bergerak cepat, tanpa mengorbankan kualitas dan tanpa meninggalkan masalah teknis untuk nanti.",
       },
       {
         title: "Terbuka di setiap tahap",
@@ -1551,9 +1544,8 @@ export const id: Dict = {
       },
     ],
     ctaTitle: "Mari mulai dari sini",
-    ctaDesc:
-      "Anda founder dengan ide baru, atau investor yang percaya pada talenta produk di Asia Tenggara? Kami senang bisa berdiskusi dengan Anda.",
-    ctaButton: "Hubungi kami",
+    ctaDesc: "Bisnis Anda butuh website atau software? Ceritakan kebutuhan Anda lewat WhatsApp. Konsultasi pertama gratis.",
+    ctaButton: "Chat WhatsApp",
   },
   footer: {
     description: "Callum C membuat website dan software kustom untuk bisnis, dengan template siap pakai per niche yang segera hadir.",
