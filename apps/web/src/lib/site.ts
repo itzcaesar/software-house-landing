@@ -21,6 +21,7 @@ export const siteConfig = {
   /** Discovery-call scheduling link (cal.com / calendly). Empty = booking card hidden. */
   bookingUrl: "", // [ISI: link booking asli]
   location: "Jakarta, Indonesia",
+  foundedYear: 2026,
   /** Empty = icon hidden. [ISI: akun sosial asli] */
   socials: {
     x: "",

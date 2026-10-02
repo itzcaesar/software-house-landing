@@ -11,6 +11,7 @@ export function StructuredData() {
       url: siteConfig.url,
       description: siteConfig.description,
       logo: `${siteConfig.url}/icon`,
+      foundingDate: String(siteConfig.foundedYear),
       email: siteConfig.email,
       ...(siteConfig.whatsapp && { telephone: `+${siteConfig.whatsapp}` }),
       sameAs: Object.values(siteConfig.socials).filter(Boolean),
