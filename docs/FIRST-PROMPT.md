@@ -1,18 +1,17 @@
-# First prompt (paste into Claude Code, inside the landing-page repo)
+# First prompt (paste into Claude Code)
 
 ```
-Read CLAUDE.md and everything in docs/.
+Read CLAUDE.md, then docs/00-project-brief.md, docs/01-architecture.md and docs/03-build-plan.md.
 
-Step 1 (no edits): Inspect this repo and report:
-- stack, structure, styling approach, build/dev/lint/test commands, deploy setup (do not run deploy),
-- current page language(s), current sections and copy, forms, analytics, WhatsApp/contact setup,
-- SEO basics (titles, meta, headings, sitemap) and any obvious performance/accessibility issues,
-- how the current page differs from docs/landing-brief.md.
-Then update the "Stack and commands" section in CLAUDE.md and propose a change plan, section by section.
-List the questions you need answered (availability status, prices shown or hidden, WhatsApp number, language, real proof available).
+We are in Phase 0, Week 1. Do NOT start any engine.
 
-Step 2 (after I answer and approve): create a new git branch and implement the plan one section at a time.
-After each section: run the build/lint, show what changed, and tell me how to preview it. Stop and wait for my review before the next section.
+Step 1: Propose a short plan for tasks T0.1 to T0.4 in docs/03-build-plan.md. List any questions or
+assumptions. Wait for my approval before editing files.
 
-Use placeholders for anything you cannot verify, and end with a list of every placeholder.
+Step 2 (after I approve): Implement the tasks one at a time. After each task:
+- run tests, lint and static analysis,
+- show me a summary of what changed and how to verify it,
+- stop and wait for me before the next task.
+
+Keep CLAUDE.md accurate: when real commands exist, update the Commands section.
 ```
