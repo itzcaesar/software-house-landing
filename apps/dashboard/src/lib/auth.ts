@@ -2,7 +2,7 @@ import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
-import { getDb, users, type User } from "@craftbyte/db";
+import { getDb, users, type User } from "@callumc/db";
 import { SESSION_COOKIE, verifySessionToken } from "./session";
 
 /** Current session user, or null. Cached per-request. */

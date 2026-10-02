@@ -1,6 +1,6 @@
 import { NextResponse, after } from "next/server";
 import { z } from "zod";
-import { createLead, notifyNewLead } from "@craftbyte/db";
+import { createLead, notifyNewLead } from "@callumc/db";
 
 const leadSchema = z.object({
   name: z.string().trim().min(2).max(120),

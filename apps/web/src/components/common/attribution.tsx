@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { track, type EventName } from "@/lib/track";
 
-export const ATTRIBUTION_KEY = "craftbyte:attribution";
+export const ATTRIBUTION_KEY = "callumc:attribution";
 
 export type Attribution = {
   utmSource: string;

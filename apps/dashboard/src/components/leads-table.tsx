@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { toast } from "sonner";
 import { Loader2, Trash2, X } from "lucide-react";
-import { LEAD_STATUSES, type Lead, type User } from "@craftbyte/db";
+import { LEAD_STATUSES, type Lead, type User } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { formatDate, initials } from "@/lib/format";
 import { bulkUpdateLeads } from "@/app/actions";

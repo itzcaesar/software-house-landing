@@ -9,7 +9,7 @@ export type EventName =
   | "waitlist_click"
   | "audience_click";
 
-const SESSION_KEY = "craftbyte:session";
+const SESSION_KEY = "callumc:session";
 
 /** Random per-tab id (sessionStorage, not a cookie) so visits can be counted. */
 function sessionId(): string {

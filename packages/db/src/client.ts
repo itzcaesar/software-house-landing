@@ -11,7 +11,7 @@ import * as schema from "./schema";
 
 export type Db = LibSQLDatabase<typeof schema>;
 
-const globalStore = globalThis as unknown as { __craftbyteDb?: Db; __craftbyteClient?: Client };
+const globalStore = globalThis as unknown as { __callumcDb?: Db; __callumcClient?: Client };
 
 function resolveUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
@@ -22,12 +22,12 @@ function resolveUrl(): string {
 }
 
 export function getDb(): Db {
-  if (!globalStore.__craftbyteDb) {
-    globalStore.__craftbyteClient = createClient({
+  if (!globalStore.__callumcDb) {
+    globalStore.__callumcClient = createClient({
       url: resolveUrl(),
       authToken: process.env.DATABASE_AUTH_TOKEN,
     });
-    globalStore.__craftbyteDb = drizzle(globalStore.__craftbyteClient, { schema });
+    globalStore.__callumcDb = drizzle(globalStore.__callumcClient, { schema });
   }
-  return globalStore.__craftbyteDb;
+  return globalStore.__callumcDb;
 }

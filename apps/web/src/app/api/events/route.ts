@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { EVENT_NAMES, recordEvent } from "@craftbyte/db";
+import { EVENT_NAMES, recordEvent } from "@callumc/db";
 
 const eventSchema = z.object({
   name: z.enum(EVENT_NAMES),

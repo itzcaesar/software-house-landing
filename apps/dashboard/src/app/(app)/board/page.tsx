@@ -1,5 +1,5 @@
 import { desc } from "drizzle-orm";
-import { getDb, leads, leadNotes, users } from "@craftbyte/db";
+import { getDb, leads, leadNotes, users } from "@callumc/db";
 import { Board } from "@/components/board";
 import { AddLeadButton } from "@/components/add-lead";
 

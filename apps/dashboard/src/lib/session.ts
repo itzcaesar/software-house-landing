@@ -3,7 +3,7 @@
  * Web Crypto only — verifiable in both edge middleware and node runtime.
  */
 
-export const SESSION_COOKIE = "craftbyte_session";
+export const SESSION_COOKIE = "callumc_session";
 const SESSION_DAYS = 30;
 
 function secret(): string {
@@ -12,7 +12,7 @@ function secret(): string {
     if (process.env.NODE_ENV === "production") {
       throw new Error("SESSION_SECRET is required in production.");
     }
-    return "craftbyte-dev-secret";
+    return "callumc-dev-secret";
   }
   return s;
 }

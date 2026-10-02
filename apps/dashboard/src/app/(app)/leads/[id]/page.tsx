@@ -9,7 +9,7 @@ import {
   Reply,
   Wallet,
 } from "lucide-react";
-import { getDb, leads, leadNotes, activities, users } from "@craftbyte/db";
+import { getDb, leads, leadNotes, activities, users } from "@callumc/db";
 import { STATUS_META } from "@/lib/status";
 import { formatDateTime, initials, timeAgo } from "@/lib/format";
 import {

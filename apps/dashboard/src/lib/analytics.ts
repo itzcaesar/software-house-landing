@@ -1,4 +1,4 @@
-import type { AnalyticsEvent } from "@craftbyte/db";
+import type { AnalyticsEvent } from "@callumc/db";
 
 type Ev = Pick<AnalyticsEvent, "name" | "label" | "path" | "session" | "referrer" | "utmSource">;
 

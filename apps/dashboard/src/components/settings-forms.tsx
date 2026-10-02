@@ -4,7 +4,7 @@ import { useActionState, useEffect, useRef, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2, UserMinus, UserPlus } from "lucide-react";
-import type { User } from "@craftbyte/db";
+import type { User } from "@callumc/db";
 import { updateProfile, changePassword, addTeamMember, removeTeamMember } from "@/app/actions";
 import { initials } from "@/lib/format";
 

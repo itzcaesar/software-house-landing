@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { gte } from "drizzle-orm";
-import { events, getDb } from "@craftbyte/db";
+import { events, getDb } from "@callumc/db";
 import { summarizeEvents } from "@/lib/analytics";
 import { LeadsOverTime } from "@/components/charts";
 import { cn } from "@/lib/utils";
