@@ -10,7 +10,7 @@ Open the docs when needed; do not copy them into this file.
   `apps/dashboard` = internal leads CRM (do not touch). `packages/db` = Drizzle/libSQL; contact form posts to `/api/leads`.
 - Copy lives in `apps/web/src/lib/dictionaries.ts` (`en` + `id`, typed `Dict`); icons/structural data in `lib/content.ts`; brand, contact and WhatsApp (`waLink`) in `lib/site.ts`.
 - Commands (repo root): `pnpm dev:web` (:3000), `pnpm build:web`, `pnpm --filter web lint`. Tests: none for web.
-- Language: EN + ID via client toggle (localStorage / browser language). Server render and `<html lang>` are EN.
+- Language: ID is the server-rendered default (`<html lang="id">`, metadata, JSON-LD); EN via client toggle (localStorage).
 - Deploy: Vercel, root dir `apps/web` (see `DEPLOY.md`). Do not run.
 
 ## First, always

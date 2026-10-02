@@ -30,6 +30,7 @@ export function Footer() {
       title: t.footer.colCompany,
       links: [
         { label: t.nav.about, href: "/about" },
+        { label: t.nav.servicesPage, href: "/services" },
         { label: t.nav.services, href: "/#untuk-siapa" },
         { label: t.footer.linkWhy, href: "/#why-us" },
         { label: t.nav.process, href: "/#process" },

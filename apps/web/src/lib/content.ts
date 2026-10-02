@@ -1,4 +1,9 @@
 import {
+  Code2,
+  PenTool,
+  Sparkles,
+  LayoutDashboard,
+  BrainCircuit,
   Scissors,
   ShoppingBag,
   GraduationCap,
@@ -38,6 +43,24 @@ export const trustedLogos: string[] = [
   "Arclight",
 ];
 
+/** /services catalogue, zipped with `servicePage.items` by index. */
+export const serviceMeta: { icon: LucideIcon; tags: string[] }[] = [
+  { icon: Code2, tags: ["Next.js", "React", "Vue", "Vite", "TypeScript", "Tailwind CSS", "Laravel", "Blade", "PHP", "Node.js", "Go", "Rust", "GraphQL"] },
+  { icon: Smartphone, tags: ["React Native", "Flutter", "Expo", "Swift", "Kotlin", "Firebase"] },
+  { icon: PenTool, tags: ["Figma", "Prototyping", "Design systems"] },
+  { icon: Sparkles, tags: ["Identity", "Guidelines", "Motion"] },
+  { icon: LayoutDashboard, tags: ["Go", "Rust", "PostgreSQL", "Redis", "Stripe", "Docker", "Kubernetes", "AWS"] },
+  { icon: BrainCircuit, tags: ["LLMs", "RAG", "Agents", "Python", "Go", "Rust"] },
+  { icon: Rocket, tags: ["0→1", "Rapid build", "Validation", "Supabase", "Firebase", "Vercel"] },
+];
+
+/** Tech stack marquee on /services. */
+export const techStack: string[] = [
+  "Next.js", "React", "TypeScript", "Laravel", "Go", "Rust", "Node.js", "Python", "GraphQL",
+  "React Native", "Flutter", "Tailwind CSS", "PostgreSQL", "MongoDB", "Redis", "Supabase",
+  "Firebase", "Docker", "Kubernetes", "Terraform", "Vercel", "AWS", "Google Cloud",
+];
+
 /** Audience cards ("Siapa yang cocok"), zipped with `services.items` by index. */
 export const audienceMeta: { icon: LucideIcon; live: boolean }[] = [
   { icon: Scissors, live: false },
@@ -63,16 +86,18 @@ export const processMeta: { icon: LucideIcon; step: string }[] = [
 ];
 
 /** Niche families, zipped with `niches.families` by index. All coming soon until the owner says otherwise. */
-export const nicheMeta: { icon: LucideIcon }[] = [
-  { icon: Building2 },
-  { icon: ShoppingBag },
-  { icon: Smartphone },
-  { icon: CalendarCheck },
-  { icon: GraduationCap },
-  { icon: Store },
-  { icon: Bot },
-  { icon: Calculator },
-  { icon: Server },
+export type NichePreview = "hero" | "grid" | "calendar" | "list" | "chat";
+
+export const nicheMeta: { icon: LucideIcon; preview: NichePreview }[] = [
+  { icon: Building2, preview: "hero" },
+  { icon: ShoppingBag, preview: "grid" },
+  { icon: Smartphone, preview: "grid" },
+  { icon: CalendarCheck, preview: "calendar" },
+  { icon: GraduationCap, preview: "list" },
+  { icon: Store, preview: "grid" },
+  { icon: Bot, preview: "chat" },
+  { icon: Calculator, preview: "list" },
+  { icon: Server, preview: "list" },
 ];
 
 /** Brand colors for known tech tags — rendered as a dot inside tag chips. */
