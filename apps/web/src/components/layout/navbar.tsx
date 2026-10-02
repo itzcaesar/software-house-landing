@@ -26,6 +26,7 @@ export function Navbar() {
     { label: t.nav.niches, href: "/#niche" },
     { label: t.nav.process, href: "/#process" },
     { label: t.nav.pricing, href: "/#pricing" },
+    { label: t.nav.servicesPage, href: "/services" },
     { label: t.nav.about, href: "/about" },
     { label: t.nav.faq, href: "/#faq" },
   ];
@@ -68,7 +69,7 @@ export function Navbar() {
         className={cn(
           "mx-auto flex h-16 max-w-6xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8",
           scrolled &&
-            "border-b border-border/70 glass shadow-soft md:mt-2 md:max-w-5xl md:rounded-full md:border lg:mt-3",
+            "border-b border-border/70 glass shadow-soft md:mt-2 md:w-[calc(100%-2rem)] md:rounded-full md:border lg:mt-3",
         )}
       >
         <div className="flex items-center gap-2 sm:gap-3">
@@ -81,7 +82,7 @@ export function Navbar() {
           />
         </div>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Primary">
           {navItems.map((item) => {
             const isActive = item.href.startsWith("/#")
               ? pathname === "/" && activeId === item.href.slice(2)
@@ -92,7 +93,7 @@ export function Navbar() {
                 href={item.href}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
-                  "relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                  "relative rounded-full px-2.5 py-2 text-sm font-medium whitespace-nowrap transition-colors xl:px-3.5",
                   isActive
                     ? "text-foreground"
                     : "text-muted-foreground hover:bg-secondary hover:text-foreground",
@@ -114,14 +115,14 @@ export function Navbar() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <CtaButton size="sm" href={waLink(t.wa.consult)} className="hidden md:inline-flex">
+          <CtaButton size="sm" href={waLink(t.wa.consult)} className="hidden whitespace-nowrap lg:inline-flex">
             {t.nav.startProject}
             <ArrowRight className="size-4" />
           </CtaButton>
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -140,7 +141,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-3 mt-2 rounded-2xl border border-border glass p-3 shadow-elevated md:hidden"
+            className="mx-3 mt-2 rounded-2xl border border-border glass p-3 shadow-elevated lg:hidden"
           >
             <nav className="flex flex-col" aria-label="Mobile">
               {navItems.map((item) => (

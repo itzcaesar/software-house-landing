@@ -189,8 +189,8 @@ export function HeroShowcase() {
           <CheckCircle2 className="size-4" />
         </span>
         <div>
-          <p className="text-xs font-semibold">Deploy successful</p>
-          <p className="text-[11px] text-muted-foreground">Shipped in 6 weeks</p>
+          <p className="text-xs font-semibold">Website tayang</p>
+          <p className="text-[11px] text-muted-foreground">Siap menerima pelanggan</p>
         </div>
       </motion.div>
 
@@ -202,8 +202,8 @@ export function HeroShowcase() {
           <Gauge className="size-4" />
         </span>
         <div>
-          <p className="text-xs font-semibold">Lighthouse 98</p>
-          <p className="text-[11px] text-muted-foreground">Core Web Vitals</p>
+          <p className="text-xs font-semibold">Ilustrasi tampilan</p>
+          <p className="text-[11px] text-muted-foreground">Bukan data klien</p>
         </div>
       </motion.div>
     </div>
@@ -347,8 +347,8 @@ const CODE_LINES: Token[][] = [
     { t: "  const ", c: "text-sky-400" },
     { t: "build = ", c: "text-slate-300" },
     { t: "ship", c: "text-amber-300" },
-    { t: "(scope, { weeks: ", c: "text-slate-300" },
-    { t: "6", c: "text-emerald-400" },
+    { t: "(scope, { brand: ", c: "text-slate-300" },
+    { t: "\"anda\"", c: "text-emerald-400" },
     { t: " });", c: "text-slate-300" },
   ],
   [
@@ -446,14 +446,14 @@ function CodeView({ reduce }: { reduce: boolean }) {
 const STEPS = [
   { name: "Install dependencies", time: "2.1s" },
   { name: "Type check", time: "3.4s" },
-  { name: "128 tests passed", time: "6.2s" },
+  { name: "Tests passed", time: "6.2s" },
   { name: "Production build", time: "12.4s" },
 ];
 
 const LOGS = [
-  "▲ craftbyte-landing — build completed",
-  "◇ 42 static routes prerendered",
-  "✓ Edge network: 19 regions live",
+  "▲ website-anda — build completed",
+  "◇ Pages prerendered",
+  "✓ HTTPS active",
 ];
 
 function DeployView({ reduce }: { reduce: boolean }) {
@@ -462,7 +462,7 @@ function DeployView({ reduce }: { reduce: boolean }) {
       <div className="flex items-center justify-between rounded-xl border border-border bg-background/60 px-4 py-3">
         <span className="inline-flex items-center gap-2 text-sm font-medium">
           <GitBranch className="size-4 text-brand" />
-          craftbyte/production
+          website-anda/production
           <span className="rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
             main
           </span>
@@ -515,7 +515,7 @@ function DeployView({ reduce }: { reduce: boolean }) {
             <Loader2 className="size-4 animate-spin text-brand" />
             Deploy to edge
           </span>
-          <span className="text-xs text-muted-foreground">19 regions</span>
+          <span className="text-xs text-muted-foreground">Online</span>
         </div>
         <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-secondary">
           <motion.div
