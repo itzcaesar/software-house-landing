@@ -5,13 +5,8 @@ customizable website/software templates (9 product families, 50+ niches), plus m
 Task: update the page to the positioning in `docs/landing-brief.md`. Business facts: `docs/business-context.md`.
 Open the docs when needed; do not copy them into this file.
 
-## Stack and commands (fill in after inspecting the repo, keep it short)
-- pnpm monorepo. Landing = `apps/web`: Next.js 16 App Router, React 19, TS strict, Tailwind v4 (tokens in `globals.css`), shadcn/Base UI, motion, lucide.
-  `apps/dashboard` = internal leads CRM (do not touch). `packages/db` = Drizzle/libSQL; contact form posts to `/api/leads`.
-- Copy lives in `apps/web/src/lib/dictionaries.ts` (`en` + `id`, typed `Dict`); icons/structural data in `lib/content.ts`; brand, contact and WhatsApp (`waLink`) in `lib/site.ts`.
-- Commands (repo root): `pnpm dev:web` (:3000), `pnpm build:web`, `pnpm --filter web lint`. Tests: none for web.
-- Language: ID is the server-rendered default (`<html lang="id">`, metadata, JSON-LD); EN via client toggle (localStorage).
-- Deploy: Vercel, root dir `apps/web` (see `DEPLOY.md`). Do not run.
+## Stack and commands
+- `apps/dashboard` = internal leads CRM: do not touch unless a task asks for it.
 
 ## First, always
 Inspect before changing anything: stack, structure, components, styling, forms, analytics, WhatsApp/contact setup,
