@@ -6,6 +6,8 @@
 export const siteConfig = {
   name: "Callum C",
   legalName: "Callum C",
+  /** Other spellings people search for; used as schema.org alternateName (Google site name). */
+  alternateNames: ["CallumC", "callumc", "callumc.id"],
   tagline: "Jasa Website & Software Kustom untuk Bisnis",
   description:
     "Jasa pembuatan website dan software kustom untuk bisnis, mulai Rp 15 juta. Template siap pakai per niche segera hadir. Konsultasi gratis via WhatsApp.",

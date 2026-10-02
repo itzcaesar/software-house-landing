@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
+    "Callum C",
+    "CallumC",
     "jasa pembuatan website",
     "jasa pembuatan software",
     "software house Indonesia",
