@@ -56,6 +56,7 @@ Vercel auto-detects Next.js + pnpm workspaces. No custom build commands needed.
 | `DATABASE_AUTH_TOKEN` |  ✅  |     ✅     | Turso token                             |
 | `SESSION_SECRET`      |  —  |     ✅     | `openssl rand -hex 32` — required       |
 | `NEXT_PUBLIC_SITE_URL`|  ✅  |     —     | `https://callumc.id`              |
+| `GOOGLE_SITE_VERIFICATION` | opt. | — | Search Console HTML-tag code; then submit `/sitemap.xml` |
 | `GOOGLE_MAPS_API_KEY` |  —  |    opt.   | Prospect finder (Places API New)        |
 | `RESEND_API_KEY`      | opt. |     —     | New-lead emails to the team; unset = no email |
 | `NOTIFY_FROM`         | opt. |     —     | Sender, e.g. `Callum C Leads <leads@callumc.id>` (domain verified in Resend) |
