@@ -15,6 +15,8 @@ export interface BentoItem {
   featured?: boolean;
   /** Makes the whole tile a link. */
   href?: string;
+  /** Analytics event for a linked tile (see AttributionTracker). */
+  track?: { name: string; label: string };
 }
 
 /**
@@ -34,6 +36,8 @@ export function BentoGrid({ items, className }: { items: BentoItem[]; className?
           >
             <Tile
               href={item.href}
+              data-track={item.track?.name}
+              data-track-label={item.track?.label}
               className={cn(
                 "group relative block h-full overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300",
                 "hover:border-brand/40 hover:shadow-elevated",

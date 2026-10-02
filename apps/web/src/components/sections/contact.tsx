@@ -6,6 +6,7 @@ import { Mail, MessageCircle, MapPin, ArrowRight, Loader2, CalendarCheck, Shield
 import { siteConfig, waLink } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
 import { readAttribution } from "@/components/common/attribution";
+import { track } from "@/lib/track";
 import { Reveal } from "@/components/common/reveal";
 import { CtaButton } from "@/components/ui/cta-button";
 import { Input } from "@/components/ui/input";
@@ -55,6 +56,7 @@ export function Contact() {
       });
       if (!res.ok) throw new Error(`lead submit failed: ${res.status}`);
       toast.success(t.contact.success);
+      track("form_submit");
       reset();
     } catch {
       toast.error(t.contact.error);
@@ -82,6 +84,7 @@ export function Contact() {
                   {siteConfig.whatsapp && (
                     <a
                       href={waLink(t.wa.consult)}
+                      data-track="wa_click"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-3 shadow-elevated transition-transform duration-200 hover:scale-[1.02] active:scale-95"

@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, index } from "drizzle-orm/sqlite-core";
 
 export const LEAD_STATUSES = [
   "new",
@@ -50,7 +50,7 @@ export const leads = sqliteTable("leads", {
   // Follow-up reminder.
   nextAction: text("next_action").notNull().default(""),
   nextActionAt: text("next_action_at"),
-  // Actual quoted deal value in USD (null until quoted) — overrides the
+  // Actual quoted deal value in IDR (null until quoted) — overrides the
   // budget-range midpoint in pipeline math.
   quotedValue: integer("quoted_value"),
   // Why a lost deal was lost — free text, presets offered in the UI.
@@ -82,7 +82,36 @@ export const activities = sqliteTable("activities", {
   createdAt: text("created_at").notNull(),
 });
 
+/** Landing-site analytics events. Keep in sync with EventName in apps/web/src/lib/track.ts. */
+export const EVENT_NAMES = [
+  "pageview",
+  "wa_click",
+  "form_submit",
+  "niche_pick",
+  "waitlist_click",
+  "audience_click",
+] as const;
+export type EventName = (typeof EVENT_NAMES)[number];
+
+// Cookieless and anonymous: no IP, no user agent; `session` is a random id that
+// lives in the visitor's sessionStorage for one tab session.
+export const events = sqliteTable(
+  "events",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    name: text("name", { enum: EVENT_NAMES }).notNull(),
+    path: text("path").notNull().default(""),
+    label: text("label").notNull().default(""),
+    session: text("session").notNull().default(""),
+    referrer: text("referrer").notNull().default(""),
+    utmSource: text("utm_source").notNull().default(""),
+    createdAt: text("created_at").notNull(),
+  },
+  (t) => [index("events_created_at_idx").on(t.createdAt)],
+);
+
 export type User = typeof users.$inferSelect;
 export type Lead = typeof leads.$inferSelect;
 export type LeadNote = typeof leadNotes.$inferSelect;
 export type Activity = typeof activities.$inferSelect;
+export type AnalyticsEvent = typeof events.$inferSelect;

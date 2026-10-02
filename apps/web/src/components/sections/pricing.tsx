@@ -64,6 +64,8 @@ export function Pricing() {
                 )}
                 <a
                   href={waLink(live ? t.wa.consult : `${t.wa.waitlist} ${card.title}`)}
+                  data-track={live ? "wa_click" : "waitlist_click"}
+                  data-track-label={live ? undefined : card.title}
                   className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-brand"
                 >
                   {card.cta}

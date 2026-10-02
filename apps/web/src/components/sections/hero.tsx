@@ -99,7 +99,7 @@ export function Hero() {
             variants={item}
             className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
           >
-            <CtaButton size="lg" href={waLink(t.wa.consult)} className="w-full sm:w-auto">
+            <CtaButton size="lg" href={waLink(t.wa.consult)} className="w-full sm:w-auto" data-track="wa_click">
               <MessageCircle className="size-4" />
               {t.hero.primaryCta}
             </CtaButton>

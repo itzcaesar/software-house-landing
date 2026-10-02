@@ -619,7 +619,7 @@ export const en = {
   legal: {
     eyebrow: "Legal",
     updatedLabel: "Last updated",
-    updatedDate: "October 1, 2026",
+    updatedDate: "October 2, 2026",
     contactLine: "Questions about this policy? Reach us at",
     backHome: "Back to home",
     privacy: {
@@ -629,7 +629,7 @@ export const en = {
       sections: [
         {
           h: "What we collect",
-          body: "When you submit the contact form we receive the details you type: your name, email, company, budget range, and message. The form also sends how you found us (campaign tags such as utm_source, and the referring site), which the site keeps in your browser for the current session. Your language preference stays in your browser and never leaves your device.",
+          body: "When you submit the contact form we receive the details you type: your name, email, company, budget range, and message. The form also sends how you found us (campaign tags such as utm_source, and the referring site), which the site keeps in your browser for the current session. Your language preference stays in your browser and never leaves your device. We also keep anonymous visit statistics (pages viewed and buttons clicked, with a random per-visit id); they contain no name, IP address or other personal data.",
         },
         {
           h: "How we use it",
@@ -691,7 +691,7 @@ export const en = {
       sections: [
         {
           h: "What we store",
-          body: "Your language choice (Indonesian or English) in local storage, and, for the current session only, how you arrived (campaign tags and referring site) so the contact form can include it. Plus your theme preference, handled by your browser.",
+          body: "Your language choice (Indonesian or English) in local storage, and, for the current session only, how you arrived (campaign tags and referring site) so the contact form can include it, plus a random visit id for anonymous statistics. Plus your theme preference, handled by your browser.",
         },
         {
           h: "What we don't do",
@@ -702,8 +702,8 @@ export const en = {
           body: "You can clear these values at any time via your browser's site-data settings. The site keeps working — it simply forgets your preferences.",
         },
         {
-          h: "Future changes",
-          body: "If we ever add analytics, we'll pick a privacy-respecting option, disclose it here first, and keep the data anonymous.",
+          h: "Anonymous statistics",
+          body: "We count page visits and clicks on buttons such as WhatsApp in our own database: the page, the button, the referring site, and a random visit id. No cookies, no IP address, no browser fingerprint, and nothing is shared with third parties.",
         },
       ],
     },
@@ -1447,7 +1447,7 @@ export const id: Dict = {
   legal: {
     eyebrow: "Legal",
     updatedLabel: "Terakhir diperbarui",
-    updatedDate: "1 Oktober 2026",
+    updatedDate: "2 Oktober 2026",
     contactLine: "Ada pertanyaan terkait kebijakan ini? Hubungi kami di",
     backHome: "Kembali ke beranda",
     privacy: {
@@ -1457,7 +1457,7 @@ export const id: Dict = {
       sections: [
         {
           h: "Data yang kami kumpulkan",
-          body: "Saat Anda mengisi formulir kontak, kami menerima data yang Anda masukkan, yaitu nama, email, perusahaan, kisaran anggaran, dan pesan. Formulir juga mengirimkan dari mana Anda menemukan kami (tag kampanye seperti utm_source dan situs perujuk), yang disimpan di browser Anda selama sesi berjalan. Pilihan bahasa tetap tersimpan di browser Anda dan tidak pernah dikirim ke server kami.",
+          body: "Saat Anda mengisi formulir kontak, kami menerima data yang Anda masukkan, yaitu nama, email, perusahaan, kisaran anggaran, dan pesan. Formulir juga mengirimkan dari mana Anda menemukan kami (tag kampanye seperti utm_source dan situs perujuk), yang disimpan di browser Anda selama sesi berjalan. Pilihan bahasa tetap tersimpan di browser Anda dan tidak pernah dikirim ke server kami. Kami juga mencatat statistik kunjungan anonim (halaman yang dibuka dan tombol yang diklik, dengan ID kunjungan acak); data ini tidak berisi nama, alamat IP, atau data pribadi lainnya.",
         },
         {
           h: "Penggunaan data",
@@ -1519,7 +1519,7 @@ export const id: Dict = {
       sections: [
         {
           h: "Data yang disimpan",
-          body: "Pilihan bahasa (Indonesia atau Inggris) di local storage, dan khusus selama sesi berjalan, dari mana Anda datang (tag kampanye dan situs perujuk) agar bisa disertakan di formulir kontak. Tema terang atau gelap diatur oleh browser Anda sendiri.",
+          body: "Pilihan bahasa (Indonesia atau Inggris) di local storage, dan khusus selama sesi berjalan, dari mana Anda datang (tag kampanye dan situs perujuk) agar bisa disertakan di formulir kontak, serta ID kunjungan acak untuk statistik anonim. Tema terang atau gelap diatur oleh browser Anda sendiri.",
         },
         {
           h: "Yang tidak kami lakukan",
@@ -1530,8 +1530,8 @@ export const id: Dict = {
           body: "Anda bisa menghapus data ini kapan saja lewat pengaturan browser. Situs tetap berfungsi normal, hanya saja pilihan bahasa Anda akan kembali ke pengaturan awal.",
         },
         {
-          h: "Rencana ke depan",
-          body: "Jika nanti kami menambahkan analitik, kami akan memilih layanan yang menjaga privasi, mengumumkannya lebih dulu di halaman ini, dan memastikan datanya tetap anonim.",
+          h: "Statistik anonim",
+          body: "Kami menghitung kunjungan halaman dan klik tombol seperti WhatsApp di database kami sendiri: halaman, tombol, situs perujuk, dan ID kunjungan acak. Tanpa cookie, tanpa alamat IP, tanpa fingerprint browser, dan tidak dibagikan ke pihak ketiga.",
         },
       ],
     },

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { track, type EventName } from "@/lib/track";
 
 export const ATTRIBUTION_KEY = "craftbyte:attribution";
 
@@ -24,10 +26,14 @@ export function readAttribution(): Attribution {
 
 /**
  * Captures first-touch attribution (UTM params + document.referrer) once per
- * session, so the contact form can report where each lead came from.
- * Renders nothing.
+ * session, so the contact form can report where each lead came from. Also
+ * records first-party analytics: a pageview per route, and a click event for
+ * any element with `data-track` (label = `data-track-label`, else the nearest
+ * section id / "nav" / "footer"). Renders nothing.
  */
 export function AttributionTracker() {
+  const pathname = usePathname();
+
   useEffect(() => {
     try {
       if (window.sessionStorage.getItem(ATTRIBUTION_KEY)) return;
@@ -45,6 +51,22 @@ export function AttributionTracker() {
     } catch {
       /* storage unavailable — attribution is best-effort */
     }
+  }, []);
+
+  useEffect(() => {
+    track("pageview");
+  }, [pathname]);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>("[data-track]");
+      if (!el) return;
+      const where =
+        el.closest("section[id]")?.id ?? (el.closest("header") ? "nav" : el.closest("footer") ? "footer" : "");
+      track(el.dataset.track as EventName, el.dataset.trackLabel || where);
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
   return null;

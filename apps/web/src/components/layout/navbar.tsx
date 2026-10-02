@@ -115,7 +115,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <CtaButton size="sm" href={waLink(t.wa.consult)} className="hidden whitespace-nowrap lg:inline-flex">
+          <CtaButton size="sm" href={waLink(t.wa.consult)} className="hidden whitespace-nowrap lg:inline-flex" data-track="wa_click">
             {t.nav.startProject}
             <ArrowRight className="size-4" />
           </CtaButton>
@@ -160,7 +160,7 @@ export function Navbar() {
                   nativeButton={false}
                   className="h-10 rounded-xl"
                   render={
-                    <Link href={waLink(t.wa.consult)} onClick={() => setOpen(false)}>
+                    <Link href={waLink(t.wa.consult)} onClick={() => setOpen(false)} data-track="wa_click">
                       {t.nav.startProject}
                       <ArrowRight className="size-4" />
                     </Link>

@@ -8,6 +8,7 @@ import {
   Users,
   KanbanSquare,
   Radar,
+  BarChart3,
   MapPin,
   Settings,
   type LucideIcon,
@@ -20,6 +21,7 @@ const NAV: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/leads", label: "Leads", icon: Users },
   { href: "/board", label: "Board", icon: KanbanSquare },
   { href: "/sources", label: "Sources", icon: Radar },
+  { href: "/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/prospects", label: "Prospects", icon: MapPin },
   { href: "/settings", label: "Settings", icon: Settings },
 ];

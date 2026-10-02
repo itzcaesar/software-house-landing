@@ -6,6 +6,7 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { nicheMeta, type NichePreview } from "@/lib/content";
 import { useDict } from "@/lib/i18n";
 import { waLink } from "@/lib/site";
+import { track } from "@/lib/track";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "@/components/common/section";
 import { Reveal } from "@/components/common/reveal";
@@ -35,6 +36,7 @@ export function Niches() {
   const pickFamily = (i: number) => {
     setFi(i);
     setNi(0);
+    track("niche_pick", t.niches.families[i].name);
   };
 
   return (
@@ -132,7 +134,7 @@ export function Niches() {
                 ))}
               </motion.ul>
             </AnimatePresence>
-            <CtaButton href={waLink(waText)} className="mt-5 w-full">
+            <CtaButton href={waLink(waText)} className="mt-5 w-full" data-track="waitlist_click" data-track-label={niche}>
               {t.niches.cta}: {niche}
               <ArrowRight className="size-4" />
             </CtaButton>

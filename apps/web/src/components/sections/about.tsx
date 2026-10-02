@@ -490,6 +490,7 @@ export function AboutCta() {
           <div className="relative mt-8">
             <Link
               href={waLink(t.wa.consult)}
+              data-track="wa_click"
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-brand-3 shadow-elevated transition-transform duration-200 hover:scale-[1.03] active:scale-95"
             >
               {t.about.ctaButton}

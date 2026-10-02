@@ -25,6 +25,7 @@ export function Services() {
       colSpan: spanPattern[i],
       featured: a.live,
       href: a.live ? waLink(t.wa.consult) : "#niche",
+      track: { name: "audience_click", label: copy.title },
     };
   });
 
@@ -43,6 +44,7 @@ export function Services() {
       <Reveal delay={0.1} className="mt-6">
         <a
           href={waLink(t.wa.consult)}
+          data-track="wa_click"
           className="group flex flex-col items-start justify-between gap-4 overflow-hidden rounded-2xl border border-brand/30 bg-gradient-to-r from-brand to-brand-2 p-6 text-white shadow-elevated transition-transform duration-300 hover:-translate-y-0.5 sm:flex-row sm:items-center"
         >
           <div>

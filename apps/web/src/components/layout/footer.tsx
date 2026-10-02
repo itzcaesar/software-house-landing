@@ -105,6 +105,7 @@ export function Footer() {
           </p>
           <Link
             href={waLink(t.wa.consult)}
+            data-track="wa_click"
             className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-brand"
           >
             {t.footer.cta}

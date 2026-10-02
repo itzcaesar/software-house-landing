@@ -35,6 +35,8 @@ DATABASE_URL=libsql://… DATABASE_AUTH_TOKEN=… pnpm seed
 
 Save the printed founder passwords — they are shown once. Change them in dashboard Settings after first login.
 
+Re-run `pnpm migrate` against production after pulling schema changes (e.g. the `events` table that powers dashboard Analytics). Without it, the landing site still works but records no analytics.
+
 ## 2 — Vercel: two projects, one repo
 
 Create **two** Vercel projects pointing at the same Git repo:

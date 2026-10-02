@@ -3,8 +3,16 @@ import { STATUS_META } from "@/lib/status";
 import { LEAD_STATUSES } from "@craftbyte/db";
 import { cn } from "@/lib/utils";
 
-/** Bar chart of leads per day over the last `days` days. Pure SVG/CSS. */
-export function LeadsOverTime({ leads, days = 30 }: { leads: Lead[]; days?: number }) {
+/** Bar chart of items per day (by `createdAt`) over the last `days` days. Pure SVG/CSS. */
+export function LeadsOverTime({
+  leads,
+  days = 30,
+  unit = "lead",
+}: {
+  leads: Pick<Lead, "createdAt">[];
+  days?: number;
+  unit?: string;
+}) {
   const now = new Date();
   const counts: number[] = Array.from({ length: days }, () => 0);
   for (const lead of leads) {
@@ -18,7 +26,7 @@ export function LeadsOverTime({ leads, days = 30 }: { leads: Lead[]; days?: numb
       {counts.map((count, i) => (
         <div
           key={i}
-          title={`${count} lead${count === 1 ? "" : "s"}`}
+          title={`${count} ${unit}${count === 1 ? "" : "s"}`}
           className="flex-1 rounded-sm bg-secondary/80 transition-colors hover:bg-secondary"
         >
           <div
