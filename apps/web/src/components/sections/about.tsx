@@ -18,6 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useDict } from "@/lib/i18n";
+import { waLink } from "@/lib/site";
 import { Section, SectionHeading, Eyebrow } from "@/components/common/section";
 import { Reveal, Stagger, StaggerItem } from "@/components/common/reveal";
 import { TiltCard } from "@/components/common/tilt-card";
@@ -488,7 +489,7 @@ export function AboutCta() {
           </p>
           <div className="relative mt-8">
             <Link
-              href="/#contact"
+              href={waLink(t.wa.consult)}
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-brand-3 shadow-elevated transition-transform duration-200 hover:scale-[1.03] active:scale-95"
             >
               {t.about.ctaButton}

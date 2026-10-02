@@ -73,7 +73,7 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/" aria-label={`${siteConfig.name} — home`} className="shrink-0">
+          <Link href="/" aria-label={`${siteConfig.name} — ${t.a11y.home}`} className="shrink-0">
             <Logo />
           </Link>
           <LanguageToggle
@@ -82,7 +82,7 @@ export function Navbar() {
           />
         </div>
 
-        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label={t.a11y.primaryNav}>
           {navItems.map((item) => {
             const isActive = item.href.startsWith("/#")
               ? pathname === "/" && activeId === item.href.slice(2)
@@ -123,7 +123,7 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             className="lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
@@ -143,7 +143,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="mx-3 mt-2 rounded-2xl border border-border glass p-3 shadow-elevated lg:hidden"
           >
-            <nav className="flex flex-col" aria-label="Mobile">
+            <nav className="flex flex-col" aria-label={t.a11y.mobileNav}>
               {navItems.map((item) => (
                 <Link
                   key={item.href}

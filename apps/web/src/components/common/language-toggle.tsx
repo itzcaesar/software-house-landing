@@ -17,15 +17,15 @@ export function LanguageToggle({
   className?: string;
   variant?: "segmented" | "compact";
 }) {
-  const { locale, setLocale, toggle } = useLocale();
+  const { locale, setLocale, toggle, t } = useLocale();
 
   if (variant === "compact") {
     return (
       <button
         type="button"
         onClick={toggle}
-        aria-label={`Switch language, currently ${LOCALE_LABELS[locale]}`}
-        title="Switch language"
+        aria-label={`${t.a11y.switchLanguage}: ${LOCALE_LABELS[locale]}`}
+        title={t.a11y.switchLanguage}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground",
           className,
@@ -40,7 +40,7 @@ export function LanguageToggle({
   return (
     <div
       role="radiogroup"
-      aria-label="Language"
+      aria-label={t.a11y.language}
       className={cn(
         "relative inline-flex items-center rounded-full border border-border bg-secondary/60 p-0.5",
         className,

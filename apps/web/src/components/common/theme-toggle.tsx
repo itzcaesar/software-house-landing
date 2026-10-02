@@ -3,17 +3,19 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { useDict } from "@/lib/i18n";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
+  const t = useDict();
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      aria-label="Toggle light and dark theme"
-      title="Toggle theme"
+      aria-label={t.a11y.theme}
+      title={t.a11y.theme}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="text-muted-foreground hover:text-foreground"
     >

@@ -16,6 +16,16 @@ export const en = {
     startProject: "Free consultation",
     servicesPage: "Services",
   },
+  a11y: {
+    language: "Language",
+    switchLanguage: "Switch language",
+    theme: "Toggle light and dark theme",
+    home: "home",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    primaryNav: "Primary",
+    mobileNav: "Mobile",
+  },
   hero: {
     badgeNew: "Soon",
     badgeText: "Ready-made templates for your business niche are coming soon",
@@ -790,6 +800,16 @@ export const id: Dict = {
     faq: "FAQ",
     startProject: "Konsultasi gratis",
     servicesPage: "Layanan",
+  },
+  a11y: {
+    language: "Bahasa",
+    switchLanguage: "Ganti bahasa",
+    theme: "Ganti tema terang dan gelap",
+    home: "beranda",
+    openMenu: "Buka menu",
+    closeMenu: "Tutup menu",
+    primaryNav: "Navigasi utama",
+    mobileNav: "Navigasi seluler",
   },
   hero: {
     badgeNew: "Segera",
