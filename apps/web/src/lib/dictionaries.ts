@@ -36,6 +36,54 @@ export const en = {
     primaryCta: "Free consultation on WhatsApp",
     secondaryCta: "See niches",
   },
+  showcase: {
+    aria: "Preview scenes",
+    tabs: {
+      site: "Website",
+      inbox: "Orders",
+      dashboard: "Dashboard",
+    },
+    siteName: "Your Business",
+    siteTagline: "Order online, any time",
+    products: [
+      "Package A",
+      "Package B",
+      "Package C",
+    ],
+    order: "Order",
+    chatWa: "Chat on WhatsApp",
+    inboxTitle: "Incoming",
+    inboxItems: [
+      {
+        title: "New order",
+        detail: "Package B · paid online",
+      },
+      {
+        title: "New booking",
+        detail: "Saturday, 10:00",
+      },
+      {
+        title: "WhatsApp chat",
+        detail: "\"Is this still available?\"",
+      },
+      {
+        title: "Form inquiry",
+        detail: "Asking for a custom quote",
+      },
+    ],
+    kpis: [
+      "Sales",
+      "Visitors",
+      "Conversion",
+    ],
+    growth: "Growth",
+    period: "Last 12 months",
+    live: "Live",
+    liveTitle: "Your website, live",
+    liveDesc: "Ready for customers",
+    illoTitle: "Illustration",
+    illoDesc: "Not client data",
+  },
   trusted: {
     label: "Trusted by ambitious startups and enterprises worldwide",
   },
@@ -816,6 +864,54 @@ export const id: Dict = {
     subtitle: "Pesan solusi kustom sekarang, atau daftar waitlist template siap pakai untuk niche bisnis Anda. Kami bantu dari konsultasi, branding, sampai peluncuran.",
     primaryCta: "Konsultasi gratis via WhatsApp",
     secondaryCta: "Lihat pilihan niche",
+  },
+  showcase: {
+    aria: "Contoh tampilan",
+    tabs: {
+      site: "Website",
+      inbox: "Pesanan",
+      dashboard: "Dasbor",
+    },
+    siteName: "Bisnis Anda",
+    siteTagline: "Pesan online, kapan saja",
+    products: [
+      "Paket A",
+      "Paket B",
+      "Paket C",
+    ],
+    order: "Pesan",
+    chatWa: "Chat WhatsApp",
+    inboxTitle: "Masuk",
+    inboxItems: [
+      {
+        title: "Pesanan baru",
+        detail: "Paket B · dibayar online",
+      },
+      {
+        title: "Booking baru",
+        detail: "Sabtu, 10.00",
+      },
+      {
+        title: "Chat WhatsApp",
+        detail: "\"Kak, masih tersedia?\"",
+      },
+      {
+        title: "Pertanyaan formulir",
+        detail: "Minta penawaran kustom",
+      },
+    ],
+    kpis: [
+      "Penjualan",
+      "Pengunjung",
+      "Konversi",
+    ],
+    growth: "Pertumbuhan",
+    period: "12 bulan terakhir",
+    live: "Live",
+    liveTitle: "Website Anda tayang",
+    liveDesc: "Siap menerima pelanggan",
+    illoTitle: "Ilustrasi tampilan",
+    illoDesc: "Bukan data klien",
   },
   trusted: {
     label: "Dipercaya startup dan perusahaan dari berbagai negara",

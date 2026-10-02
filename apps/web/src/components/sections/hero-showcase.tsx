@@ -5,49 +5,55 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   TrendingUp,
   CheckCircle2,
-  Gauge,
+  Sparkles,
   Circle,
-  DollarSign,
+  Wallet,
   Users,
   Percent,
   LayoutDashboard,
-  Code2,
-  Rocket,
-  GitBranch,
-  Loader2,
-  FileCode2,
-  Folder,
+  Store,
+  Inbox,
+  ShoppingBag,
+  CalendarCheck,
+  MessageCircle,
+  FileText,
 } from "lucide-react";
+import { useDict } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
+// Illustrative values only — the floating card labels the whole window "not client data".
 const kpis = [
-  { label: "Penjualan", value: "Rp 128,4 jt", up: "+18%", icon: DollarSign },
-  { label: "Pengunjung", value: "24.918", up: "+9%", icon: Users },
-  { label: "Konversi", value: "6,4%", up: "+2,1%", icon: Percent },
+  { value: "Rp 128,4 jt", up: "+18%", icon: Wallet },
+  { value: "24.918", up: "+9%", icon: Users },
+  { value: "6,4%", up: "+2,1%", icon: Percent },
 ];
 
 const bars = [38, 52, 44, 61, 55, 72, 64, 80, 71, 86, 78, 94];
 
 const VIEWS = [
-  { id: "overview", label: "Overview", icon: LayoutDashboard },
-  { id: "code", label: "Code", icon: Code2 },
-  { id: "deploy", label: "Deploy", icon: Rocket },
+  { id: "site", icon: Store },
+  { id: "inbox", icon: Inbox },
+  { id: "dashboard", icon: LayoutDashboard },
 ] as const;
 
 type ViewId = (typeof VIEWS)[number]["id"];
 
+const INBOX_ICONS = [ShoppingBag, CalendarCheck, MessageCircle, FileText];
+
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 /**
- * Hero visual: an abstract product window that auto-cycles through three
- * scenes (dashboard → editor → deploy pipeline). Cycling pauses while the
+ * Hero visual: a mock business site that auto-cycles through three scenes
+ * (storefront → incoming orders → owner dashboard). Cycling pauses while the
  * pointer is over the window and stops entirely under reduced motion.
  */
 export function HeroShowcase() {
+  const t = useDict();
+  const s = t.showcase;
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const hovering = useRef(false);
-  const [view, setView] = useState<ViewId>("overview");
+  const [view, setView] = useState<ViewId>("site");
 
   useEffect(() => {
     if (reduce) return;
@@ -118,14 +124,14 @@ export function HeroShowcase() {
           </div>
           <div className="mx-auto flex items-center gap-2 rounded-md bg-background/60 px-3 py-1 text-xs text-muted-foreground ring-1 ring-border">
             <Circle className="size-2 fill-emerald-500 text-emerald-500" />
-            app.callumc.id
+            bisnisanda.com
           </div>
         </div>
 
         {/* view tabs */}
         <div
           role="tablist"
-          aria-label="Showcase views"
+          aria-label={s.aria}
           className="relative z-30 flex items-center gap-1 border-b border-border bg-secondary/30 px-3 py-2"
         >
           {VIEWS.map((v) => {
@@ -140,9 +146,7 @@ export function HeroShowcase() {
                 onClick={() => setView(v.id)}
                 className={cn(
                   "relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors",
-                  active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
+                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {active && (
@@ -154,7 +158,7 @@ export function HeroShowcase() {
                   />
                 )}
                 <Icon className="relative size-3.5" />
-                <span className="relative">{v.label}</span>
+                <span className="relative">{s.tabs[v.id]}</span>
               </button>
             );
           })}
@@ -172,9 +176,9 @@ export function HeroShowcase() {
               transition={{ duration: 0.35, ease: EASE }}
               className="h-full"
             >
-              {view === "overview" && <OverviewView />}
-              {view === "code" && <CodeView reduce={!!reduce} />}
-              {view === "deploy" && <DeployView reduce={!!reduce} />}
+              {view === "site" && <SiteView reduce={!!reduce} />}
+              {view === "inbox" && <InboxView reduce={!!reduce} />}
+              {view === "dashboard" && <DashboardView />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -189,8 +193,8 @@ export function HeroShowcase() {
           <CheckCircle2 className="size-4" />
         </span>
         <div>
-          <p className="text-xs font-semibold">Website tayang</p>
-          <p className="text-[11px] text-muted-foreground">Siap menerima pelanggan</p>
+          <p className="text-xs font-semibold">{s.liveTitle}</p>
+          <p className="text-[11px] text-muted-foreground">{s.liveDesc}</p>
         </div>
       </motion.div>
 
@@ -199,34 +203,161 @@ export function HeroShowcase() {
         className="absolute -right-4 -bottom-6 z-30 hidden items-center gap-2.5 rounded-xl border border-border bg-card/90 glass px-3.5 py-2.5 shadow-elevated sm:flex lg:-right-8"
       >
         <span className="grid size-8 place-items-center rounded-lg bg-brand/15 text-brand">
-          <Gauge className="size-4" />
+          <Sparkles className="size-4" />
         </span>
         <div>
-          <p className="text-xs font-semibold">Ilustrasi tampilan</p>
-          <p className="text-[11px] text-muted-foreground">Bukan data klien</p>
+          <p className="text-xs font-semibold">{s.illoTitle}</p>
+          <p className="text-[11px] text-muted-foreground">{s.illoDesc}</p>
         </div>
       </motion.div>
     </div>
   );
 }
 
-/* ---------- Overview (dashboard) ---------- */
+/* ---------- Site (storefront) ---------- */
 
-function OverviewView() {
+function SiteView({ reduce }: { reduce: boolean }) {
+  const s = useDict().showcase;
+  return (
+    <div className="relative flex h-full flex-col gap-4">
+      <div className="flex items-center justify-between">
+        <span className="flex items-center gap-2.5">
+          <span className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-brand-3 via-brand to-brand-2 text-sm font-bold text-white">
+            B
+          </span>
+          <span className="text-sm font-semibold">{s.siteName}</span>
+        </span>
+        <span className="hidden gap-4 text-xs text-muted-foreground sm:flex" aria-hidden>
+          <span className="h-2 w-10 rounded-full bg-muted" />
+          <span className="h-2 w-10 rounded-full bg-muted" />
+          <span className="h-2 w-10 rounded-full bg-muted" />
+        </span>
+      </div>
+
+      <div className="rounded-xl bg-gradient-to-br from-brand/15 via-brand-2/10 to-transparent p-5">
+        <p className="text-lg font-semibold tracking-tight sm:text-xl">{s.siteTagline}</p>
+        <div className="mt-3 space-y-1.5" aria-hidden>
+          <div className="h-2 w-3/5 rounded-full bg-foreground/10" />
+          <div className="h-2 w-2/5 rounded-full bg-foreground/10" />
+        </div>
+      </div>
+
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={{ show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
+        className="grid grid-cols-3 gap-3"
+      >
+        {s.products.map((p, i) => (
+          <motion.div
+            key={p}
+            variants={{
+              hidden: { opacity: 0, y: reduce ? 0 : 10 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: EASE } },
+            }}
+            className="rounded-xl border border-border bg-background/60 p-2.5"
+          >
+            <div
+              className={cn(
+                "aspect-[4/3] rounded-lg bg-gradient-to-br",
+                i === 0 ? "from-brand/30 to-brand-2/10" : i === 1 ? "from-brand-2/30 to-brand/10" : "from-brand-3/30 to-brand/5",
+              )}
+            />
+            <p className="mt-2 truncate text-xs font-medium">{p}</p>
+            <span
+              className={cn(
+                "mt-2 inline-flex w-full justify-center rounded-full py-1 text-[11px] font-medium",
+                i === 1 ? "bg-brand text-white" : "bg-brand/10 text-brand",
+              )}
+            >
+              {s.order}
+            </span>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* floating WhatsApp bubble */}
+      <motion.span
+        initial={{ scale: reduce ? 1 : 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 380, damping: 18, delay: 0.7 }}
+        className="absolute -right-1 -bottom-1 inline-flex items-center gap-1.5 rounded-full bg-emerald-500 px-3 py-2 text-xs font-medium text-white shadow-elevated"
+      >
+        <MessageCircle className="size-3.5" />
+        {s.chatWa}
+      </motion.span>
+    </div>
+  );
+}
+
+/* ---------- Inbox (incoming orders, bookings, chats) ---------- */
+
+function InboxView({ reduce }: { reduce: boolean }) {
+  const s = useDict().showcase;
+  return (
+    <div className="flex h-full flex-col gap-3">
+      <div className="flex items-center justify-between rounded-xl border border-border bg-background/60 px-4 py-3">
+        <span className="inline-flex items-center gap-2 text-sm font-medium">
+          <Inbox className="size-4 text-brand" />
+          {s.inboxTitle}
+        </span>
+        <span className="relative flex size-2">
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-60" />
+          <span className="relative inline-flex size-2 rounded-full bg-brand" />
+        </span>
+      </div>
+
+      <motion.ul
+        initial="hidden"
+        animate="show"
+        variants={{ show: { transition: { staggerChildren: 0.55, delayChildren: 0.2 } } }}
+        className="flex flex-col gap-2"
+      >
+        {s.inboxItems.map((item, i) => {
+          const Icon = INBOX_ICONS[i % INBOX_ICONS.length];
+          return (
+            <motion.li
+              key={item.title}
+              variants={{
+                hidden: { opacity: 0, x: reduce ? 0 : 24, scale: reduce ? 1 : 0.97 },
+                show: { opacity: 1, x: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 24 } },
+              }}
+              className="flex items-center gap-3 rounded-xl border border-border bg-background/60 px-3.5 py-3"
+            >
+              <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-brand/10 text-brand">
+                <Icon className="size-4" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium">{item.title}</span>
+                <span className="block truncate text-xs text-muted-foreground">{item.detail}</span>
+              </span>
+              <span className="size-2 shrink-0 rounded-full bg-brand" aria-hidden />
+            </motion.li>
+          );
+        })}
+      </motion.ul>
+    </div>
+  );
+}
+
+/* ---------- Dashboard (owner overview) ---------- */
+
+function DashboardView() {
+  const s = useDict().showcase;
   return (
     <div className="flex h-full flex-col gap-4">
       <div className="grid grid-cols-3 gap-3 sm:gap-4">
-        {kpis.map((kpi) => {
+        {kpis.map((kpi, i) => {
           const Icon = kpi.icon;
           return (
             <div
-              key={kpi.label}
+              key={i}
               className="rounded-xl border border-border bg-background/60 p-3 transition-colors hover:border-brand/30 sm:p-4"
             >
               <div className="flex items-center justify-between gap-1">
                 <span className="inline-flex min-w-0 items-center gap-1.5 text-xs text-muted-foreground">
                   <Icon className="size-3.5 shrink-0 text-brand" />
-                  <span className="truncate">{kpi.label}</span>
+                  <span className="truncate">{s.kpis[i]}</span>
                 </span>
                 <span className="hidden items-center gap-0.5 text-xs font-medium text-emerald-500 sm:inline-flex">
                   <TrendingUp className="size-3" />
@@ -244,25 +375,21 @@ function OverviewView() {
       <div className="flex flex-1 flex-col rounded-xl border border-border bg-background/60 p-4">
         <div className="mb-3 flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium">Growth</p>
-            <p className="text-xs text-muted-foreground">Last 12 months</p>
+            <p className="text-sm font-medium">{s.growth}</p>
+            <p className="text-xs text-muted-foreground">{s.period}</p>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-2.5 py-1 text-xs font-medium text-brand ring-1 ring-brand/20">
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-60" />
               <span className="relative inline-flex size-1.5 rounded-full bg-brand" />
             </span>
-            Live
+            {s.live}
           </span>
         </div>
         <AreaChart />
-        <div className="mt-3 flex items-end gap-1.5">
+        <div className="mt-3 flex items-end gap-1.5" aria-hidden>
           {bars.map((h, i) => (
-            <div
-              key={i}
-              className="h-14 flex-1 overflow-hidden rounded-md bg-secondary/70"
-              title={`Month ${i + 1}`}
-            >
+            <div key={i} className="h-14 flex-1 overflow-hidden rounded-md bg-secondary/70">
               <div
                 className="w-full rounded-md bg-gradient-to-t from-brand/70 to-brand-2 transition-[height] duration-500 hover:from-brand hover:to-brand-2"
                 style={{ height: `${h}%` }}
@@ -294,16 +421,7 @@ function AreaChart() {
 
       {/* gridlines */}
       {[22, 45, 68].map((y) => (
-        <line
-          key={y}
-          x1="0"
-          y1={y}
-          x2="300"
-          y2={y}
-          stroke="var(--border)"
-          strokeWidth="0.5"
-          strokeDasharray="3 4"
-        />
+        <line key={y} x1="0" y1={y} x2="300" y2={y} stroke="var(--border)" strokeWidth="0.5" strokeDasharray="3 4" />
       ))}
 
       <path d={`${line} L300 90 L0 90 Z`} fill="url(#hero-area)" />
@@ -320,231 +438,5 @@ function AreaChart() {
       <circle cx="300" cy="10" r="3" fill="var(--brand)" />
       <circle cx="300" cy="10" r="3" fill="var(--brand)" className="origin-center animate-ping [transform-box:fill-box]" />
     </svg>
-  );
-}
-
-/* ---------- Code (editor) ---------- */
-
-type Token = { t: string; c?: string };
-
-const CODE_LINES: Token[][] = [
-  [{ t: "// how we ship", c: "text-slate-500" }],
-  [
-    { t: "export async function ", c: "text-sky-400" },
-    { t: "launch", c: "text-amber-300" },
-    { t: "(project: ", c: "text-slate-300" },
-    { t: "Project", c: "text-cyan-300" },
-    { t: ") {", c: "text-slate-300" },
-  ],
-  [
-    { t: "  const ", c: "text-sky-400" },
-    { t: "scope = ", c: "text-slate-300" },
-    { t: "await ", c: "text-sky-400" },
-    { t: "discover", c: "text-amber-300" },
-    { t: "(project.goals);", c: "text-slate-300" },
-  ],
-  [
-    { t: "  const ", c: "text-sky-400" },
-    { t: "build = ", c: "text-slate-300" },
-    { t: "ship", c: "text-amber-300" },
-    { t: "(scope, { brand: ", c: "text-slate-300" },
-    { t: "\"anda\"", c: "text-emerald-400" },
-    { t: " });", c: "text-slate-300" },
-  ],
-  [
-    { t: "  return ", c: "text-sky-400" },
-    { t: "deploy", c: "text-amber-300" },
-    { t: "(build, { edge: ", c: "text-slate-300" },
-    { t: "true", c: "text-emerald-400" },
-    { t: " });", c: "text-slate-300" },
-  ],
-  [{ t: "}", c: "text-slate-300" }],
-];
-
-const FILES = [
-  { name: "ship.ts", active: true },
-  { name: "scope.ts" },
-  { name: "deploy.ts" },
-];
-
-function CodeView({ reduce }: { reduce: boolean }) {
-  return (
-    <div className="flex h-full gap-3">
-      {/* file tree */}
-      <div className="hidden w-36 shrink-0 flex-col rounded-xl border border-border bg-background/60 p-3 text-xs sm:flex">
-        <span className="mb-2 inline-flex items-center gap-1.5 font-medium text-muted-foreground">
-          <Folder className="size-3.5 text-brand" />
-          src
-        </span>
-        {FILES.map((f) => (
-          <span
-            key={f.name}
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-md px-2 py-1.5",
-              f.active
-                ? "bg-brand/10 font-medium text-brand"
-                : "text-muted-foreground",
-            )}
-          >
-            <FileCode2 className="size-3.5" />
-            {f.name}
-          </span>
-        ))}
-      </div>
-
-      {/* editor — intentionally dark in both themes */}
-      <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-950">
-        <div className="flex items-center gap-2 border-b border-slate-800 px-4 py-2 text-xs text-slate-400">
-          <FileCode2 className="size-3.5 text-sky-400" />
-          ship.ts
-        </div>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{ show: { transition: { staggerChildren: 0.14, delayChildren: 0.15 } } }}
-          className="flex-1 overflow-x-auto p-4 font-mono text-[12px] leading-6 sm:text-[13px]"
-        >
-          {CODE_LINES.map((line, i) => (
-            <motion.div
-              key={i}
-              variants={{
-                hidden: { opacity: 0, x: reduce ? 0 : -8 },
-                show: { opacity: 1, x: 0, transition: { duration: 0.3, ease: EASE } },
-              }}
-              className="flex whitespace-pre"
-            >
-              <span className="w-7 shrink-0 select-none text-right pr-3 text-slate-600">
-                {i + 1}
-              </span>
-              <span>
-                {line.map((tok, j) => (
-                  <span key={j} className={tok.c}>
-                    {tok.t}
-                  </span>
-                ))}
-                {i === CODE_LINES.length - 1 && (
-                  <span className="ml-0.5 inline-block h-4 w-[7px] translate-y-0.5 animate-caret bg-sky-400" />
-                )}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="flex items-center justify-between border-t border-slate-800 px-4 py-2 text-[11px] text-slate-500">
-          <span className="inline-flex items-center gap-1.5">
-            <GitBranch className="size-3" />
-            main
-          </span>
-          <span className="text-emerald-400">✓ tsc — no errors</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- Deploy (pipeline) ---------- */
-
-const STEPS = [
-  { name: "Install dependencies", time: "2.1s" },
-  { name: "Type check", time: "3.4s" },
-  { name: "Tests passed", time: "6.2s" },
-  { name: "Production build", time: "12.4s" },
-];
-
-const LOGS = [
-  "▲ website-anda — build completed",
-  "◇ Pages prerendered",
-  "✓ HTTPS active",
-];
-
-function DeployView({ reduce }: { reduce: boolean }) {
-  return (
-    <div className="flex h-full flex-col gap-3">
-      <div className="flex items-center justify-between rounded-xl border border-border bg-background/60 px-4 py-3">
-        <span className="inline-flex items-center gap-2 text-sm font-medium">
-          <GitBranch className="size-4 text-brand" />
-          website-anda/production
-          <span className="rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
-            main
-          </span>
-        </span>
-        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-brand">
-          <Loader2 className="size-3.5 animate-spin" />
-          Deploying
-        </span>
-      </div>
-
-      <motion.ul
-        initial="hidden"
-        animate="show"
-        variants={{ show: { transition: { staggerChildren: 0.22, delayChildren: 0.15 } } }}
-        className="flex flex-col gap-1.5"
-      >
-        {STEPS.map((step) => (
-          <motion.li
-            key={step.name}
-            variants={{
-              hidden: { opacity: 0, y: reduce ? 0 : 8 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE } },
-            }}
-            className="flex items-center justify-between rounded-lg border border-border bg-background/60 px-3.5 py-2.5 text-sm"
-          >
-            <span className="inline-flex items-center gap-2.5">
-              <motion.span
-                variants={{
-                  hidden: { scale: reduce ? 1 : 0 },
-                  show: {
-                    scale: 1,
-                    transition: { type: "spring", stiffness: 420, damping: 18, delay: 0.15 },
-                  },
-                }}
-                className="grid size-5 place-items-center rounded-full bg-emerald-500/15 text-emerald-500"
-              >
-                <CheckCircle2 className="size-3.5" />
-              </motion.span>
-              {step.name}
-            </span>
-            <span className="text-xs tabular-nums text-muted-foreground">{step.time}</span>
-          </motion.li>
-        ))}
-      </motion.ul>
-
-      {/* edge deploy progress */}
-      <div className="rounded-lg border border-border bg-background/60 px-3.5 py-2.5">
-        <div className="flex items-center justify-between text-sm">
-          <span className="inline-flex items-center gap-2.5">
-            <Loader2 className="size-4 animate-spin text-brand" />
-            Deploy to edge
-          </span>
-          <span className="text-xs text-muted-foreground">Online</span>
-        </div>
-        <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-secondary">
-          <motion.div
-            initial={{ width: reduce ? "100%" : "6%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: reduce ? 0 : 3.6, ease: "easeInOut", delay: 0.3 }}
-            className="h-full rounded-full bg-gradient-to-r from-brand-3 via-brand to-brand-2"
-          />
-        </div>
-      </div>
-
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={{ show: { transition: { staggerChildren: 0.4, delayChildren: 0.8 } } }}
-        className="flex-1 rounded-xl border border-border bg-background/60 p-3.5 font-mono text-[11px] leading-5 text-muted-foreground sm:text-xs"
-      >
-        {LOGS.map((line) => (
-          <motion.p
-            key={line}
-            variants={{
-              hidden: { opacity: 0 },
-              show: { opacity: 1, transition: { duration: 0.25 } },
-            }}
-          >
-            {line}
-          </motion.p>
-        ))}
-      </motion.div>
-    </div>
   );
 }
