@@ -125,7 +125,7 @@ export const en = {
   servicePage: {
     eyebrow: "Services",
     title: "What we build for custom projects",
-    description: "Strategy, design, and engineering as one accountable team — so nothing gets lost in the handoff.",
+    description: "Strategy, design, and engineering in one team, with no handoff between separate vendors.",
     items: [
       {
         title: "Web Development",
@@ -141,15 +141,15 @@ export const en = {
       },
       {
         title: "Branding",
-        description: "Identity systems — logo, type, colour, and voice — that make your product unmistakably yours.",
+        description: "Identity systems for your product: logo, type, colour, and voice.",
       },
       {
         title: "SaaS Development",
-        description: "Multi-tenant platforms with billing, auth, dashboards, and analytics, built to grow.",
+        description: "Multi-tenant platforms with billing, auth, dashboards, and analytics, designed to handle more users and tenants over time.",
       },
       {
         title: "AI Integration",
-        description: "AI features that earn their place: assistants, smart search, and workflow automation.",
+        description: "AI features such as assistants, smart search, and workflow automation, added where they save time or work.",
       },
       {
         title: "MVP Development",
@@ -188,7 +188,7 @@ export const en = {
       },
       {
         title: "Web apps and SaaS",
-        description: "Digital products with login, subscriptions, and dashboards, ready to grow with your users.",
+        description: "Digital products with login, subscriptions, and dashboards, designed to handle more users as you grow.",
       },
       {
         title: "Mobile apps",
@@ -236,15 +236,15 @@ export const en = {
       },
       {
         q: "What if a template fits my needs?",
-        a: "Ready-made niche templates are coming soon and are usually more affordable. Join the waitlist on the home page, or ask us first which path makes the most sense.",
+        a: "Ready-made niche templates are coming soon and are expected to cost less than a custom build. Join the waitlist on the home page, or ask us first whether a template or a custom build fits.",
       },
     ],
     crumb: "Custom projects",
   },
   why: {
     eyebrow: "Why this approach",
-    title: "Faster and leaner, without looking like a template",
-    description: "We don't rebuild everything from scratch for every client, so you pay for what you actually need.",
+    title: "Reuse the common parts, keep your own look",
+    description: "We don't rebuild common features from scratch for every client, which keeps the cost of each project down.",
     benefits: [
       {
         title: "Built from reusable modules",
@@ -256,7 +256,7 @@ export const en = {
       },
       {
         title: "Still looks like you",
-        description: "Theme, colours, and flows are tailored to your brand, so it never looks like a template.",
+        description: "Theme, colours, and flows are tailored to your brand instead of left at template defaults.",
       },
       {
         title: "One team, start to finish",
@@ -519,7 +519,7 @@ export const en = {
       },
       {
         name: "Booking and tickets",
-        tagline: "A full schedule without the back-and-forth chats.",
+        tagline: "Customers pick their own slot, without the back-and-forth chats.",
         items: [
           "Salons and barbershops",
           "Workshops",
@@ -536,7 +536,7 @@ export const en = {
       },
       {
         name: "Courses and membership",
-        tagline: "Turn what you know into recurring income.",
+        tagline: "Sell courses and memberships built on what you know.",
         items: [
           "Online courses",
           "Membership",
@@ -656,7 +656,7 @@ export const en = {
   contact: {
     badge: "Start here",
     title: "Tell us what you need",
-    subtitle: "We'll help you pick the path that makes the most sense. The first consultation is free — no obligation, no jargon.",
+    subtitle: "We'll recommend a custom build or a template for your case. The first consultation is free — no obligation, no jargon.",
     detailEmail: "Email",
     detailPhone: "WhatsApp",
     detailLocation: "Location",
@@ -1034,7 +1034,7 @@ export const id: Dict = {
   servicePage: {
     eyebrow: "Layanan",
     title: "Yang kami kerjakan untuk proyek kustom",
-    description: "Strategi, desain, dan development dikerjakan oleh tim yang sama. Tidak ada informasi yang hilang saat pekerjaan berpindah tangan.",
+    description: "Strategi, desain, dan development dikerjakan oleh tim yang sama, tanpa serah terima antarvendor.",
     items: [
       {
         title: "Pengembangan Web",
@@ -1050,15 +1050,15 @@ export const id: Dict = {
       },
       {
         title: "Branding",
-        description: "Logo, tipografi, warna, sampai gaya komunikasi. Identitas yang membuat produk Anda mudah diingat.",
+        description: "Logo, tipografi, warna, sampai gaya komunikasi untuk identitas produk Anda.",
       },
       {
         title: "Pengembangan SaaS",
-        description: "Platform multi-tenant lengkap dengan billing, login, dasbor, dan analitik, siap berkembang bersama bisnis Anda.",
+        description: "Platform multi-tenant lengkap dengan billing, login, dasbor, dan analitik, dirancang untuk menampung lebih banyak pengguna seiring waktu.",
       },
       {
         title: "Integrasi AI",
-        description: "Fitur AI yang benar-benar terpakai, seperti asisten virtual, pencarian pintar, dan otomasi alur kerja.",
+        description: "Fitur AI seperti asisten virtual, pencarian pintar, dan otomasi alur kerja, dipasang di bagian yang menghemat waktu atau pekerjaan.",
       },
       {
         title: "Pengembangan MVP",
@@ -1097,7 +1097,7 @@ export const id: Dict = {
       },
       {
         title: "Aplikasi web dan SaaS",
-        description: "Produk digital dengan login, langganan, dan dasbor, siap dikembangkan seiring pengguna bertambah.",
+        description: "Produk digital dengan login, langganan, dan dasbor, dirancang untuk menampung lebih banyak pengguna.",
       },
       {
         title: "Aplikasi mobile",
@@ -1145,15 +1145,15 @@ export const id: Dict = {
       },
       {
         q: "Bagaimana kalau kebutuhan saya cocok dengan template?",
-        a: "Template siap pakai per niche segera hadir dan biasanya lebih hemat. Daftar waitlist di halaman utama, atau konsultasikan dulu untuk memilih jalur yang paling masuk akal.",
+        a: "Template siap pakai per niche segera hadir dan diperkirakan lebih hemat daripada proyek kustom. Daftar waitlist di halaman utama, atau konsultasikan dulu apakah template atau proyek kustom yang cocok.",
       },
     ],
     crumb: "Proyek kustom",
   },
   why: {
     eyebrow: "Kenapa pendekatan ini",
-    title: "Lebih cepat dan hemat, tanpa terlihat seperti template",
-    description: "Kami tidak membangun semuanya dari nol untuk setiap klien. Anda cukup membayar untuk yang benar-benar dibutuhkan.",
+    title: "Pakai ulang bagian umum, tetap dengan tampilan Anda sendiri",
+    description: "Kami tidak membangun ulang fitur umum dari nol untuk setiap klien, sehingga biaya tiap proyek bisa ditekan.",
     benefits: [
       {
         title: "Dibangun dari modul yang bisa dipakai ulang",
@@ -1165,7 +1165,7 @@ export const id: Dict = {
       },
       {
         title: "Tetap tampil beda",
-        description: "Tema, warna, dan alur disesuaikan dengan merek Anda, jadi tidak terlihat seperti template.",
+        description: "Tema, warna, dan alur disesuaikan dengan merek Anda, bukan dibiarkan seperti bawaan template.",
       },
       {
         title: "Satu tim dari awal sampai akhir",
@@ -1428,7 +1428,7 @@ export const id: Dict = {
       },
       {
         name: "Booking dan tiket",
-        tagline: "Jadwal terisi tanpa bolak-balik chat.",
+        tagline: "Pelanggan pilih jadwal sendiri, tanpa bolak-balik chat.",
         items: [
           "Salon dan barbershop",
           "Bengkel",
@@ -1445,7 +1445,7 @@ export const id: Dict = {
       },
       {
         name: "Kursus dan membership",
-        tagline: "Ubah keahlian Anda jadi pemasukan rutin.",
+        tagline: "Jual kursus dan membership dari keahlian Anda.",
         items: [
           "Kursus online",
           "Membership",
@@ -1565,7 +1565,7 @@ export const id: Dict = {
   contact: {
     badge: "Mulai dari sini",
     title: "Ceritakan kebutuhan Anda",
-    subtitle: "Kami bantu pilih jalur yang paling masuk akal. Konsultasi pertama gratis, tanpa kewajiban dan tanpa istilah teknis yang membingungkan.",
+    subtitle: "Kami sarankan proyek kustom atau template yang cocok untuk kasus Anda. Konsultasi pertama gratis, tanpa kewajiban dan tanpa istilah teknis yang membingungkan.",
     detailEmail: "Email",
     detailPhone: "WhatsApp",
     detailLocation: "Lokasi",
