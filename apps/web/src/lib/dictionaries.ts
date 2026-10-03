@@ -988,12 +988,6 @@ export const en = {
         tags: ["Front End", "Backend", "Infrastructure"],
       },
       {
-        name: "Gerrard Setiawan",
-        role: "Co-Founder & Creative Director",
-        bio: "Leads brand, interface, and motion. Believes the smallest details are what make a product feel inevitable.",
-        tags: ["Brand", "UI/UX", "Motion", "Design systems"],
-      },
-      {
         name: "Aji Tahta Fahlefi",
         role: "Founder & Head of Business",
         bio: "Runs the business side: client conversations, quotes, partnerships, and making sure every project starts with a clear scope, timeline, and cost.",
@@ -1004,6 +998,12 @@ export const en = {
         role: "Office Boy (OB)",
         bio: "The only non-senior on the team, unless you count coffee. Keeps the water cooler full and the office Wi-Fi alive through every deadline. The one bug he can't fix: the team's mood right before lunch.",
         tags: ["Coffee", "Water cooler", "Turning it off and on again", "Team morale"],
+      },
+      {
+        name: "Gerrard Setiawan",
+        role: "Co-Founder & Creative Director",
+        bio: "Leads brand, interface, and motion. Believes the smallest details are what make a product feel inevitable.",
+        tags: ["Brand", "UI/UX", "Motion", "Design systems"],
       },
     ],
     ctaTitle: "Start here",
@@ -2011,12 +2011,6 @@ export const id: Dict = {
         tags: ["Front End", "Backend", "Infrastruktur"],
       },
       {
-        name: "Gerrard Setiawan",
-        role: "Co-Founder & Creative Director",
-        bio: "Memimpin brand, desain antarmuka, dan motion. Percaya bahwa detail kecillah yang membuat sebuah produk terasa istimewa.",
-        tags: ["Brand", "UI/UX", "Motion", "Design system"],
-      },
-      {
         name: "Aji Tahta Fahlefi",
         role: "Founder & Head of Business",
         bio: "Memegang sisi bisnis: percakapan dengan klien, penawaran, kemitraan, dan memastikan setiap proyek dimulai dengan lingkup, jadwal, dan biaya yang jelas.",
@@ -2027,6 +2021,12 @@ export const id: Dict = {
         role: "Office Boy (OB)",
         bio: "Satu-satunya anggota tim yang tidak senior, kecuali soal kopi. Memastikan galon tidak pernah kosong dan Wi-Fi kantor tetap hidup di setiap deadline. Satu-satunya bug yang belum bisa ia perbaiki: mood tim menjelang jam makan siang.",
         tags: ["Kopi", "Galon", "Cabut-colok ulang", "Mood tim"],
+      },
+      {
+        name: "Gerrard Setiawan",
+        role: "Co-Founder & Creative Director",
+        bio: "Memimpin brand, desain antarmuka, dan motion. Percaya bahwa detail kecillah yang membuat sebuah produk terasa istimewa.",
+        tags: ["Brand", "UI/UX", "Motion", "Design system"],
       },
     ],
     ctaTitle: "Mari mulai dari sini",
