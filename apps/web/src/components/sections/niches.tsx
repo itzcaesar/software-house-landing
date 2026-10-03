@@ -57,7 +57,7 @@ const rupiah = (n: number) => IDR.format(n);
 
 // Horizontal, swipeable chip row on mobile; wraps on desktop.
 const chipRow =
-  "-mx-6 flex snap-x gap-2 overflow-x-auto px-6 pb-1 [scrollbar-width:none] lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden";
+  "-mx-6 flex snap-x gap-2 overflow-x-auto px-6 pb-1 [mask-image:linear-gradient(to_right,black_88%,transparent)] [scrollbar-width:none] lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0 lg:[mask-image:none] [&::-webkit-scrollbar]:hidden";
 
 /**
  * Niche picker: visitor picks a family + niche, types a business name, picks
@@ -107,7 +107,7 @@ export function Niches() {
                 aria-pressed={i === fi}
                 onClick={() => pickFamily(i)}
                 className={cn(
-                  "inline-flex shrink-0 snap-start items-center gap-2 rounded-full border px-3.5 py-2 text-sm whitespace-nowrap transition-colors duration-200 active:scale-95",
+                  "inline-flex shrink-0 snap-start items-center gap-2 rounded-full border px-3.5 py-2 text-sm whitespace-nowrap transition-colors duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   i === fi
                     ? "border-brand bg-brand text-white shadow-[0_6px_20px_-6px_var(--brand)]"
                     : "border-border bg-card text-muted-foreground hover:border-brand/40 hover:text-foreground",
@@ -138,7 +138,7 @@ export function Niches() {
                   aria-pressed={mobile === on}
                   onClick={() => setMobile(on)}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium transition-colors",
+                    "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     mobile === on ? "bg-secondary text-foreground" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -195,7 +195,7 @@ export function Niches() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25, ease: EASE }}
-                className="p-4 sm:p-5"
+                className="min-h-[21rem] p-4 sm:p-5"
               >
                 {/* keyed by family: each preview's local state resets on switch */}
                 <Preview
@@ -212,6 +212,10 @@ export function Niches() {
             <Sparkles className="size-3.5" />
             {t.niches.previewLabel}
           </p>
+          <CtaButton href={waLink(waText)} className="mt-4 w-full lg:hidden" data-track="waitlist_click" data-track-label={niche}>
+            {t.niches.cta}: {niche}
+            <ArrowRight className="size-4" />
+          </CtaButton>
         </div>
 
         <div className="space-y-7 lg:col-start-1 lg:row-start-2">
@@ -225,7 +229,7 @@ export function Niches() {
                   aria-pressed={i === ni}
                   onClick={() => setNi(i)}
                   className={cn(
-                    "shrink-0 snap-start rounded-full border px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors",
+                    "min-h-9 shrink-0 snap-start rounded-full border px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     i === ni
                       ? "border-brand/50 bg-brand/10 text-brand"
                       : "border-border text-muted-foreground hover:text-foreground",
@@ -264,7 +268,7 @@ export function Niches() {
                     title={t.niches.ui.colors[i]}
                     onClick={() => setSwatch(i)}
                     className={cn(
-                      "size-8 rounded-full ring-offset-2 ring-offset-background transition-transform active:scale-90 sm:size-7",
+                      "size-8 rounded-full ring-offset-2 ring-offset-background transition-transform active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:size-7",
                       i === swatch ? "ring-2 ring-foreground/70" : "ring-1 ring-border",
                     )}
                     style={{ background: c ?? "var(--brand)" }}
@@ -379,6 +383,7 @@ function CompanyPreview({ samples, niche, compact }: PreviewProps) {
 
 function StorePreview({ samples, compact }: PreviewProps) {
   const ui = useDict().niches.ui;
+  const reduce = useReducedMotion();
   const prices = nicheSamplePrices.store ?? [];
   const [cart, setCart] = useState<Record<number, number>>({ 0: 1 });
   const count = Object.values(cart).reduce((a, b) => a + b, 0);
@@ -397,12 +402,12 @@ function StorePreview({ samples, compact }: PreviewProps) {
             />
             <p className="mt-1.5 truncate text-[11px] font-medium">{s}</p>
             <div className="mt-1 flex items-center justify-between gap-1">
-              <span className="text-[10px] text-muted-foreground tabular-nums">{rupiah(prices[i])}</span>
+              <span className="text-[11px] text-muted-foreground tabular-nums">{rupiah(prices[i])}</span>
               <button
                 type="button"
                 aria-label={`${ui.add} ${s}`}
                 onClick={() => setCart((c) => ({ ...c, [i]: (c[i] ?? 0) + 1 }))}
-                className={cn(tap, "grid size-7 place-items-center rounded-full bg-brand/10 text-brand hover:bg-brand hover:text-white")}
+                className={cn(tap, "grid size-8 place-items-center rounded-full bg-brand/10 text-brand hover:bg-brand hover:text-white")}
               >
                 <Plus className="size-3.5" />
               </button>
@@ -413,12 +418,13 @@ function StorePreview({ samples, compact }: PreviewProps) {
       <div className="flex items-center justify-between rounded-xl bg-brand px-3.5 py-2.5 text-xs font-medium text-white">
         <span className="inline-flex items-center gap-2">
           <ShoppingCart className="size-3.5" /> {ui.cart} ·{" "}
-          <motion.span key={count} initial={{ scale: 1.4 }} animate={{ scale: 1 }} className="inline-block tabular-nums">
+          <motion.span key={count} initial={{ scale: reduce ? 1 : 1.4 }} animate={{ scale: 1 }} className="inline-block tabular-nums">
             {count}
           </motion.span>
         </span>
-        <span className="tabular-nums" aria-live="polite">
-          {rupiah(total)}
+        <span className="tabular-nums">{rupiah(total)}</span>
+        <span role="status" aria-atomic="true" className="sr-only">
+          {`${ui.cart}: ${count}, ${ui.total} ${rupiah(total)}`}
         </span>
       </div>
     </div>
@@ -472,7 +478,7 @@ function TopupPreview({ samples, action }: PreviewProps) {
             type="button"
             aria-pressed={method === i}
             onClick={() => setMethod(i)}
-            className={cn(tap, "rounded-md px-2 py-1 font-medium", method === i ? "bg-brand text-white" : "bg-secondary")}
+            className={cn(tap, "min-h-8 rounded-md px-2.5 py-1.5 font-medium", method === i ? "bg-brand text-white" : "bg-secondary")}
           >
             {m}
           </button>
@@ -500,7 +506,7 @@ function BookingPreview({ samples, niche, action }: PreviewProps) {
       <p className="text-[11px] text-muted-foreground">
         {ui.pickDate} · <span className="font-medium text-foreground">{niche}</span>
       </p>
-      <div className="grid grid-cols-7 gap-1 text-center text-[10px]">
+      <div className="grid grid-cols-7 gap-1.5 text-center text-[11px]">
         {ui.days.map((d) => (
           <span key={d} className="text-muted-foreground">
             {d}
@@ -539,7 +545,7 @@ function BookingPreview({ samples, niche, action }: PreviewProps) {
             onClick={() => setSlot(i)}
             className={cn(
               tap,
-              "inline-flex items-center gap-1 rounded-full border px-2.5 py-1.5 font-mono text-[10px]",
+              "inline-flex items-center gap-1 rounded-full border px-2.5 py-1.5 font-mono text-[11px]",
               slot === i ? "border-brand bg-brand/10 text-brand" : "border-border text-muted-foreground",
             )}
           >
@@ -555,7 +561,7 @@ function BookingPreview({ samples, niche, action }: PreviewProps) {
             type="button"
             aria-pressed={staff === i}
             onClick={() => setStaff(i)}
-            className={cn(tap, "inline-flex items-center gap-1 rounded-full px-2.5 py-1", staff === i ? "bg-brand text-white" : "bg-secondary")}
+            className={cn(tap, "inline-flex min-h-8 items-center gap-1 rounded-full px-2.5 py-1.5", staff === i ? "bg-brand text-white" : "bg-secondary")}
           >
             <UserRound className="size-3" /> {s}
           </button>
@@ -589,9 +595,8 @@ function LearningPreview({ samples, niche }: PreviewProps) {
             <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-background/70">
               <span className="block h-full origin-left rounded-full bg-brand transition-transform duration-300" style={{ transform: `scaleX(${pct / 100})` }} />
             </span>
-            <span className="text-[11px] tabular-nums text-muted-foreground" aria-live="polite">
-              {pct}%
-            </span>
+            <span className="text-[11px] tabular-nums text-muted-foreground">{pct}%</span>
+            <span role="status" aria-atomic="true" className="sr-only">{`${pct}% ${ui.done}`}</span>
           </div>
         </div>
       </div>
@@ -608,20 +613,20 @@ function LearningPreview({ samples, niche }: PreviewProps) {
             >
               <span
                 className={cn(
-                  "grid size-6 shrink-0 place-items-center rounded-full text-[10px] font-semibold transition-colors",
+                  "grid size-6 shrink-0 place-items-center rounded-full text-[11px] font-semibold transition-colors",
                   on ? "bg-brand text-white" : "bg-secondary text-muted-foreground",
                 )}
               >
                 {on ? <Check className="size-3.5" /> : i + 1}
               </span>
               <span className={cn("flex-1 truncate text-xs font-medium", on && "text-muted-foreground line-through")}>{s}</span>
-              {on && <span className="text-[10px] text-brand">{ui.done}</span>}
+              {on && <span className="text-[11px] text-brand">{ui.done}</span>}
             </button>
           );
         })}
       </div>
-      <p className="text-center text-[11px] text-muted-foreground">
-        {pct === 100 ? "🎓 " : ""}
+      <p className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
+        {pct === 100 && <GraduationCap className="size-3.5 text-brand" />}
         {ui.certificate}
       </p>
     </div>
@@ -646,7 +651,7 @@ function MarketplacePreview({ samples }: PreviewProps) {
             <span className="min-w-0 flex-1">
               <span className="flex items-center gap-1.5 text-xs font-semibold">
                 <span className="truncate">{s}</span>
-                {i === 0 && <span className="rounded-full bg-brand/10 px-1.5 py-0.5 text-[9px] font-medium text-brand">{ui.featured}</span>}
+                {i === 0 && <span className="rounded-full bg-brand/10 px-1.5 py-0.5 text-[11px] font-medium text-brand">{ui.featured}</span>}
               </span>
               <span className="mt-1 flex gap-0.5" aria-hidden>
                 {Array.from({ length: 5 }).map((_, k) => (
@@ -696,7 +701,7 @@ function AiPreview({ samples }: PreviewProps) {
   }
   return (
     <div className="space-y-2.5 text-xs">
-      <div className="max-h-56 space-y-2.5 overflow-y-auto" aria-live="polite">
+      <div role="log" className="max-h-56 space-y-2.5 overflow-y-auto">
         {thread.map((m, i) => (
           <motion.div
             key={i}
@@ -746,12 +751,12 @@ function PosPreview({ samples }: PreviewProps) {
         {samples.map((s, i) => (
           <div key={s} className="flex items-center justify-between gap-2 py-2 text-xs">
             <span className="min-w-0 flex-1 truncate">{s}</span>
-            <span className="inline-flex items-center gap-1.5">
-              <button type="button" aria-label={`${ui.less} ${s}`} onClick={() => bump(i, -1)} className={cn(tap, "grid size-6 place-items-center rounded-full bg-secondary")}>
+            <span className="inline-flex items-center gap-2">
+              <button type="button" aria-label={`${ui.less} ${s}`} onClick={() => bump(i, -1)} className={cn(tap, "grid size-8 place-items-center rounded-full bg-secondary")}>
                 <Minus className="size-3" />
               </button>
               <span className="w-4 text-center tabular-nums">{qty[i]}</span>
-              <button type="button" aria-label={`${ui.add} ${s}`} onClick={() => bump(i, 1)} className={cn(tap, "grid size-6 place-items-center rounded-full bg-brand/10 text-brand")}>
+              <button type="button" aria-label={`${ui.add} ${s}`} onClick={() => bump(i, 1)} className={cn(tap, "grid size-8 place-items-center rounded-full bg-brand/10 text-brand")}>
                 <Plus className="size-3" />
               </button>
             </span>
@@ -761,9 +766,8 @@ function PosPreview({ samples }: PreviewProps) {
       </div>
       <div className="flex items-center justify-between px-1 text-sm font-semibold">
         <span>{ui.total}</span>
-        <span className="tabular-nums" aria-live="polite">
-          {rupiah(total)}
-        </span>
+        <span className="tabular-nums">{rupiah(total)}</span>
+        <span role="status" aria-atomic="true" className="sr-only">{`${ui.total} ${rupiah(total)}`}</span>
       </div>
       <div className="flex items-center gap-2">
         <span className="inline-flex min-w-0 flex-1 items-center gap-1.5 rounded-xl bg-amber-500/10 px-3 py-2 text-[11px] font-medium text-amber-600 dark:text-amber-400">
@@ -797,7 +801,7 @@ function HostingPreview({ samples, compact }: PreviewProps) {
             {rupiah(prices[i])}
             {ui.perMonth}
           </span>
-          <span className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
+          <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
             <span className="size-1.5 rounded-full bg-emerald-500" /> {plan === i ? ui.selected : ui.active}
           </span>
         </button>

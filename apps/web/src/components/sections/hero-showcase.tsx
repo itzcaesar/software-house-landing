@@ -17,6 +17,8 @@ import {
   CalendarCheck,
   MessageCircle,
   FileText,
+  Pause,
+  Play,
 } from "lucide-react";
 import { useDict } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -45,7 +47,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 /**
  * Hero visual: a mock business site that auto-cycles through three scenes
  * (storefront → incoming orders → owner dashboard). Cycling pauses while the
- * pointer is over the window and stops entirely under reduced motion.
+ * pointer or keyboard focus is inside the window, stops for good once the
+ * visitor picks a tab or presses pause, and never starts under reduced motion.
  */
 export function HeroShowcase() {
   const t = useDict();
@@ -53,20 +56,39 @@ export function HeroShowcase() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const hovering = useRef(false);
+  const focused = useRef(false);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [view, setView] = useState<ViewId>("site");
+  // Auto-rotation stops for good once the visitor takes control (WCAG 2.2.2).
+  const [playing, setPlaying] = useState(true);
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || !playing) return;
     const id = setInterval(() => {
-      if (hovering.current) return;
+      if (hovering.current || focused.current) return;
       setView((v) => {
         const i = VIEWS.findIndex((w) => w.id === v);
         return VIEWS[(i + 1) % VIEWS.length].id;
       });
     }, 6000);
     return () => clearInterval(id);
-    // re-arm after any change (manual or auto) so a click gets a full cycle
-  }, [reduce, view]);
+  }, [reduce, playing]);
+
+  const pick = (i: number, moveFocus = false) => {
+    setPlaying(false);
+    setView(VIEWS[i].id);
+    if (moveFocus) tabRefs.current[i]?.focus();
+  };
+
+  // Tabs pattern: arrow keys move between tabs, Home/End jump to the ends.
+  const onTabKey = (e: React.KeyboardEvent, i: number) => {
+    const n = VIEWS.length;
+    const next =
+      e.key === "ArrowRight" ? (i + 1) % n : e.key === "ArrowLeft" ? (i - 1 + n) % n : e.key === "Home" ? 0 : e.key === "End" ? n - 1 : -1;
+    if (next === -1) return;
+    e.preventDefault();
+    pick(next, true);
+  };
 
   const onMove = (e: React.MouseEvent) => {
     const el = ref.current;
@@ -98,6 +120,10 @@ export function HeroShowcase() {
         onMouseMove={onMove}
         onMouseEnter={() => (hovering.current = true)}
         onMouseLeave={() => (hovering.current = false)}
+        onFocus={() => (focused.current = true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) focused.current = false;
+        }}
         className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-elevated ring-1 ring-black/5 dark:ring-white/5"
       >
         {/* pointer spotlight */}
@@ -134,18 +160,25 @@ export function HeroShowcase() {
           aria-label={s.aria}
           className="relative z-30 flex items-center gap-1 border-b border-border bg-secondary/30 px-3 py-2"
         >
-          {VIEWS.map((v) => {
+          {VIEWS.map((v, i) => {
             const Icon = v.icon;
             const active = v.id === view;
             return (
               <button
                 key={v.id}
+                ref={(el) => {
+                  tabRefs.current[i] = el;
+                }}
+                id={`hero-tab-${v.id}`}
                 type="button"
                 role="tab"
                 aria-selected={active}
-                onClick={() => setView(v.id)}
+                aria-controls="hero-panel"
+                tabIndex={active ? 0 : -1}
+                onClick={() => pick(i)}
+                onKeyDown={(e) => onTabKey(e, i)}
                 className={cn(
-                  "relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors",
+                  "relative inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50",
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -162,6 +195,17 @@ export function HeroShowcase() {
               </button>
             );
           })}
+          {!reduce && (
+            <button
+              type="button"
+              onClick={() => setPlaying((p) => !p)}
+              aria-label={playing ? s.pause : s.play}
+              title={playing ? s.pause : s.play}
+              className="ml-auto grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+            >
+              {playing ? <Pause className="size-3.5" /> : <Play className="size-3.5" />}
+            </button>
+          )}
         </div>
 
         {/* body */}
@@ -169,7 +213,9 @@ export function HeroShowcase() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={view}
+              id="hero-panel"
               role="tabpanel"
+              aria-labelledby={`hero-tab-${view}`}
               initial={{ opacity: 0, y: reduce ? 0 : 14, scale: reduce ? 1 : 0.99 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: reduce ? 0 : -10, scale: reduce ? 1 : 0.99 }}

@@ -84,6 +84,8 @@ export const en = {
     liveDesc: "Ready for customers",
     illoTitle: "Illustration",
     illoDesc: "Not client data",
+    pause: "Pause animation",
+    play: "Play animation",
   },
   trusted: {
     label: "Trusted by ambitious startups and enterprises worldwide",
@@ -1094,6 +1096,8 @@ export const id: Dict = {
     liveDesc: "Siap menerima pelanggan",
     illoTitle: "Ilustrasi tampilan",
     illoDesc: "Bukan data klien",
+    pause: "Jeda animasi",
+    play: "Putar animasi",
   },
   trusted: {
     label: "Dipercaya startup dan perusahaan dari berbagai negara",
