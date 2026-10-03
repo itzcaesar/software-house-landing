@@ -1,0 +1,58 @@
+name: Deploy to VM
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, callumc-vm]
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: /opt/software-house-landing
+
+    steps:
+      - name: Sync repo to pushed commit
+        run: |
+          set -euo pipefail
+          git fetch --prune origin main
+          git reset --hard "$GITHUB_SHA"
+          git clean -fd -e dev.db -e dev.db-journal -e dev.db-wal -e dev.db-shm -e node_modules -e .next
+          git log -1 --oneline
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Restart services
+        run: |
+          sudo /bin/systemctl restart callumc-web.service
+          sudo /bin/systemctl restart callumc-dashboard.service
+
+      - name: Health check
+        run: |
+          set -euo pipefail
+          for port in 3000 3001; do
+            for i in {1..20}; do
+              if curl -fsS -o /dev/null "http://127.0.0.1:$port/"; then
+                echo "port $port OK"
+                break
+              fi
+              if [ "$i" = "20" ]; then
+                echo "port $port failed to respond"
+                sudo /bin/systemctl status "callumc-$([ $port = 3000 ] && echo web || echo dashboard).service" || true
+                exit 1
+              fi
+              sleep 1
+            done
+          done
