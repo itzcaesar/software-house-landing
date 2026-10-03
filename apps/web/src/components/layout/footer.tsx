@@ -5,21 +5,13 @@ import { ArrowUpRight } from "lucide-react";
 import { siteConfig, waLink } from "@/lib/site";
 import { useDict } from "@/lib/i18n";
 import { Logo } from "@/components/common/logo";
-import {
-  XIcon,
-  GithubIcon,
-  LinkedinIcon,
-  DribbbleIcon,
-  InstagramIcon,
-} from "@/components/common/social-icons";
+import { XIcon, GithubIcon, InstagramIcon } from "@/components/common/social-icons";
 
 const socials = [
   { label: "X", href: siteConfig.socials.x, Icon: XIcon },
-  { label: "GitHub", href: siteConfig.socials.github, Icon: GithubIcon },
-  { label: "LinkedIn", href: siteConfig.socials.linkedin, Icon: LinkedinIcon },
-  { label: "Dribbble", href: siteConfig.socials.dribbble, Icon: DribbbleIcon },
   { label: "Instagram", href: siteConfig.socials.instagram, Icon: InstagramIcon },
-].filter((s) => s.href);
+  { label: "GitHub", href: siteConfig.socials.github, Icon: GithubIcon },
+];
 
 export function Footer() {
   const t = useDict();

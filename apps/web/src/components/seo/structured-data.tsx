@@ -14,7 +14,7 @@ export function StructuredData() {
       foundingDate: String(siteConfig.foundedYear),
       email: siteConfig.email,
       ...(siteConfig.whatsapp && { telephone: `+${siteConfig.whatsapp}` }),
-      sameAs: Object.values(siteConfig.socials).filter(Boolean),
+      sameAs: Object.values(siteConfig.socials),
       contactPoint: {
         "@type": "ContactPoint",
         email: siteConfig.email,

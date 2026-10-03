@@ -22,14 +22,11 @@ export const siteConfig = {
   bookingUrl: "", // [ISI: link booking asli]
   location: "Jakarta, Indonesia",
   foundedYear: 2026,
-  /** Empty = icon hidden. [ISI: akun sosial asli] */
   socials: {
-    x: "",
-    github: "",
-    linkedin: "",
-    dribbble: "",
-    instagram: "",
-  } as Record<"x" | "github" | "linkedin" | "dribbble" | "instagram", string>,
+    x: "https://x.com/callum_company",
+    instagram: "https://www.instagram.com/callum.company/",
+    github: "https://github.com/callum-company",
+  },
 } as const;
 
 /** WhatsApp click-to-chat link with a prefilled message; the contact form until a number is set. */
