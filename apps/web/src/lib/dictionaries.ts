@@ -994,6 +994,12 @@ export const en = {
         tags: ["Brand", "UI/UX", "Motion", "Design systems"],
       },
       {
+        name: "Aji Tahta Fahlefi",
+        role: "Co-Founder & Head of Business",
+        bio: "Runs the business side: client conversations, quotes, partnerships, and making sure every project starts with a clear scope, timeline, and cost.",
+        tags: ["Sales", "Partnerships", "Client relations", "Operations"],
+      },
+      {
         name: "Alessandro Fathi Zulkarnain",
         role: "Office Boy (OB)",
         bio: "The only non-senior on the team, unless you count coffee. Keeps the water cooler full and the office Wi-Fi alive through every deadline. The one bug he can't fix: the team's mood right before lunch.",
@@ -2009,6 +2015,12 @@ export const id: Dict = {
         role: "Co-Founder & Creative Director",
         bio: "Memimpin brand, desain antarmuka, dan motion. Percaya bahwa detail kecillah yang membuat sebuah produk terasa istimewa.",
         tags: ["Brand", "UI/UX", "Motion", "Design system"],
+      },
+      {
+        name: "Aji Tahta Fahlefi",
+        role: "Co-Founder & Head of Business",
+        bio: "Memegang sisi bisnis: percakapan dengan klien, penawaran, kemitraan, dan memastikan setiap proyek dimulai dengan lingkup, jadwal, dan biaya yang jelas.",
+        tags: ["Penjualan", "Kemitraan", "Hubungan klien", "Operasional"],
       },
       {
         name: "Alessandro Fathi Zulkarnain",
