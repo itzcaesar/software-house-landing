@@ -411,9 +411,12 @@ export function AboutTeam() {
         title={t.about.teamTitle}
         description={t.about.teamDescription}
       />
-      <Stagger className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
+      <Stagger className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {t.about.team.map((member, i) => (
-          <StaggerItem key={i} className="h-full">
+          <StaggerItem
+            key={i}
+            className="h-full sm:last:odd:col-span-2 sm:last:odd:mx-auto sm:last:odd:w-full sm:last:odd:max-w-sm lg:last:odd:col-span-1 lg:last:odd:max-w-none"
+          >
             <TiltCard maxTilt={4}>
               <div className="relative h-full overflow-hidden rounded-2xl border border-border bg-card p-8 text-center shadow-soft transition-colors duration-300 hover:border-brand/40">
                 <div
