@@ -995,7 +995,7 @@ export const en = {
       },
       {
         name: "Aji Tahta Fahlefi",
-        role: "Co-Founder & Head of Business",
+        role: "Founder & Head of Business",
         bio: "Runs the business side: client conversations, quotes, partnerships, and making sure every project starts with a clear scope, timeline, and cost.",
         tags: ["Sales", "Partnerships", "Client relations", "Operations"],
       },
@@ -2018,7 +2018,7 @@ export const id: Dict = {
       },
       {
         name: "Aji Tahta Fahlefi",
-        role: "Co-Founder & Head of Business",
+        role: "Founder & Head of Business",
         bio: "Memegang sisi bisnis: percakapan dengan klien, penawaran, kemitraan, dan memastikan setiap proyek dimulai dengan lingkup, jadwal, dan biaya yang jelas.",
         tags: ["Penjualan", "Kemitraan", "Hubungan klien", "Operasional"],
       },
